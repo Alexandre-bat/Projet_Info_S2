@@ -1,0 +1,30 @@
+.blocImage {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 50vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(https://images.pexels.com/photos/11463203/pexels-photo-11463203.jpeg);
+    background-position: center;
+    background-size: cover;
+    color: #ffffff;
+    text-align: center;
+    font-size: 200%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+#titre {
+    padding-top: 5%;
+}
+
+body {
+    background-color: black;
+}
+
+.white {
+    color: white
+}
+
+.plat{
+    border-color: pink;
+    border-radius: 2px;
+}
