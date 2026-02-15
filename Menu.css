@@ -23,21 +23,103 @@ body {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 }
 
-.blocMenu{
+.blocMenu {
     background-color: purple;
-    margin: 20px ;
-    padding: 20px;
+    margin: 20px;
+    padding: 40px;
+    border: 4px solid pink;
+    display: flex;
+    flex-direction: column;
 }
 
-.titreMenu{
-    font-size: 200%;
+.blocTitre {
+    background-color: purple;
+    margin: 15px;
+    padding: 15px;
+    border: 4px solid pink;
+}
+
+.titreMenu {
+    font-size: 300%;
     text-align: center;
-    padding: 20px;
-    border-bottom: 2px solid red;
+    border-bottom: 2px solid pink;
 }
 
-.grandTitre{
+.titrePlats{
+    font-size:200%;
+    text-align:center;
+    padding-bottom: 10px;
+}
+
+.grandTitre {
     font-size: 300%;
     text-align: center;
     padding: 20px;
+}
+
+.imgBox{
+    width: 100%;
+    height: 30vh;
+    object-fit: cover;
+}
+
+.contenuBox h2 {
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.contenuBox p {
+    font-size: 14px;
+}
+
+.basBox{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+}
+
+#prix{
+    font-weight: bold;
+    color: pink;
+    font-size: 18px;
+    margin-left: 5px;
+}
+
+button {
+    background-color: pink;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+button:hover {
+    background-color: purple;
+    color: white;
+}
+
+.controlBox {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.box {
+    margin-top: 40px;
+    width: 300px;
+    background-color: black;
+    text-align: center;
+    color: white;
+    border: 4px solid pink;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    flex-direction: column;
+    align-content: center;
 }
