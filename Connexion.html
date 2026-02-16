@@ -3,12 +3,13 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>SIUUSHI - Inscription</title>
-    <link rel="stylesheet" type="text/css" href="Inscription.css">
+    <title>SIUUSHI - Connexion</title>
+    <link rel="stylesheet" type="text/css" href="Connexion.css">
     <link rel="icon" href="Img/logo.png" type="image/png">
 </head>
 
 <body>
+
     <div class="navbar">
         <div class="nav1">
             <a href="[_main_].html" class="menu">
@@ -23,7 +24,7 @@
             <a href="avis.html">Livraison</a>
             <a href="avis.html">Notation</a>
             <a href="Menu.html">Carte</a>
-            <a href="[_profil_].html">Connexion</a>
+            <a href="Inscription.html">Inscription</a>
             <a href="[_profil_].html">Profil</a>
         </div>
     </div>
@@ -33,19 +34,9 @@
     </video>
 
     <div class="form">
-        <h2>Inscription</h2>
+        <h2>Connexion</h2>
 
-        <form action="proce.php" method="post">
-
-            <div class="input-group">
-                <label>Prénom</label>
-                <input type="text" name="prenom" required>
-            </div>
-
-            <div class="input-group">
-                <label>Nom</label>
-                <input type="text" name="nom" required>
-            </div>
+        <form action="login.php" method="post">
 
             <div class="input-group">
                 <label>Téléphone</label>
@@ -53,19 +44,20 @@
             </div>
 
             <div class="input-group">
-                <label>Mot de Passe</label>
+                <label>Mot de passe</label>
                 <input type="password" name="mdp" required>
             </div>
 
-            <button type="submit">S'inscrire</button>
+            <button type="submit">Se connecter</button>
 
         </form>
-        <p class="connexion">
-            Vous avez déjà un compte ?
-            <a href="Connexion.html" class="lien">Se connecter</a>
+
+        <p class="inscrire">
+            Pas encore de compte ?
+            <a href="Inscription.html" class="lien">S'inscrire</a>
         </p>
     </div>
-    </div>
+
     <footer>
         <div class="f-container">
             <div class="f-section">
@@ -84,7 +76,7 @@
             <div class="f-section">
                 <h4>HORAIRES</h4>
                 <p>Lun - Sam: 11h00 - 14h00 / 18h00 - 23h00</p>
-                <p> Livraison disponible</p>
+                <p>Livraison disponible</p>
             </div>
         </div>
 
@@ -92,6 +84,7 @@
             <p>&copy; 2026 siuushi - Tous droits réservés | Mentions légales | Politique de confidentialité</p>
         </div>
     </footer>
+
 </body>
 
 </html>
