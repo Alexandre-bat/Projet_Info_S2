@@ -14,8 +14,18 @@
     padding-top: 5%;
 }
 
-body {
-    background-color: rgb(255, 83, 83) ;
+.video-bg {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%) scale(1.3);
+    filter: blur(3px);
+    object-fit: cover;
+    z-index: -1;
 }
 
 .write {
@@ -24,21 +34,20 @@ body {
 }
 
 .blocMenu {
-    background-color: rgb(180, 60, 60);
+    background-color: rgba(180, 60, 60, 0.8);;
     margin: 20px;
-    padding: 40px;
-    border: 4px double rgb(255, 99, 99);
+    border: 4px double rgba(255, 99, 99, 0.8);
     display: flex;
     flex-direction: column;
 }
 
 .recherche {
-    background-color: rgb(180, 60, 60);
+    background-color: rgba(180, 60, 60, 0.8);
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 30px;
-    border: 4px double rgb(255, 99, 99);
+    margin: 20px;
+    border: 4px double rgba(255, 99, 99, 0.8);
 }
 
 #rechercheInput {
@@ -68,15 +77,15 @@ body {
     cursor: pointer;
 }
 
-.cadreBoutonRecherche{
+.cadreBoutonRecherche {
     margin-top: 15px;
 }
 
 .blocTitre {
-    background-color: rgb(180, 60, 60);
+    background-color: rgba(180, 60, 60, 0.8);
     margin: 15px;
     padding: 15px;
-    border: 4px double rgb(255, 99, 99);
+    border: 4px double rgba(255, 99, 99, 0.8);
 }
 
 .titreMenu {
@@ -85,9 +94,9 @@ body {
     border-bottom: 2px solid pink;
 }
 
-.titrePlats{
-    font-size:200%;
-    text-align:center;
+.titrePlats {
+    font-size: 200%;
+    text-align: center;
     padding-bottom: 10px;
 }
 
@@ -97,7 +106,7 @@ body {
     padding: 20px;
 }
 
-.imgBox{
+.imgBox {
     width: 100%;
     height: 30vh;
     object-fit: cover;
@@ -117,14 +126,14 @@ body {
     font-size: 14px;
 }
 
-.basBox{
+.basBox {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: 15px;
 }
 
-#prix{
+#prix {
     font-weight: bold;
     color: pink;
     font-size: 18px;
@@ -143,7 +152,7 @@ span~button {
 }
 
 button:hover {
-    background-color: rgb(255, 83, 83);
+    background-color: rgba(255, 83, 83, 0.8);
     color: white;
 }
 
@@ -169,17 +178,17 @@ button:hover {
     align-content: center;
 }
 
-/* FOOTER */ 
-footer { 
-    bottom: 0; 
-    width: 100%; 
-    background-color: rgb(180, 60, 60); 
-    color: white; 
-    padding: 10px; 
+/* FOOTER */
+footer {
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(180, 60, 60, 0.8);
+    color: white;
+    padding: 10px;
 }
 
 .f-container {
-    padding-right: 10%; 
+    padding-right: 10%;
     padding-left: 10%;
     margin: 0 auto;
     display: grid;
@@ -189,33 +198,33 @@ footer {
 }
 
 .f-section h4 {
-  font-size: 20px;
-  margin-bottom: 15px;
-  padding-bottom: 8px;
-  border-bottom: 2px solid whitesmoke;
+    font-size: 20px;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid whitesmoke;
 }
 
 .f-section p {
-  margin: 8px 0;
-  font-size: 15px;
-  line-height: 1.6;
-  color: whitesmoke;
+    margin: 8px 0;
+    font-size: 15px;
+    line-height: 1.6;
+    color: whitesmoke;
 }
 
 .f-links {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 .f-links li {
-  margin-bottom: 8px;
+    margin-bottom: 8px;
 }
 
 .f-links a {
-  text-decoration: none;
-  background: none;
-  color: whitesmoke;
+    text-decoration: none;
+    background: none;
+    color: whitesmoke;
 }
 
 .f-links a:hover {
@@ -225,10 +234,10 @@ footer {
 }
 
 .f-bottom {
-  max-width: 1200px;
-  margin: 30px auto 0;
-  padding-top: 20px;
-  border-top: 1px solid whitesmoke;
-  text-align: center;
-  font-size: 12px;
+    max-width: 1200px;
+    margin: 30px auto 0;
+    padding-top: 20px;
+    border-top: 1px solid whitesmoke;
+    text-align: center;
+    font-size: 12px;
 }
