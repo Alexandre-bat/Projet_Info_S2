@@ -34,6 +34,7 @@
 }
 
 .blocMenu {
+    border-radius: 20px;
     background-color: rgba(180, 60, 60, 0.8);;
     margin: 20px;
     border: 4px double rgba(255, 99, 99, 0.8);
@@ -41,13 +42,22 @@
     flex-direction: column;
 }
 
-.recherche {
+.blocRecherche {
+    border-radius:20px;
     background-color: rgba(180, 60, 60, 0.8);
     display: flex;
-    flex-direction: column;
     align-items: center;
+    flex-direction: column;
+    justify-content: center;
     margin: 20px;
     border: 4px double rgba(255, 99, 99, 0.8);
+}
+
+.filtres {
+    border-radius: 20px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 #rechercheInput {
@@ -56,7 +66,7 @@
     height: 60px;
     padding: 15px;
     border-radius: 10px;
-    background-color: pink;
+    background: linear-gradient(45deg, #ff8a8a, #e29c9c);
     color: white;
     border: none;
     outline: none;
@@ -68,22 +78,28 @@
 }
 
 #rechercheBouton {
-    margin-top: 6px;
-    padding: 10px 30px;
-    border-radius: 20px;
+    margin-top: 15px;
+    padding: 10px 20px;
+    border-radius: 30px;
     border: none;
-    background-color: pink;
+    background: linear-gradient(45deg, #ff8a8a, #e29c9c);
     font-weight: bold;
     cursor: pointer;
 }
 
-.cadreBoutonRecherche {
-    margin-top: 15px;
+.cadreBoutonFiltres {
+    margin-right: 120px;
+    margin-top: 30px;
+    display:flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 .blocTitre {
+    border-radius: 20px;
     background-color: rgba(180, 60, 60, 0.8);
-    margin: 15px;
+    margin: 20px;
     padding: 15px;
     border: 4px double rgba(255, 99, 99, 0.8);
 }
@@ -98,6 +114,11 @@
     font-size: 200%;
     text-align: center;
     padding-bottom: 10px;
+}
+
+.moyenTitre {
+    font-size: 200%;
+    text-align: center;
 }
 
 .grandTitre {
@@ -140,19 +161,24 @@
     margin-left: 5px;
 }
 
-span~button {
-    background-color: pink;
+span~button{
+    margin-bottom:5px;
+    margin-right:5px;
+}
+
+.bouttonclassique {
+    margin-top: 6px;
+    padding: 10px 30px;
+    border-radius: 20px;
     border: none;
-    border-radius: 8px;
-    padding: 8px 15px;
-    cursor: pointer;
+    background: linear-gradient(45deg, #ff8a8a, #e29c9c);
     font-weight: bold;
-    margin-right: 5px;
-    margin-bottom: 5px;
+    cursor: pointer;
 }
 
 button:hover {
-    background-color: rgba(255, 83, 83, 0.8);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px linear-gradient(45deg, #ff8a8a, #e29c9c);
     color: white;
 }
 
