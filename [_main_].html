@@ -7,32 +7,28 @@
         <link rel="stylesheet" type="text/css" href="style.css">
     </head>
 
-    <div id="loader">
-        <img src="loader.gif" alt="Chargement...">
-    </div>
-
-    <!-- Attend que toute la page (HTML, CSS, images, etc.) soit complètement chargée,
-    puis cache l'élément avec l'id "loader" pour afficher le contenu du site.-->
-    <script>
-        window.addEventListener("load", function () {
-            document.getElementById("loader").style.display = "none";
-        });
-    </script>
-
     <div class="navbar">
-        <a href="[_main_].html" class="MENU">
-            <img src="Img/logo.png" alt="Logo" class="logo">
-            Accueil
-        </a>
-        <nav class="NAV">
-            <a href="carte.html">Carte</a>
+        <div class="nav1">
+            <a href="[_main_].html" class="menu">
+                <img src="Img/logo.png" alt="Logo" class="logo">
+                Accueil
+            </a>
+        </div>
+
+        <div class="nav2">
+            <a href="avis.html">Admin</a>
+            <a href="avis.html">Commandes</a>
+            <a href="avis.html">Livraison</a>
             <a href="avis.html">Notation</a>
+            <a href="Menu.html">Carte</a>
+            <a href="[_profil_].html">Conexion</a>
+            <a href="[_profil_].html">Inscription</a>
             <a href="[_profil_].html">Profil</a>
-        </nav>
+        </div>
     </div>
 
 
-    <video autoplay muted loop playsinline class="video-bg">
+    <video autoplay muted loop class="video-bg">
         <source src="Img/fond.mp4" type="video/mp4">
         Votre navigateur ne supporte pas la vidéo.
     </video>
@@ -54,16 +50,6 @@ Bienvenue chez SIUUSHI, votre destination incontournable pour une expérience cu
                 <h4>À PROPOS</h4>
                 <p>SIUUCHI - Restaurant traditionnel depuis XXXX</p>
                 <p>Une expérience culinaire traditionnel</p>
-            </div>
-            
-            <div class="f-section">
-                <h4>NAVIGATION</h4>
-                <ul class="f-links">
-                    <li><a href="accueil.html">Accueil</a></li>
-                    <li><a href="carte.html">Carte</a></li>
-                    <li><a href="profil.html">Profil</a></li>
-                    <li><a href="avis.html">Notation</a></li>
-                </ul>
             </div>
             
             <div class="f-section">
