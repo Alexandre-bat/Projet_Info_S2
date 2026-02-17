@@ -7,28 +7,24 @@
         <link rel="stylesheet" type="text/css" href="style.css">
     </head>
 
-    <div id="loader">
-        <img src="loader.gif" alt="Chargement...">
-    </div>
-
-    <!-- Attend que toute la page (HTML, CSS, images, etc.) soit complètement chargée,
-    puis cache l'élément avec l'id "loader" pour afficher le contenu du site.-->
-    <script>
-        window.addEventListener("load", function () {
-            document.getElementById("loader").style.display = "none";
-        });
-    </script>
-
     <div class="navbar">
-        <a href="[_main_].html" class="MENU">
-            <img src="Img/logo.png" alt="Logo" class="logo">
-            Accueil
-        </a>
-        <nav class="NAV">
-            <a href="inscription.html">S'inscrire</a>
-            <a href="connexion.html">Connexion</a>
+        <div class="nav1">
+            <a href="[_main_].html" class="menu">
+                <img src="Img/logo.png" alt="Logo" class="logo_nav">
+                Accueil
+            </a>
+        </div>
+
+        <div class="nav2">
+            <a href="avis.html">Admin</a>
+            <a href="avis.html">Commandes</a>
+            <a href="avis.html">Livraison</a>
+            <a href="avis.html">Notation</a>
+            <a href="Menu.html">Carte</a>
+            <a href="Connexion.html">Connexion</a>
+            <a href="inscription.html">Inscription</a>
             <a href="[_profil_].html">Profil</a>
-        </nav>
+        </div>
     </div>
 
 
@@ -52,25 +48,14 @@
         <div class="f-container">
             <div class="f-section">
                 <h4>À PROPOS</h4>
-                <p>SIUUCHI - Restaurant traditionnel depuis XXXX</p>
+                <p>SIUUSHI - Restaurant traditionnel depuis XXXX</p>
                 <p>Une expérience culinaire traditionnel</p>
-            </div>
-            
-            <div class="f-section">
-                <h4>NAVIGATION</h4>
-                <ul class="f-links">
-                    <li><a href="accueil.html">Accueil</a></li>
-                    <li><a href="carte.html">Carte</a></li>
-                    <li><a href="profil.html">Profil</a></li>
-                    <li><a href="avis.html">Notation</a></li>
-                </ul>
             </div>
             
             <div class="f-section">
                 <h4>CONTACT</h4>
                 <p>📍 Parc des princes</p>
                 <p>📞 +33 X XX XX XX XX</p>
-                <p>✉️ contact@Creative_Yumland</p>
             </div>
             
             <div class="f-section">
