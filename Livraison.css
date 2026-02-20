@@ -16,100 +16,6 @@
     outline: 3px solid blue;
 }
 
-.liste_commandes {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-}
-
-.en_attente {
-    width: 90%;
-    margin: 120px auto;
-    padding: 30px;
-    background: rgba(180, 60, 60, 0.8);
-    border-radius: 20px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(10px);
-    text-align: center;
-}
-
-.en_attente h2 {
-    margin-bottom: 25px;
-    color: #ffffff;
-    font-weight: 500;
-}
-
-.commande {
-    width: 290px;
-    padding: 15px;
-    background: rgba(255, 138, 138, 0.9);
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    text-align: left;
-}
-
-.commande:hover {
-    transform: translateY(-3px);
-    transition: 0.2s;
-}
-
-.commande h4 {
-    margin-bottom: 2px;
-    color: black;
-}
-
-.plat{
-    margin-left: 30%;
-}
-
-.surligner {
-    font-weight: bold;
-}
-
-.liste_livraisons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-}
-
-.en_livraison {
-    width: 90%;
-    margin: 120px auto;
-    padding: 30px;
-    background: rgba(180, 60, 60, 0.8);
-    border-radius: 20px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(10px);
-    text-align: center;
-}
-
-.en_livraison h2 {
-    margin-bottom: 25px;
-    color: #ffffff;
-    font-weight: 500;
-}
-
-.livraison {
-    width: 290px;
-    padding: 15px;
-    background: rgba(255, 138, 138, 0.9);
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    text-align: left;
-}
-
-.livraison:hover {
-    transform: translateY(-3px);
-    transition: 0.2s;
-}
-
-.livraison h4 {
-    margin-bottom: 2px;
-    color: black;
-}
-
 .input-group {
     text-align: left;
     margin-bottom: 18px;
@@ -259,3 +165,59 @@ footer {
   font-size: 12px;
 }
 
+.cours_livraison {
+    width: 90%;
+    margin: 120px auto;
+    padding: 30px;
+    background: rgba(180, 60, 60, 0.8);
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cours_livraison h2 {
+    font-weight: 500;
+    color: #ffffff;
+}
+
+.info {
+    width: 80%;
+    margin: 0 auto; 
+    padding: 15px;
+    background: rgba(255, 138, 138, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+.surligner {
+    font-weight: bold;
+}
+
+.info h3 {
+    color: black;
+    font font-weight: 500;
+}
+
+.adresse {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.adresse img {
+    width: 80px;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.adresse img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
