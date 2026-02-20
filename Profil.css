@@ -15,7 +15,7 @@ body {
     z-index: -1;
 }
 
-.blocnotation{
+.blocProfil{
     border-radius: 20px;
     background-color: rgba(180, 60, 60, 0.8);
     border: 4px double rgba(255, 99, 99, 0.8);
@@ -33,83 +33,11 @@ body {
     margin-bottom: 30px;
 }
 
-.blocGaucheNotation {
-    width: 60%;
-    padding: 20px;
-    padding-left: 50px;
-    gap: 10px;
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items:flex-start;
-}
 
-.blocDroitInfos {
-    width: 40%;
-    padding: 20px;
-    background-color: rgb(180, 60, 60);
-}
 
-.etoiles {
-    display: flex;
-    gap: 10px;
-    flex-direction: row-reverse;
-    padding-right : 50px;
-    padding-bottom: 20px;
-}
 
-.etoiles input {
-    display: none;
-}
 
-.etoiles label{
-    font-size: 40px;
-    cursor: pointer;
-}
 
-.etoiles label:hover, .etoiles label:hover ~ label{
-    color: rgb(255, 99, 99);
-}
-
-.etoiles input:checked ~ label{
-    color: rgb(180, 60, 60);
-}
-
-.input-group {
-    text-align: left;
-    margin-bottom: 18px;
-}
-
-label {
-    font-size: 14px;
-    color: #ffffff;
-}
-
-input {
-    color: white;
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-bottom: 2px solid #ffffff;
-    background: transparent;
-    outline: none;
-    transition: 0.3s;
-}
-
-input:focus {
-    border-bottom: 2px solid #ff8a8a;
-}
-
-.fauxAvis{
-    border-radius: 20px;
-    background-color: rgba(180, 60, 60, 0.8);
-    border: 4px double rgba(255, 99, 99, 0.8);
-    padding: 20px;
-    height: 60%;
-    width: 60%;
-    margin: auto;
-    margin-bottom: 50px;
-}
 
 
 button {
