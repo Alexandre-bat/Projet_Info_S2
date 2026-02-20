@@ -24,14 +24,56 @@ body {
     width: 60%;
     color: white;
     display: flex;
-    width: 70%;
+    flex-direction: column;
+    width: 50%;
     min-height: 100vh;
     margin: 0;
-    justify-content: center;
     margin: auto;
     margin-top: 50px;
     margin-bottom: 30px;
 }
+
+.infoPerso {
+    width:50%;
+    border-bottom: 2px solid white;
+    border-top: 2px solid white;
+}
+
+.modifsPersos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.crayon {
+    width :40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.crayon:hover {
+    transform: scale(1.5);
+}
+
+.histoCommandes {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.commandes{
+    min-width: 200px;
+    height:auto;
+    background-color: rgb(255, 99, 99);
+    border-radius: 15px;
+    border: 4px solid pink;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    
+}
+
 
 
 
