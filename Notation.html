@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>SIUUSHI - Notation</title>
+    <link rel="stylesheet" type="text/css" href="Notation.css">
+    <link rel="icon" href="Img/logo.png" type="image/png">
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="nav1">
+            <a href="[_main_].html" class="menu">
+                <img src="Img/logo.png" alt="Logo" class="logo">
+                Accueil
+            </a>
+        </div>
+
+        <div class="nav2">
+            <a href="avis.html">Admin</a>
+            <a href="Commandes.html">Commandes</a>
+            <a href="avis.html">Livraison</a>
+            <a href="avis.html">Notation</a>
+            <a href="Menu.html">Carte</a>
+            <a href="Connexion.html">Connexion</a>
+            <a href="[_profil_].html">Profil</a>
+        </div>
+    </div>
+
+    <video autoplay loop muted playsinline class="video-bg">
+        <source src="Img/fond.mp4" type="video/mp4">
+    </video>
+
+    <div class="bloc">
+        <div class="blocGaucheNotation">
+            <h1 id="titre">Notez-nous !</h1>
+            <p>Votre avis compte pour nous !</p>
+            <form action="submit_rating.php" method="POST" class="rating-form">
+                <p>Plat :</p>
+                <div class="etoiles">
+                    <input type="radio" id="etoile5" name="rating" value="5"><label for="etoile5">★</label>
+                    <input type="radio" id="etoile4" name="rating" value="4"><label for="etoile4">★</label>
+                    <input type="radio" id="etoile3" name="rating" value="3"><label for="etoile3">★</label>
+                    <input type="radio" id="etoile2" name="rating" value="2"><label for="etoile2">★</label>
+                    <input type="radio" id="etoile1" name="rating" value="1"><label for="etoile1">★</label>
+                </div>
+
+                <p>Livraison :</p>
+                <div class="etoiles">
+                    <input type="radio" id="etoile5" name="rating" value="5"><label for="etoile5">★</label>
+                    <input type="radio" id="etoile4" name="rating" value="4"><label for="etoile4">★</label>
+                    <input type="radio" id="etoile3" name="rating" value="3"><label for="etoile3">★</label>
+                    <input type="radio" id="etoile2" name="rating" value="2"><label for="etoile2">★</label>
+                    <input type="radio" id="etoile1" name="rating" value="1"><label for="etoile1">★</label>
+                </div>
+
+                <p>Accessibilité :</p>
+                <div class="etoiles">
+                    <input type="radio" id="etoile5" name="rating" value="5"><label for="etoile5">★</label>
+                    <input type="radio" id="etoile4" name="rating" value="4"><label for="etoile4">★</label>
+                    <input type="radio" id="etoile3" name="rating" value="3"><label for="etoile3">★</label>
+                    <input type="radio" id="etoile2" name="rating" value="2"><label for="etoile2">★</label>
+                    <input type="radio" id="etoile1" name="rating" value="1"><label for="etoile1">★</label>
+                </div>
+
+                <div class="input-group">
+                    <label>Avis supplémentaire</label>
+                    <input type="text" name="avis" required>
+                </div>
+                <button type="submit">Envoyer</button>
+            </form>
+        </div>
+        <div class="blocDroitInfos">
+            <h2>Pourquoi nous noter ?</h2>
+            <p>Votre avis nous aide à améliorer notre service et à offrir une meilleure expérience culinaire. En
+                partageant votre opinion, vous contribuez à faire de SIUUSHI un endroit encore meilleur pour tous nos
+                clients.</p>
+            <h2>Merci de votre soutien !</h2>
+        </div>
+    </div>
+
+    <footer>
+        <div class="f-container">
+            <div class="f-section">
+                <h4>À PROPOS</h4>
+                <p>SIUUSHI - Restaurant traditionnel depuis XXXX</p>
+                <p>Une expérience culinaire traditionnel</p>
+            </div>
+
+            <div class="f-section">
+                <h4>CONTACT</h4>
+                <p>📍 Parc des princes</p>
+                <p>📞 +33 X XX XX XX XX</p>
+            </div>
+
+            <div class="f-section">
+                <h4>HORAIRES</h4>
+                <p>Lun - Sam: 11h00 - 14h00 / 18h00 - 23h00</p>
+                <p> Livraison disponible</p>
+            </div>
+        </div>
+
+        <div class="f-bottom">
+            <p>&copy; 2026 siuushi - Tous droits réservés | Mentions légales | Politique de confidentialité</p>
+        </div>
+    </footer>
+</body>
+
+</html>
