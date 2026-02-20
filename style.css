@@ -158,6 +158,7 @@
     body {
         margin: 0;
         height: 100vh;
+        flex-grow: 1;
         justify-content: center; /* centre horizontal */
         align-items: center;     /* centre vertical */
 
@@ -228,10 +229,10 @@
     }
 
     .admin_who {
-        width: 400px;
+        width: 300px;
         max-width: 300px;
-        height: 110px;
-        max-height: 110px ;
+        height: 130px;
+        max-height: 130px ;
         text-align: center;
         color: white;
         border: 4px solid pink;
@@ -245,23 +246,30 @@
     }
 
     .write {
-        color: white;
+            
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
     }
 
-    .bouttonclassique {
+    .admin_b_profil {
         margin-top: 6px;
         padding: 10px 30px;
         border: none;
         background: linear-gradient(45deg, #ff8a8a, #e29c9c);
         font-weight: bold;
         cursor: pointer;
+        text-decoration: none;
+        color: black;
     }
 
-    .bouttonclassique:hover {
+    .admin_b_profil:hover {
+        transform: translateY(-2px);
         box-shadow: 0 4px 8px linear-gradient(45deg, #ff8a8a, #e29c9c);
         color: white;
     }
 
+    .perm{
+        display: flex;
+        flex-direction: row;
+    }
 
 

@@ -12,7 +12,7 @@
     <div class="navbar">
         <div class="nav1">
             <a href="[_main_].html" class="menu">
-                <img src="Img/logo.png" alt="Logo" class="logo">
+                <img src="Img/logo.png" alt="Logo" class="logo_nav">
                 Accueil
             </a>
         </div>
@@ -20,12 +20,12 @@
         <div class="nav2">
             <a href="[_admin_].html">Admin</a>
             <a href="Commandes.html">Commandes</a>
-            <a href="avis.html">Livraison</a>
-            <a href="avis.html">Notation</a>
+            <a href="Livraison.html">Livraison</a>
+            <a href="Notation.html">Notation</a>
             <a href="Menu.html">Carte</a>
             <a href="Connexion.html">Connexion</a>
-           <a href="inscription.html">Inscription</a>
-            <a href="[_profil_].html">Profil</a>
+            <a href="inscription.html">Inscription</a>
+            <a href="Profil.html">Profil</a>
         </div>
     </div>
 
@@ -46,27 +46,29 @@
                 <div class="admin_controlBox">
                     <div class="admin_who">
                             <h2 class="write">NOM Prénom</h2>
-                            <button class="bouttonclassique">PROFIL</button>
+                            <form id="perms" action="profil.html" method="get">
+                                PERM
+                                <select>
+                                    <option value="Client">Client</option>
+                                    <option value="Livreur">Livreur</option>
+                                </select>
+                            </form>                                
+                            <a href="Profil.html" class="admin_b_profil">PROFIL   
+                            </a>
+                            
                     </div>
                     <div class="admin_who">
                             <h2 class="write">NOM Prénom</h2>
-                            <button class="bouttonclassique">PROFIL</button>
-                    </div>
-                    <div class="admin_who">
-                            <h2 class="write">NOM Prénom</h2>
-                            <button class="bouttonclassique">PROFIL</button>
-                    </div>
-                    <div class="admin_who">
-                            <h2 class="write">NOM Prénom</h2>
-                            <button class="bouttonclassique">PROFIL</button>
-                    </div>
-                    <div class="admin_who">
-                            <h2 class="write">NOM Prénom</h2>
-                            <button class="bouttonclassique">PROFIL</button>
-                    </div>
-                    <div class="admin_who">
-                            <h2 class="write">NOM Prénom</h2>
-                            <button class="bouttonclassique">PROFIL</button>
+                            <form id="perms" action="profil.html" method="get">
+                                PERM
+                                <select>
+                                    <option value="Client">Client</option>
+                                    <option value="Livreur">Livreur</option>
+                                </select>
+                            </form>                                
+                            <a href="Profil.html" class="admin_b_profil">PROFIL   
+                            </a>
+                            
                     </div>
                 </div>
             </div>

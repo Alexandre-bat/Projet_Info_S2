@@ -3,6 +3,12 @@
     font-family: "Segoe UI", sans-serif;
 }
 
+.logo_nav { 
+        width: 25px; 
+        height: 25px; 
+        margin-right: 10px; 
+    }
+
 .video-bg {
     position: fixed;
     top: 50%;
@@ -200,7 +206,7 @@ footer {
 
 .info h3 {
     color: black;
-    font font-weight: 500;
+    font-weight: 500;
 }
 
 .adresse {
