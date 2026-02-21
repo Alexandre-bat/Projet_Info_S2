@@ -42,12 +42,12 @@ button:hover {
 
 /* IMAGE BACKGROUND */
 .blocImage {
-    padding-top: 50px;
+    padding-top: 0;
     display: flex;
     justify-content: center;
     width: 100%;
-    height: 50vh;
-    max-height: 50vh;
+    height: 350px;
+    max-height: 350px;
     background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(https://images.pexels.com/photos/11463203/pexels-photo-11463203.jpeg);
     background-position: center;
     background-size: cover;
@@ -118,6 +118,7 @@ button:hover {
 
 /* FOOTER */
 footer {
+    margin-top: auto;  
     bottom: 0;
     width: 100%;
     background-color: rgb(180, 60, 60);
@@ -185,8 +186,11 @@ footer {
 
 /* Accueil */
 #accueilBody {
+    display: flex;
+    flex-direction: row;
     margin: 0;
     height: 100vh;
+    flex-wrap: wrap;
     flex-grow: 1;
     justify-content: center;
     /* centre horizontal */
@@ -197,7 +201,7 @@ footer {
 
 #M1 {
     /*background: white;
-        border-radius: 15px;*/
+    border-radius: 15px;*/
     padding-left: 10%;
     padding-right: 10%;
 }
@@ -211,22 +215,22 @@ footer {
 }
 
 /* ADMIN */
-#Admin_div {
-    margin: 0;
-    padding-top: 3%;
+#admin_body {
     min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", sans-serif;
+
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    padding-left: 10%;
-    padding-right: 10%;
+    flex-grow: 1;  
 }
 
-
-#Admin_main {
-    flex-grow: 1;
-    flex-wrap: wrap;
-    margin-top: 15%;
+#Admin_div {
+    flex-grow: 1;  
+    margin: 0;
+    padding-top: 3%;
     padding-left: 10%;
     padding-right: 10%;
 }
