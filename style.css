@@ -40,21 +40,6 @@ button:hover {
     z-index: -1;
 }
 
-/* IMAGE BACKGROUND */
-.blocImage {
-    padding-top: 0;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    height: 600px;
-    max-height: 600px;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(Img/imgAccueil.jpg);
-    background-position: center;
-    background-size: cover;
-    text-align: center;
-    font-size: 200%;
-}
-
 /* Titre SIUUSHI */
 #titre {
     padding-top: 5%;
@@ -201,20 +186,83 @@ footer {
 
 }
 
-#M1 {
-    /*background: white;
-    border-radius: 15px;*/
-    padding-left: 10%;
-    padding-right: 10%;
+#blocAccueil {
+    color: white;
+    padding: 60px 60px;
+    border-radius: 20px;
+    margin: 40px 20%;
+    border-radius: 20px;
+    background-color: rgba(180, 60, 60, 0.8);
+    margin: 20px;
+    border: 4px double rgba(255, 99, 99, 0.8);
 }
 
-#m1 {
-    background: rgb(180, 60, 60);
-    color: white;
-    padding-top: 0px;
-    padding: 5%;
-    border-radius: 15px;
+.blocImage {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 1000px;
+    max-height: 1000px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(Img/imgAccueil.jpg);
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+    font-size: 200%;
 }
+
+.imageInfos {
+    margin-top: 150px;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+    max-width: 700px;
+    padding: 20px;
+}
+
+.imageInfos h1 {
+    font-size: 200%;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+.imageSousTitre {
+    color: #ffb3b3;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.imageTexte {
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+/* bloc titre */
+#titreAccueil {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#titreAccueil h2 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+#titreAccueil h4 {
+    font-weight: normal;
+    margin-bottom: 15px;
+}
+
+#texteAccueil {
+    max-width: 800px;
+    line-height: 1.6;
+}
+
+.logo_accueil {
+    width: 150px;
+    margin-top: 20px;
+}
+
 
 /* ADMIN */
 #admin_body {
@@ -315,7 +363,7 @@ footer {
 }
 
 .en_attente {
-    width: 90%;
+    width: 80%;
     margin: 120px auto;
     padding: 30px;
     background: rgba(180, 60, 60, 0.8);
@@ -366,7 +414,7 @@ footer {
 }
 
 .en_livraison {
-    width: 90%;
+    width: 80%;
     margin: 120px auto;
     padding: 30px;
     background: rgba(180, 60, 60, 0.8);
@@ -450,7 +498,7 @@ footer {
 /* Livraison */
 
 .cours_livraison {
-    width: 90%;
+    width: 80%;
     margin: 120px auto;
     padding: 30px;
     background: rgba(180, 60, 60, 0.8);
@@ -512,7 +560,6 @@ footer {
 .blocMenu {
     border-radius: 20px;
     background-color: rgba(180, 60, 60, 0.8);
-    ;
     margin: 20px;
     border: 4px double rgba(255, 99, 99, 0.8);
     display: flex;
