@@ -214,8 +214,6 @@ footer {
 
 .imageInfos {
     margin-top: 150px;
-    position: relative;
-    z-index: 2;
     text-align: center;
     color: white;
     max-width: 700px;
@@ -359,10 +357,10 @@ footer {
     width: 80%;
     margin: 120px auto;
     padding: 30px;
-    background: rgba(180, 60, 60, 0.8);
     border-radius: 20px;
+    background-color: rgba(180, 60, 60, 0.8);
+    border: 4px double rgba(255, 99, 99, 0.8);
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(10px);
     text-align: center;
 }
 
@@ -379,6 +377,7 @@ footer {
     border-radius: 15px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     text-align: left;
+    border: solid pink;
 }
 
 .commande:hover {
@@ -410,10 +409,10 @@ footer {
     width: 80%;
     margin: 120px auto;
     padding: 30px;
-    background: rgba(180, 60, 60, 0.8);
+    background-color: rgba(180, 60, 60, 0.8);
+    border: 4px double rgba(255, 99, 99, 0.8);
     border-radius: 20px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(10px);
     text-align: center;
 }
 
@@ -427,6 +426,7 @@ footer {
     width: 290px;
     padding: 15px;
     background: rgba(255, 138, 138, 0.9);
+    border: solid pink;
     border-radius: 15px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     text-align: left;
@@ -449,10 +449,10 @@ footer {
     margin: 8% auto;
     margin-top: 120px;
     padding: 30px;
-    background: rgba(180, 60, 60, 0.85);
+    background-color: rgba(180, 60, 60, 0.8);
+    border: 4px double rgba(255, 99, 99, 0.8);
     border-radius: 20px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(10px);
     text-align: center;
 }
 
@@ -505,10 +505,10 @@ footer {
     height: auto;
     margin: 120px auto;
     padding: 30px;
-    background: rgba(180, 60, 60, 0.8);
+    background-color: rgba(180, 60, 60, 0.8);
+    border: 4px double rgba(255, 99, 99, 0.8);
     border-radius: 20px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(10px);
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -527,6 +527,7 @@ footer {
     margin: 0 auto;
     padding: 15px;
     background: rgba(255, 138, 138, 0.9);
+    border: solid pink;
     border-radius: 15px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     text-align: center;
