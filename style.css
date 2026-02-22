@@ -638,23 +638,27 @@ footer {
     font-size: 150%;
     text-align: center;
     border-bottom: 2px solid pink;
+    color: white;
 }
 
 .titrePlats {
     font-size: 200%;
     text-align: center;
     padding-bottom: 10px;
+    color: white;
 }
 
 .moyenTitre {
     font-size: 200%;
     text-align: center;
+    color: white;
 }
 
 .grandTitre {
     font-size: 300%;
     text-align: center;
     padding: 20px;
+    color: white;
 }
 
 .imgBox {
