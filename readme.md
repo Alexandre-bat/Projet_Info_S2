@@ -22,6 +22,9 @@ Dans un premier temps, nous avons créé différentes pages HTML basées sur :
 
 🎨 Une charte graphique définie en amont, permettant d’assurer une cohérence visuelle entre toutes les pages du site.
 
+https://paletton.com/#uid=1000u0klExijAPMkTH6lTs0lqmA
+
+
 À partir de cette charte graphique, plusieurs pages statiques ont été développées :
 
 • Page d’accueil : affichage des plats populaires et barre de recherche
