@@ -1,8 +1,18 @@
 /* CSS Commun */
+html, body {
+    height: 100%;
+    margin: 0;
+}
 
 body {
     margin: 0;
-    font-family: "Segoe UI", sans-serif;
+    font-family: "papyrus", sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
 }
 
 .boutons {
@@ -111,8 +121,6 @@ footer {
     background-color: rgb(180, 60, 60);
     color: white;
     padding: 10px;
-    padding-bottom: 0;
-    margin-bottom: 0;
 }
 
 .f-container {
@@ -265,38 +273,28 @@ footer {
 
 
 /* ADMIN */
-#Admin_body {
-    min-height: 100vh;
-    margin: 0;
-    padding: 0;
-    font-family: "Segoe UI", sans-serif;
 
-    display: flex;
-    flex-direction: column;
-}
-
-#Admin_div {
-    flex: 1;
-    margin: 0;
-    padding-top: 3%;
-    padding-left: 10%;
-    padding-right: 10%;
-}
-
-
-
-.admin_blocMenu {
-    border-radius: 20px;
-    gap: 20px;
-    padding: 20px;
+.admin {
     background-color: rgba(180, 60, 60, 0.8);
-    flex:1;
+    border: 4px double rgba(255, 99, 99, 0.8);
+    padding-top: 0px;
+    padding: 5%;
+    width: 80%;
+    border-radius: 15px;
+    margin: auto;
+    margin-top: 160px;
+    margin-bottom: 80px;
+}
+
+.adminTitre {
+    color: white;
+    margin-bottom: 30px;
+    border-bottom: 2px solid pink;
+}
+
+.adminGestion {
     display: flex;
-    flex-direction: row;
-    
-    align-items: start;
-    justify-content: center;
-    
+    gap: 40px;
     flex-wrap: wrap;
 }
 
@@ -304,6 +302,7 @@ footer {
     width: 300px;
     max-width: 300px;
     height: 130px;
+    margin-bottom: 20px;
     max-height: 130px;
     text-align: center;
     color: white;
@@ -317,12 +316,7 @@ footer {
     background-color: rgba(180, 60, 60, 0.8);
 }
 
-.write {
-
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
-}
-
-.admin_b_profil {
+.adminProfil {
     margin-top: 6px;
     padding: 10px 30px;
     border: none;
@@ -333,7 +327,7 @@ footer {
     color: black;
 }
 
-.admin_b_profil:hover {
+.adminProfil:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 8px linear-gradient(45deg, #ff8a8a, #e29c9c);
     color: white;
@@ -490,19 +484,8 @@ footer {
 
 /* Livraison */
 
-#liv_body{
-    min-height: 100vh;
-    margin: 0;
-    padding: 0;
-    font-family: "Segoe UI", sans-serif;
-
-    display: flex;
-    flex-direction: column;
-}
-
 .cours_livraison {
     width: 80%;
-    height: auto;
     margin: 120px auto;
     padding: 30px;
     background-color: rgba(180, 60, 60, 0.8);
@@ -514,7 +497,6 @@ footer {
     flex-direction: column;
     align-items: center;
     box-sizing: border-box;
-    flex : 1;
 }
 
 .cours_livraison h2 {
