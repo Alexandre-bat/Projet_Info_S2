@@ -38,7 +38,9 @@
         <div class="infoPerso">
             <div class="modifsPersos">
                 <h3>Mes informations personnelles</h3>
-                <img src="Img/crayon.png" alt="crayon pour modifier" class="crayon">
+                <form action="crayon.php" method="post">
+                    <input type="image" src="Img/crayon.png" alt="crayon pour modifier" class="crayon">
+                </form>
             </div>
             <p>Nom : <?php echo $_SESSION['nom']; ?></p>
             <p>Prénom : <?php echo $_SESSION['prenom']; ?></p>
@@ -64,6 +66,29 @@
             </div>
         </div>
     </div>
+
+    <?php 
+if(isset($_GET['edit'])){
+    echo "
+    <div class='blocProfil'>
+        <h1>Profil</h1>
+        <div class='infoPerso'>
+            <div class='modifsPersos'>
+                <h3>Mes informations personnelles</h3>
+                <form action='crayon.php' method='post'>
+                    <input type='image' src='Img/crayon.png' alt='crayon pour modifier' class='crayon'>
+                </form>
+            </div>
+            <p>Nom : ".$_SESSION['nom']."</p>
+            <p>Prénom : ".$_SESSION['prenom']."</p>
+            <p>Adresse : ".$_SESSION['adresse']."</p>
+            <p>Téléphone : ".$_SESSION['telephone']."</p>
+        </div>
+    </div>";
+}
+?>
+
+
 
     <footer>
         <div class="f-container">
