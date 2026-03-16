@@ -33,6 +33,12 @@
     </video>
 
     <div class="form">
+        <?php
+            if($_GET['erreur']){
+                echo "<p class='connexion'> Utilisateur déjà utilisé</p>";
+            }
+        ?>
+
         <h2>Inscription</h2>
 
         <form action="proce.php" method="post">
