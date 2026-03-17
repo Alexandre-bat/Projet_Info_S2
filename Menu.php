@@ -61,7 +61,9 @@
                     </div>
                     <div class="basBox">
                         <span id="prix">Prix : 9€</span>
-                        <button class="bouttonclassique">Commander</button>
+                        <a href="panier.php?produit=gyoza">
+                            <button class="bouttonclassique">Commander</button>
+                        </a>
                     </div>
                 </div>
                 <div class="box">
@@ -73,7 +75,9 @@
                     </div>
                     <div class="basBox">
                         <span id="prix">Prix : 10€</span>
-                        <button class="bouttonclassique">Commander</button>
+                        <a href="panier.php?produit=rolls">
+                            <button class="bouttonclassique">Commander</button>
+                        </a>
                     </div>
                 </div>
                 <div class="box">
