@@ -12,20 +12,20 @@
 <body>
     <div class="navbar">
         <div class="nav1">
-            <a href="Accueil.html" class="menu">
+            <a href="Accueil.php" class="menu">
                 <img src="Img/logo.png" alt="Logo" class="logo_nav">
                 Accueil
             </a>
         </div>
 
         <div class="nav2">
-            <a href="Commandes.html">Commandes</a>
-            <a href="Livraison.html">Livraison</a>
-            <a href="Notation.html">Notation</a>
-            <a href="Menu.html">Carte</a>
-            <a href="Connexion.html">Connexion</a>
-            <a href="Inscription.html">Inscription</a>
-            <a href="Profil.html">Profil</a>
+            <a href="Commandes.php">Commandes</a>
+            <a href="Livraison.php">Livraison</a>
+            <a href="Notation.php">Notation</a>
+            <a href="Menu.php">Carte</a>
+            <a href="Connexion.php">Connexion</a>
+            <a href="Inscription.php">Inscription</a>
+            <a href="Profil.php">Profil</a>
         </div>
     </div>
 
@@ -41,27 +41,27 @@
         <div class="adminGestion">
             <div class="admin_who">
                 <h2 class="write">Ronaldo Cristiano</h2>
-                <form id="perms" action="profil.html" method="get">
+                <form id="perms" action="Profil.php" method="get">
                     <label class="perm-label">PERM</label>
                     <select class="perm-select">
                         <option value="Client">Client</option>
                         <option value="Livreur">Livreur</option>
                     </select>
                 </form>
-                <a href="Profil.html" class="adminProfil">PROFIL
+                <a href="Profil.php" class="adminProfil">PROFIL
                 </a>
             </div>
 
             <div class="admin_who">
                 <h2 class="write">Messi Lionel</h2>
-                <form id="perms" action="profil.html" method="get">
+                <form id="perms" action="Profil.php" method="get">
                     <label class="perm-label">PERM</label>
                     <select class="perm-select">
                         <option value="Client">Client</option>
                         <option value="Livreur">Livreur</option>
                     </select>
                 </form>
-                <a href="Profil.html" class="adminProfil">PROFIL
+                <a href="Profil.php" class="adminProfil">PROFIL
                 </a>
             </div>
         </div>

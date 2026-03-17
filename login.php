@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 $numtel = $_POST['tel'];
 $password = $_POST['mdp'];
@@ -10,12 +11,11 @@ $trouve = false;
 while(($ligne = fgets($fichier)) !== false){
 
     $infos = explode(" ", trim($ligne));
-
+    $prenom = $infos[0];
+    $nom = $infos[1];
     $tel = $infos[2];
     $mdp = $infos[3];
-    $nom = $infos[1];
-    $prenom = $infos[0];
-    $adresse = $infos[4];
+    if( isset($infos[4])){ $adresse = $infos[4];}
 
     if($numtel == $tel && $password == $mdp){
         $trouve = true;
@@ -26,10 +26,9 @@ while(($ligne = fgets($fichier)) !== false){
 fclose($fichier);
 
 if($trouve){
-    session_start();
     $_SESSION['nom'] = $nom;
     $_SESSION['prenom'] = $prenom;
-    $_SESSION['adresse'] = $adresse;
+    if( isset($infos[4])){ $_SESSION['adresse'] = $adresse; }
     $_SESSION['telephone'] = $tel;
     header("Location: Profil.php");
     exit();

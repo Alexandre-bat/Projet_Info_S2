@@ -10,20 +10,20 @@
 <body>
     <div class="navbar">
         <div class="nav1">
-            <a href="Accueil.html" class="menu">
+            <a href="Accueil.php" class="menu">
                 <img src="Img/logo.png" alt="Logo" class="logo">
                 Accueil
             </a>
         </div>
 
         <div class="nav2">
-            <a href="Admin.html">Admin</a>
-            <a href="Commandes.html">Commandes</a>
-            <a href="Livraison.html">Livraison</a>
-            <a href="Notation.html">Notation</a>
-            <a href="Connexion.html">Connexion</a>
-            <a href="Inscription.html">Inscription</a>
-            <a href="Profil.html">Profil</a>
+            <a href="Admin.php">Admin</a>
+            <a href="Commandes.php">Commandes</a>
+            <a href="Livraison.php">Livraison</a>
+            <a href="Notation.php">Notation</a>
+            <a href="Connexion.php">Connexion</a>
+            <a href="Inscription.php">Inscription</a>
+            <a href="Profil.php">Profil</a>
         </div>
     </div>
     <video autoplay muted loop playsinline class="video-bg">
