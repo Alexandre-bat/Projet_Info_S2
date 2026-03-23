@@ -1,40 +1,49 @@
 <?php
+session_start();
 
-$numtel = $_POST['tel'];
-$password = $_POST['mdp'];
+$numtel = trim($_POST['tel'] ?? "");
+$password = trim($_POST['mdp'] ?? "");
 
-$fichier = fopen("id.txt", "r");
+$fichier = "id.json";
+
+if(!file_exists($fichier)){
+    header("Location: Connexion.php?error=1");
+    exit();
+}
+
+$contenu = file_get_contents($fichier);
+$data = json_decode($contenu, true);
+
+if(!is_array($data)){
+    header("Location: Connexion.php?error=1");
+    exit();
+}
 
 $trouve = false;
 
-while(($ligne = fgets($fichier)) !== false){
+foreach($data as $user){
 
-    $infos = explode(" ", trim($ligne));
+    if(isset($user["tel"], $user["mdp"])){
 
-    $tel = $infos[2];
-    $mdp = $infos[3];
-    $nom = $infos[1];
-    $prenom = $infos[0];
-    $adresse = $infos[4];
+        if($numtel === $user["tel"] && $password === $user["mdp"]){
+            $trouve = true;
 
-    if($numtel == $tel && $password == $mdp){
-        $trouve = true;
-        break;
+            $_SESSION['id'] = $user["id"] ?? null;
+            $_SESSION['nom'] = $user["nom"];
+            $_SESSION['prenom'] = $user["prenom"];
+            $_SESSION['telephone'] = $user["tel"];
+            $_SESSION['adresse'] = $user["adresse"] ?? "";
+
+            break;
+        }
     }
 }
 
-fclose($fichier);
-
 if($trouve){
-    session_start();
-    $_SESSION['nom'] = $nom;
-    $_SESSION['prenom'] = $prenom;
-    $_SESSION['adresse'] = $adresse;
-    $_SESSION['telephone'] = $tel;
-    header("Location: Accueil.php");
+    header("Location: Profil.php");
     exit();
 }else{
     header("Location: Connexion.php?error=1");
+    exit();
 }
-
 ?>

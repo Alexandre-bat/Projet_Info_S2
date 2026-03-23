@@ -1,49 +1,52 @@
 <?php
- session_start();
-    function traiter_fichier($fichier){
-        
-        $f = fopen($fichier,"a");
-        if(!$f){
-            echo "Pb fichier";
+session_start();
+
+function traiter_fichier($fichier){
+
+    if(!file_exists($fichier)){
+        file_put_contents($fichier, "[]");
+    }
+
+    $f_name = trim($_POST["prenom"]);
+    $l_name = trim($_POST["nom"]);
+    $contact = trim($_POST["tel"]);
+    $security = trim($_POST["mdp"]);
+
+    $contenu = file_get_contents($fichier);
+    $data = json_decode($contenu, true);
+
+    if(!is_array($data)){
+        $data = [];
+    }
+
+    foreach($data as $user){
+        if($user["tel"] === $contact){
+            header("Location: Inscription.php?erreur=1");
             exit();
         }
+    }
 
-        $f_name = $_POST["prenom"];
-        $l_name  = $_POST["nom"];
-        $contact = $_POST["tel"];
-        $security = $_POST["mdp"];
+    $id = uniqid("user_", true);
 
-        $contenu = file_get_contents($fichier);
-        $lignes = explode("\n", trim($contenu));
+    $data[] = [
+        "id" => $id,               
+        "prenom" => $f_name,
+        "nom" => $l_name,
+        "tel" => $contact,
+        "mdp" => $security
+    ];
 
-        foreach($lignes as $ligne){
+    file_put_contents($fichier, json_encode($data, JSON_PRETTY_PRINT));
 
-            if(empty($ligne)) continue;
+    $_SESSION['id'] = $id;        
+    $_SESSION['nom'] = $l_name;
+    $_SESSION['prenom'] = $f_name;
+    $_SESSION['adresse'] = "";
+    $_SESSION['telephone'] = $contact;
 
-            $infos = explode(" ", $ligne);
-
-            if(count($infos) < 4) continue;
-
-            $tel = $infos[2];
-            $mdp = $infos[3];
-
-            if($contact == $tel && $security == $mdp){
-                header("Location: Inscription.php?erreur=1");
-                exit();
-            }
-        }
-
-        fwrite($f, "$f_name $l_name $contact $security\n");
-        fclose($f);
-
-        $_SESSION['nom'] = $l_name;
-        $_SESSION['prenom'] = $f_name;
-        $_SESSION['adresse'] = "";
-        $_SESSION['telephone'] = $contact;
-
-        header("Location: Profil.php");
-        exit();
+    header("Location: Profil.php");
+    exit();
 }
 
-traiter_fichier("id.txt");
+traiter_fichier("id.json");
 ?>

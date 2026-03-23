@@ -39,7 +39,7 @@
         <div class="infoPerso">
             <div class="modifsPersos">
                 <h3>Mes informations personnelles</h3>
-                <form action="crayon.php" method="post">
+                <form action="" method="post">
                     <input type="image" src="Img/crayon.png" alt="crayon pour modifier" class="crayon">
                 </form>
             </div>
