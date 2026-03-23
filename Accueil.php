@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 
+<?php session_start();?>
+<?php if(isset($_GET['deco'])) {session_destroy(); header("Location: Accueil.php");  }
+?>
 <body id="accueilBody">
 
     <head>
@@ -18,15 +21,23 @@
         </div>
 
         <div class="nav2">
-            <a href="Admin.php">Admin</a>
-            <a href="Commandes.php">Commandes</a>
-            <a href="Livraison.php">Livraison</a>
-            <a href="Notation.php">Notation</a>
-            <a href="Menu.php">Carte</a>
-            <a href="Connexion.php">Connexion</a>
-            <a href="Inscription.php">Inscription</a>
-            <a href="Profil.php">Profil</a>
-        </div>
+    <a href="Admin.html">Admin</a>
+    <a href="Commandes.html">Commandes</a>
+    <a href="Livraison.html">Livraison</a>
+    <a href="Notation.html">Notation</a>
+    <a href="Menu.html">Carte</a>
+    
+    <?php 
+if(isset($_SESSION['nom']) && isset($_SESSION['prenom'])) {
+    echo '<a href="Profil.php">' . $_SESSION['nom'] . ' ' . $_SESSION['prenom'] . ' '. '<img src="Img/profil.png" alt="Logo" class="profil_nav">' .'</a>';
+    echo '<a href=Accueil.php?deco=1>Déconnexion</a>';
+} else {
+    echo '<a href="Connexion.php">Connexion</a>';
+    echo '<a href="Inscription.php">Inscription</a>';
+    
+}
+?>
+</div>
     </div>
 
 

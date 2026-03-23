@@ -114,6 +114,11 @@ button:hover {
     margin-right: 8px;
 }
 
+.profil_nav {
+    height: 40px;
+    margin-right: 8px;
+}
+
 /* FOOTER */
 footer {
     margin-top: auto;
