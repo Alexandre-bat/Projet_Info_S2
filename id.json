@@ -1,0 +1,18 @@
+[
+    {
+        "id": "user_69c149a30f93a1.58047617",
+        "prenom": "Alexandre",
+        "nom": "Bernard",
+        "tel": "0767339221",
+        "mdp": "517369",
+        "adresse": ""
+    },
+    {
+        "id": "user_69c14d946a0b50.97109498",
+        "prenom": "Alexandre",
+        "nom": "Dupont",
+        "tel": "0767339",
+        "mdp": "517369"
+    }
+]
+
