@@ -99,6 +99,307 @@ if(isset($_GET['supprimer'])){
                 </div>
             </div>
             <?php
+            }
+            if($produit == "sashimi"){
+            ?>
+            <div class="controlBox">
+                <div class="box">
+                    <img src="Img/Imagesmenu/sashimi.jpg" alt="Image du Supreme Ronaldo" class="imgBox">
+                    <div class="contenuBox">
+                        <h2>Bol de Siuuushimi</h2>
+                        <p>Notre bol de sashimi préparer à la main</p>
+                        <p>Saumon cru, thon cru, daurade, sauce soja, wasabi, gingembre mariné</p>
+                    </div>
+                    <div class="basBox">
+                        <span id="prix">Prix : <?php echo 12*$quantite; ?>€</span>
+                        <a href="panier.php?supprimer=<?php echo $produit; ?>">
+                            <button class="bouttonclassique">Supprimer</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <?php
+            }
+            if($produit == "petitsSushi"){
+            ?>
+            <div class="controlBox">
+                <div class="box">
+                    <img src="Img/Imagesmenu/petitsSushi.jpeg" alt="Image du Supreme Ronaldo" class="imgBox">
+                    <div class="contenuBox">
+                        <h2>Assortiment de delicieux Siuuushi</h2>
+                        <p>Un assortiment de nos meilleurs sushis préparés par le chef en personne</p>
+                        <p>Riz vinaigré, saumon, thon, crevette, avocat, algue nori, fromage frais, concombre</p>
+                    </div>
+                    <div class="basBox">
+                        <span id="prix">Prix : <?php echo 10*$quantite; ?>€</span>
+                        <a href="panier.php?supprimer=<?php echo $produit; ?>">
+                            <button class="bouttonclassique">Supprimer</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <?php
+            }
+            if($produit == "maki"){
+            ?>
+            <div class="controlBox">
+                <div class="box">
+                    <img src="Img/Imagesmenu/maki.jpg" alt="Image du Supreme Ronaldo" class="imgBox">
+                    <div class="contenuBox">
+                        <h2>Notre Ball (bol) de Maki et sa sauce</h2>
+                        <p>Notre bol de maki à déguster en famille ou entre amis</p>
+                        <p>Riz vinaigré, algue nori, saumon, thon, avocat, concombre, fromage frais</p>
+                    </div>
+                    <div class="basBox">
+                        <span id="prix">Prix : <?php echo 9*$quantite; ?>€</span>
+                        <a href="panier.php?supprimer=<?php echo $produit; ?>">
+                            <button class="bouttonclassique">Supprimer</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <?php
+            }
+            if($produit == "brochettes"){
+            ?>
+            <div class="controlBox">
+                <div class="box">
+                    <img src="Img/Imagesmenu/brochettes.jpg" alt="Image du Supreme Ronaldo" class="imgBox">
+                    <div class="contenuBox">
+                        <h2>Panenka (brochette) de boeuf</h2>
+                        <p>Un ensemble de brochettes de boeuf cuites à la perfection</p>
+                        <p>Boeuf, fromage, sauce teriyaki, sucre, sauce soja, mirin</p>
+                    </div>
+                    <div class="basBox">
+                        <span id="prix">Prix : <?php echo 11*$quantite; ?>€</span>
+                        <a href="panier.php?supprimer=<?php echo $produit; ?>">
+                            <button class="bouttonclassique">Supprimer</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <?php
+            }
+            if($produit == "supremeRonaldo"){
+            ?>
+            <div class="controlBox">
+                <div class="box">
+                    <img src="Img/Imagesmenu/SR.jpeg" alt="Image du Supreme Ronaldo" class="imgBox">
+                    <div class="contenuBox">
+                        <h2>Supreme ronaldo</h2>
+                        <p>Le plat ultime de ronaldo à partager</p>
+                        <p>Riz vinaigré, saumon, thon, avocat, concombre, algue nori, fromage frais, crevette</p>
+                    </div>
+                    <div class="basBox">
+                        <span id="prix">Prix : <?php echo 67*$quantite; ?>€</span>
+                        <a href="panier.php?supprimer=<?php echo $produit; ?>">
+                            <button class="bouttonclassique">Supprimer</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <?php
+            }
+            if($produit == "chirashi"){
+            ?>
+            <div class="controlBox">
+                <div class="box">
+                    <img src="Img/Imagesmenu/chirashi.jpg" alt="Image du Supreme Ronaldo" class="imgBox">
+                    <div class="contenuBox">
+                        <h2>Chirashi</h2>
+                        <p>Notre plat de chirashi fait maison</p>
+                        <p>Riz vinaigré, saumon, thon, concombre, graines de sésame, sauce soja</p>
+                    </div>
+                    <div class="basBox">
+                        <span id="prix">Prix : <?php echo 17*$quantite; ?>€</span>
+                        <a href="panier.php?supprimer=<?php echo $produit; ?>">
+                            <button class="bouttonclassique">Supprimer</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <?php
+            }
+            if($produit == "chirashiAvocat"){
+            ?>
+            <div class="controlBox">
+                <div class="box">
+                    <img src="Img/Imagesmenu/chirashiAvocat.jpg" alt="Image du Supreme Ronaldo" class="imgBox">
+                    <div class="contenuBox">
+                        <h2>Chirashi avocat</h2>
+                        <p>Notre plat de chirashi revisité avec des avocats</p>
+                        <p>Riz vinaigré, saumon, avocat, concombre, graines de sésame, sauce soja</p>
+                    </div>
+                    <div class="basBox">
+                        <span id="prix">Prix : <?php echo 18*$quantite; ?>€</span>
+                        <a href="panier.php?supprimer=<?php echo $produit; ?>">
+                            <button class="bouttonclassique">Supprimer</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <?php
+            }
+            if($produit == "grosSushi"){
+            ?>
+            <div class="controlBox">
+                <div class="box">
+                    <img src="Img/Imagesmenu/grosSushi.jpg" alt="Image du Supreme Ronaldo" class="imgBox">
+                    <div class="contenuBox">
+                        <h2>Assiette de sushi</h2>
+                        <p>Notre belle assiette de sushi complète avec plusieurs variétés de poissons</p>
+                        <p>Riz vinaigré, saumon, thon, crevette, avocat, algue nori, fromage frais, concombre</p>
+                    </div>
+                    <div class="basBox">
+                        <span id="prix">Prix : <?php echo 21*$quantite; ?>€</span>
+                        <a href="panier.php?supprimer=<?php echo $produit; ?>">
+                            <button class="bouttonclassique">Supprimer</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <?php
+            }
+            if($produit == "pokeBowl"){
+            ?>
+            <div class="controlBox">
+                <div class="box">
+                    <img src="Img/Imagesmenu/pokeBowl.jpg" alt="Image du Supreme Ronaldo" class="imgBox">
+                    <div class="contenuBox">
+                        <h2>Poke GOAL</h2>
+                        <p>Notre poke (bowl) ball jouée (presque) officiellement par Ronaldo</p>
+                        <p>Riz, saumon cru, avocat, concombre, carotte, graines de sésame, sauce soja, mangue</p>
+                    </div>
+                    <div class="basBox">
+                        <span id="prix">Prix : <?php echo 15*$quantite; ?>€</span>
+                        <a href="panier.php?supprimer=<?php echo $produit; ?>">
+                            <button class="bouttonclassique">Supprimer</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <?php
+            }
+            if($produit == "bobun"){
+            ?>
+            <div class="controlBox">
+                <div class="box">
+                    <img src="Img/Imagesmenu/bobun.jpg" alt="Image du Supreme Ronaldo" class="imgBox">
+                    <div class="contenuBox">
+                        <h2>Ballbun</h2>
+                        <p>Notre Bobun au poulet et au nems végétariens</p>
+                        <p>Vermicelles de riz, boeuf sauté, nems, carotte, concombre, salade, menthe, cacahuètes, sauce
+                            nuoc-mâm</p>
+                    </div>
+                    <div class="basBox">
+                        <span id="prix">Prix : <?php echo 12*$quantite; ?>€</span>
+                        <a href="panier.php?supprimer=<?php echo $produit; ?>">
+                            <button class="bouttonclassique">Supprimer</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <?php
+            }
+            if($produit == "mochiNutella"){
+            ?>
+            <div class="controlBox">
+                <div class="box">
+                    <img src="Img/Imagesmenu/mochinutella.png" alt="Image du Supreme Ronaldo" class="imgBox">
+                    <div class="contenuBox">
+                        <h2>mochi au nutella</h2>
+                        <p>Notre mocchi nutella au coeur glacé</p>
+                        <p>Pâte de riz gluant, Nutella, sucre, eau</p>
+                    </div>
+                    <div class="basBox">
+                        <span id="prix">Prix : <?php echo 5*$quantite; ?>€</span>
+                        <a href="panier.php?supprimer=<?php echo $produit; ?>">
+                            <button class="bouttonclassique">Supprimer</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <?php
+            }
+            if($produit == "mochiCoco"){
+            ?>
+            <div class="controlBox">
+                <div class="box">
+                    <img src="Img/Imagesmenu/mochisCoco.jpg" alt="Image du Supreme Ronaldo" class="imgBox">
+                    <div class="contenuBox">
+                        <h2>Mochi coco</h2>
+                        <p>Notre mochi coco au coeur glacé</p>
+                        <p>Pâte de riz gluant, noix de coco, sucre, lait de coco</p>
+                    </div>
+                    <div class="basBox">
+                        <span id="prix">Prix : <?php echo 5*$quantite; ?>€</span>
+                        <a href="panier.php?supprimer=<?php echo $produit; ?>">
+                            <button class="bouttonclassique">Supprimer</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <?php
+            }
+            if($produit == "cheesecake"){
+            ?>
+            <div class="controlBox">
+                <div class="box">
+                    <img src="Img/Imagesmenu/cheesecake.jpg" alt="Image du Supreme Ronaldo" class="imgBox">
+                    <div class="contenuBox">
+                        <h2>Cheesecake japonais</h2>
+                        <p>Notre cheesecake japonais moelleux à souhait</p>
+                        <p>Fromage frais, oeufs, sucre, lait, farine, beurre, vanille</P>
+                    </div>
+                    <div class="basBox">
+                        <span id="prix">Prix : <?php echo 7*$quantite; ?>€</span>
+                        <a href="panier.php?supprimer=<?php echo $produit; ?>">
+                            <button class="bouttonclassique">Supprimer</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <?php
+            }
+            if($produit == "perlesCoco"){
+            ?>
+            <div class="controlBox">
+                <div class="box">
+                    <img src="Img/Imagesmenu/perlesCoco.jpg" alt="Image du Supreme Ronaldo" class="imgBox">
+                    <div class="contenuBox">
+                        <h2>Perles coco</h2>
+                        <p>Nos perles coco faites mains</p>
+                        <p>Farine de riz gluant, noix de coco râpée, sucre, haricot mungo, lait de coco</p>
+                    </div>
+                    <div class="basBox">
+                        <span id="prix">Prix : <?php echo 5*$quantite; ?>€</span>
+                        <a href="panier.php?supprimer=<?php echo $produit; ?>">
+                            <button class="bouttonclassique">Supprimer</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <?php
+            }
+            if($produit == "sake"){
+            ?>
+            <div class="controlBox">
+                <div class="box">
+                    <img src="Img/Imagesmenu/sake.jpg" alt="Image du Supreme Ronaldo" class="imgBox">
+                    <div class="contenuBox">
+                        <h2>Verre de sake</h2>
+                        <p>Un verre de sake traditionnel</p>
+                        <p>Riz fermenté, eau, koji, levure</p>
+                    </div>
+                    <div class="basBox">
+                        <span id="prix">Prix : <?php echo 6*$quantite; ?>€</span>
+                        <a href="panier.php?supprimer=<?php echo $produit; ?>">
+                            <button class="bouttonclassique">Supprimer</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <?php
         }
     }
 }
