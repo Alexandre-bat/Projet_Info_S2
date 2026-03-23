@@ -1,0 +1,138 @@
+[
+  {
+    "id": "gyoza",
+    "nom": "Bol de Gyoza",
+    "prix": 9,
+    "description": "Notre bol de gyoza fait maison",
+    "ingredients": "Porc haché, chou chinois, ail, gingembre, sauce soja, huile de sésame, pâte à gyoza",
+    "categorie": "entree"
+  },
+  {
+    "id": "rolls",
+    "nom": "Rona-roll-do",
+    "prix": 10,
+    "description": "Nos rolls signatures",
+    "ingredients": "Riz vinaigré, algue nori, saumon, thon, avocat, concombre, fromage frais",
+    "categorie": "entree"
+  },
+  {
+    "id": "sashimi",
+    "nom": "Bol de Siuuushimi",
+    "prix": 12,
+    "description": "Notre bol de sashimi préparer à la main",
+    "ingredients": "Saumon cru, thon cru, daurade, sauce soja, wasabi, gingembre mariné",
+    "categorie": "entree"
+  },
+  {
+    "id": "petitsSushi",
+    "nom": "Assortiment de delicieux Siuuushi",
+    "prix": 10,
+    "description": "Un assortiment de nos meilleurs sushis préparés par le chef en personne",
+    "ingredients": "Riz vinaigré, saumon, thon, crevette, avocat, algue nori, fromage frais, concombre",
+    "categorie": "entree"
+  },
+  {
+    "id": "maki",
+    "nom": "Notre Ball (bol) de Maki et sa sauce",
+    "prix": 9,
+    "description": "Notre bol de maki à déguster en famille ou entre amis",
+    "ingredients": "Riz vinaigré, algue nori, saumon, thon, avocat, concombre, fromage frais",
+    "categorie": "entree"
+  },
+  {
+    "id": "brochettes",
+    "nom": "Panenka (brochette) de boeuf",
+    "prix": 11,
+    "description": "Un ensemble de brochettes de boeuf cuites à la perfection",
+    "ingredients": "Boeuf, fromage, sauce teriyaki, sucre, sauce soja, mirin",
+    "categorie": "entree"
+  },
+  {
+    "id": "supremeRonaldo",
+    "nom": "Supreme ronaldo",
+    "prix": 67,
+    "description": "Le plat ultime de ronaldo à partager",
+    "ingredients": "Riz vinaigré, saumon, thon, avocat, concombre, algue nori, fromage frais, crevette",
+    "categorie": "plat"
+  },
+  {
+    "id": "chirashi",
+    "nom": "Chirashi",
+    "prix": 17,
+    "description": "Notre plat de chirashi fait maison",
+    "ingredients": "Riz vinaigré, saumon, thon, concombre, graines de sésame, sauce soja",
+    "categorie": "plat"
+  },
+  {
+    "id": "chirashiAvocat",
+    "nom": "Chirashi avocat",
+    "prix": 18,
+    "description": "Notre plat de chirashi revisité avec des avocats",
+    "ingredients": "Riz vinaigré, saumon, avocat, concombre, graines de sésame, sauce soja",
+    "categorie": "plat"
+  },
+  {
+    "id": "grosSushi",
+    "nom": "Assiette de sushi",
+    "prix": 21,
+    "description": "Notre belle assiette de sushi complète avec plusieurs variétés de poissons",
+    "ingredients": "Riz vinaigré, saumon, thon, crevette, avocat, algue nori, fromage frais, concombre",
+    "categorie": "plat"
+  },
+  {
+    "id": "pokeBowl",
+    "nom": "Poke GOAL",
+    "prix": 15,
+    "description": "Notre poke (bowl) ball jouée (presque) officiellement par Ronaldo",
+    "ingredients": "Riz, saumon cru, avocat, concombre, carotte, graines de sésame, sauce soja, mangue",
+    "categorie": "plat"
+  },
+  {
+    "id": "bobun",
+    "nom": "Ballbun",
+    "prix": 12,
+    "description": "Notre Bobun au poulet et au nems végétariens",
+    "ingredients": "Vermicelles de riz, boeuf sauté, nems, carotte, concombre, salade, menthe, cacahuètes, sauce nuoc-mâm",
+    "categorie": "plat"
+  },
+  {
+    "id": "mochiNutella",
+    "nom": "mochi au nutella",
+    "prix": 5,
+    "description": "Notre mocchi nutella au coeur glacé",
+    "ingredients": "Pâte de riz gluant, Nutella, sucre, eau",
+    "categorie": "dessert"
+  },
+  {
+    "id": "mochiCoco",
+    "nom": "Mochi coco",
+    "prix": 5,
+    "description": "Notre mochi coco au coeur glacé",
+    "ingredients": "Pâte de riz gluant, noix de coco, sucre, lait de coco",
+    "categorie": "dessert"
+  },
+  {
+    "id": "cheesecake",
+    "nom": "Cheesecake japonais",
+    "prix": 7,
+    "description": "Notre cheesecake japonais moelleux à souhait",
+    "ingredients": "Fromage frais, oeufs, sucre, lait, farine, beurre, vanille",
+    "categorie": "dessert"
+  },
+  {
+    "id": "perlesCoco",
+    "nom": "Perles coco",
+    "prix": 5,
+    "description": "Nos perles coco faites mains",
+    "ingredients": "Farine de riz gluant, noix de coco râpée, sucre, haricot mungo, lait de coco",
+    "categorie": "dessert"
+  },
+  {
+    "id": "sake",
+    "nom": "Verre de sake",
+    "prix": 6,
+    "description": "Un verre de sake traditionnel",
+    "ingredients": "Riz fermenté, eau, koji, levure",
+    "categorie": "dessert"
+  }
+]
