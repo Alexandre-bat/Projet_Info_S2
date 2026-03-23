@@ -1,6 +1,3 @@
-<!DOCTYPE html>
-<html>
-
 <?php
 session_start();
 
@@ -20,6 +17,9 @@ if(isset($_GET['supprimer'])){
     exit();
 }
 ?>
+
+<!DOCTYPE html>
+<html>
 
 <head>
     <title>SIUUSHI - MENU</title>

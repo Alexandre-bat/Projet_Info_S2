@@ -1,9 +1,16 @@
+<?php
+session_start();
+
+if(isset($_GET['deco'])) {
+    session_destroy();
+    header("Location: Accueil.php");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html>
 
-<?php session_start();?>
-<?php if(isset($_GET['deco'])) {session_destroy(); header("Location: Accueil.php");  }
-?>
 <body id="accueilBody">
 
     <head>
@@ -21,11 +28,11 @@
         </div>
 
         <div class="nav2">
-    <a href="Admin.html">Admin</a>
-    <a href="Commandes.html">Commandes</a>
-    <a href="Livraison.html">Livraison</a>
-    <a href="Notation.html">Notation</a>
-    <a href="Menu.html">Carte</a>
+    <a href="Admin.php">Admin</a>
+    <a href="Commandes.php">Commandes</a>
+    <a href="Livraison.php">Livraison</a>
+    <a href="Notation.php">Notation</a>
+    <a href="Menu.php">Carte</a>
     
     <?php 
 if(isset($_SESSION['nom']) && isset($_SESSION['prenom'])) {
