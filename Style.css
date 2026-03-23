@@ -16,6 +16,10 @@ main {
     flex: 1;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 .boutons {
     width: 100%;
     padding: 12px;
@@ -708,6 +712,8 @@ footer {
 
 .bouttonclassique {
     margin-top: 6px;
+    margin-bottom: 5px;
+    margin-right: 5px;
     padding: 10px 30px;
     border-radius: 20px;
     border: none;
@@ -745,21 +751,16 @@ span~button {
 /* Notation */
 
 .blocnotation {
-    border-radius: 20px;
+     border-radius: 20px;
     background-color: rgba(180, 60, 60, 0.8);
     border: 4px double rgba(255, 99, 99, 0.8);
     padding: 20px;
-    height: 60%;
-    width: 60%;
     color: white;
     display: flex;
     width: 70%;
-    min-height: 100vh;
-    margin: 0;
+    margin: 100px auto 30px auto;
     justify-content: center;
-    margin: auto;
-    margin-top: 100px;
-    margin-bottom: 30px;
+    box-sizing: border-box;
 }
 
 .blocGaucheNotation {
@@ -819,6 +820,7 @@ span~button {
     width: 60%;
     margin: auto;
     margin-bottom: 50px;
+    box-sizing: border-box;
 }
 
 /* Profil */
@@ -828,17 +830,12 @@ span~button {
     background-color: rgba(180, 60, 60, 0.8);
     border: 4px double rgba(255, 99, 99, 0.8);
     padding: 20px;
-    height: 60%;
-    width: 60%;
     color: white;
     display: flex;
     flex-direction: column;
-    width: 50%;
-    min-height: 100vh;
-    margin: 0;
-    margin: auto;
-    margin-top: 100px;
-    margin-bottom: 30px;
+    width: 70%;
+    margin: 100px auto 30px auto;
+    box-sizing: border-box;
 }
 
 .infoPerso {
