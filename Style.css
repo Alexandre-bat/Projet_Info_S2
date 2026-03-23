@@ -119,6 +119,11 @@ button:hover {
     margin-right: 8px;
 }
 
+#logoPanier {
+    width: 30px;
+    height: 25px;
+}
+
 /* FOOTER */
 footer {
     margin-top: auto;
