@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html>
 
+<?php
+session_start();
+
+$nbr = 0;
+
+if(isset($_SESSION['panier'])){
+    $nbr = count($_SESSION['panier']);
+}
+?>
+
 <head>
     <title>SIUUSHI - MENU</title>
     <link rel="icon" href="Img/logo.png" type="image/png">
@@ -24,6 +34,9 @@
             <a href="Connexion.php">Connexion</a>
             <a href="Inscription.php">Inscription</a>
             <a href="Profil.php">Profil</a>
+            <a href="panier.php">
+                <img src="Img/panier.png" alt="Panier" id="logoPanier"><?php echo $nbr;?>
+            </a>
         </div>
     </div>
     <video autoplay muted loop playsinline class="video-bg">
@@ -89,7 +102,9 @@
                     </div>
                     <div class="basBox">
                         <span id="prix">Prix : 12€</span>
-                        <button class="bouttonclassique">Commander</button>
+                        <a href="panier.php?produit=sashimi">
+                            <button class="bouttonclassique">Commander</button>
+                        </a>
                     </div>
                 </div>
                 <div class="box">
@@ -101,7 +116,9 @@
                     </div>
                     <div class="basBox">
                         <span id="prix">Prix : 10€</span>
-                        <button class="bouttonclassique">Commander</button>
+                        <a href="panier.php?produit=petitsSushi">
+                            <button class="bouttonclassique">Commander</button>
+                        </a>
                     </div>
                 </div>
                 <div class="box">
@@ -113,7 +130,9 @@
                     </div>
                     <div class="basBox">
                         <span id="prix">Prix : 9€</span>
-                        <button class="bouttonclassique">Commander</button>
+                        <a href="panier.php?produit=maki">
+                            <button class="bouttonclassique">Commander</button>
+                        </a>
                     </div>
                 </div>
                 <div class="box">
@@ -125,7 +144,9 @@
                     </div>
                     <div class="basBox">
                         <span id="prix">Prix : 11€</span>
-                        <button class="bouttonclassique">Commander</button>
+                        <a href="panier.php?produit=brochettes">
+                            <button class="bouttonclassique">Commander</button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -144,7 +165,9 @@
                     </div>
                     <div class="basBox">
                         <span id="prix">Prix : 67€</span>
-                        <button class="bouttonclassique">Commander</button>
+                        <a href="panier.php?produit=supremeRonaldo">
+                            <button class="bouttonclassique">Commander</button>
+                        </a>
                     </div>
                 </div>
                 <div class="box">
@@ -156,7 +179,9 @@
                     </div>
                     <div class="basBox">
                         <span id="prix">Prix : 17€</span>
-                        <button class="bouttonclassique">Commander</button>
+                        <a href="panier.php?produit=chirashi">
+                            <button class="bouttonclassique">Commander</button>
+                        </a>
                     </div>
                 </div>
                 <div class="box">
@@ -168,7 +193,9 @@
                     </div>
                     <div class="basBox">
                         <span id="prix">Prix : 18€</span>
-                        <button class="bouttonclassique">Commander</button>
+                        <a href="panier.php?produit=chirashiAvocat">
+                            <button class="bouttonclassique">Commander</button>
+                        </a>
                     </div>
                 </div>
                 <div class="box">
@@ -180,7 +207,9 @@
                     </div>
                     <div class="basBox">
                         <span id="prix">Prix : 21€</span>
-                        <button class="bouttonclassique">Commander</button>
+                        <a href="panier.php?produit=grosSushi">
+                            <button class="bouttonclassique">Commander</button>
+                        </a>
                     </div>
                 </div>
                 <div class="box">
@@ -192,7 +221,9 @@
                     </div>
                     <div class="basBox">
                         <span id="prix">Prix : 15€</span>
-                        <button class="bouttonclassique">Commander</button>
+                        <a href="panier.php?produit=pokeBowl">
+                            <button class="bouttonclassique">Commander</button>
+                        </a>
                     </div>
                 </div>
                 <div class="box">
@@ -205,7 +236,9 @@
                     </div>
                     <div class="basBox">
                         <span id="prix">Prix : 12€</span>
-                        <button class="bouttonclassique">Commander</button>
+                        <a href="panier.php?produit=bobun">
+                            <button class="bouttonclassique">Commander</button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -224,7 +257,9 @@
                     </div>
                     <div class="basBox">
                         <span id="prix">Prix : 5€</span>
-                        <button class="bouttonclassique">Commander</button>
+                        <a href="panier.php?produit=mochiNutella">
+                            <button class="bouttonclassique">Commander</button>
+                        </a>
                     </div>
                 </div>
                 <div class="box">
@@ -236,7 +271,9 @@
                     </div>
                     <div class="basBox">
                         <span id="prix">Prix : 5€</span>
-                        <button class="bouttonclassique">Commander</button>
+                        <a href="panier.php?produit=mochiCoco">
+                            <button class="bouttonclassique">Commander</button>
+                        </a>
                     </div>
                 </div>
                 <div class="box">
@@ -248,7 +285,9 @@
                     </div>
                     <div class="basBox">
                         <span id="prix">Prix : 7€</span>
-                        <button class="bouttonclassique">Commander</button>
+                        <a href="panier.php?produit=cheesecake">
+                            <button class="bouttonclassique">Commander</button>
+                        </a>
                     </div>
                 </div>
                 <div class="box">
@@ -260,7 +299,9 @@
                     </div>
                     <div class="basBox">
                         <span id="prix">Prix : 5€</span>
-                        <button class="bouttonclassique">Commander</button>
+                        <a href="panier.php?produit=perlesCoco">
+                            <button class="bouttonclassique">Commander</button>
+                        </a>
                     </div>
                 </div>
                 <div class="box">
@@ -272,7 +313,9 @@
                     </div>
                     <div class="basBox">
                         <span id="prix">Prix : 6€</span>
-                        <button class="bouttonclassique">Commander</button>
+                        <a href="panier.php?produit=sake">
+                            <button class="bouttonclassique">Commander</button>
+                        </a>
                     </div>
                 </div>
             </div>
