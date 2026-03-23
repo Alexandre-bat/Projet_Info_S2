@@ -33,7 +33,9 @@ function traiter_fichier($fichier){
         "prenom" => $f_name,
         "nom" => $l_name,
         "tel" => $contact,
-        "mdp" => $security
+        "mdp" => $security,
+        "role" => "client",
+        "inscription" => date("Y-m-d H:i:s")
     ];
 
     file_put_contents($fichier, json_encode($data, JSON_PRETTY_PRINT));
