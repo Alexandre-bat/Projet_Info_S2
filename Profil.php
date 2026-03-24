@@ -1,4 +1,13 @@
-<?php session_start();?>
+<?php
+session_start();
+
+if(isset($_GET['deco'])) {
+    session_destroy();
+    header("Location: Accueil.php");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 

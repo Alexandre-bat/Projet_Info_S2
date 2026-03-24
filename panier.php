@@ -1,6 +1,12 @@
 <?php
 session_start();
 
+if(isset($_GET['deco'])) {
+    session_destroy();
+    header("Location: Accueil.php");
+    exit();
+}
+
 if(isset($_GET['produit'])){
     $_SESSION['panier'][] = $_GET['produit'];
     header("Location: panier.php");
