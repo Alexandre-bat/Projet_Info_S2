@@ -102,18 +102,18 @@
 
     <div class="fauxAvis">
         <h2>Avis de nos clients</h2>
-        <div class="avis">
-            <div class="avis-item">
+        <div>
+            <div>
                 <p><strong>Anonyme</strong></p>
                 <p>⭐⭐⭐⭐⭐</p>
                 <p>Excellent restaurant ! Les plats sont délicieux et le service est impeccable.</p>
             </div>
-            <div class="avis-item">
+            <div>
                 <p><strong>Anonyme</strong></p>
                 <p>⭐⭐⭐⭐</p>
                 <p>Très bon rapport qualité-prix. J'ai adoré la variété du menu.</p>
             </div>
-            <div class="avis-item">
+            <div>
                 <p><strong>Anonyme</strong></p>
                 <p>⭐</p>
                 <p>J'ai commandé Ronaldo il est jamais arrivé chez moi. Bref je déconseille vivement ce restaurant.</p>
