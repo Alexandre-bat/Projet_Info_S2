@@ -35,7 +35,7 @@ $produits = json_decode($json, true);
                 } else {
                     echo '<a href="Connexion.php">Connexion</a>';
                     echo '<a href="Inscription.php">Inscription</a>';
-                    
+
                 }
             ?>
         </div>
@@ -46,7 +46,7 @@ $produits = json_decode($json, true);
     </video>
     <main>
         <div class="blocTitre">
-            <h1 class="grandTitre">Menu</h1>
+            <h1 class="grandTitre">Carte</h1>
         </div>
         <div class="blocRecherche">
             <h2 class="moyenTitre">Recherche</h2>
@@ -59,6 +59,32 @@ $produits = json_decode($json, true);
                 <button class="bouttonclassique">Entrées</button>
                 <button class="bouttonclassique">Desserts</button>
                 <button class="bouttonclassique">Allergènes</button>
+            </div>
+        </div>
+        <div class="blocMenu">
+            <div class="titreMenu">
+                <h1>Menus</h1>
+            </div>
+            <div class="controlBox">
+                <?php foreach($produits as $p){
+                    if($p['categorie'] == "menu"){
+                ?>
+                <div class="box">
+                    <img src="Img/Imagesmenu/<?php echo $p['img']; ?>" alt="<?php echo $p['nom']; ?>" class="imgBox">
+                    <div class="contenuBox">
+                        <h2><?php echo $p['nom']; ?></h2>
+                        <p><?php echo $p['description']; ?></p>
+                        <p><?php echo $p['personnes_min']; ?> personnes minimum</p>
+                        <p><?php echo $p['plats'][0] . " | " . $p['plats'][1] . " | " . $p['plats'][2]; ?></p>
+                    </div>
+                    <div class="basBox">
+                        <span id="prix">Prix : <?php echo $p['prix']; ?>€</span>
+                        <a href="panier.php?produit=<?php echo $p['id']; ?>">
+                            <button class="bouttonclassique">Commander</button>
+                        </a>
+                    </div>
+                </div>
+                <?php }} ?>
             </div>
         </div>
         <div class="blocMenu">

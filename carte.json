@@ -53,6 +53,11 @@
     "categorie": "entree",
     "img": "brochettes.jpg"
   },
+
+
+
+
+
   {
     "id": "supremeRonaldo",
     "nom": "Supreme ronaldo",
@@ -109,6 +114,11 @@
     "categorie": "plat",
     "img": "bobun.jpg"
   },
+
+
+
+
+
   {
     "id": "mochiNutella",
     "nom": "mochi au nutella",
@@ -153,5 +163,42 @@
     "ingredients": "Riz fermenté, eau, koji, levure",
     "categorie": "dessert",
     "img": "sake.jpg"
+  },
+
+
+
+
+
+  {
+  "id": "menuMidi",
+  "nom": "Menu Midi Express",
+  "description": "Un menu rapide pour le midi",
+  "categorie": "menu",
+  "prix": 25,
+  "plats": ["gyoza", "chirashi", "mochiCoco"],
+  "personnes_min": 1,
+  "img": "menuMidi.png"
+  },
+  {
+  "id": "menuDuo",
+  "nom": "Menu Duo Ronaldo",
+  "description": "Un menu à partager à deux",
+  "categorie": "menu",
+  "prix": 30,
+  "plats": ["maki", "pokeBowl", "mochiNutella"],
+  "personnes_min": 2,
+  "img": "menuDuo.png"
+
+  },
+  {
+    "id": "menuUltime",
+    "nom": "Menu Ultime Ronaldo",
+    "description": "Le menu ultime de Ronaldo",
+    "categorie": "menu",
+    "prix": 70,
+    "plats": ["supremeRonaldo", "grosSushi", "cheesecake"],
+    "personnes_min": 3,
+    "img": "menuUltime.png"
+
   }
 ]
