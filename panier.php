@@ -1,29 +1,4 @@
-<?php
-session_start();
-
-if(isset($_GET['deco'])) {
-    session_destroy();
-    header("Location: Accueil.php");
-    exit();
-}
-
-if(isset($_GET['produit'])){
-    $_SESSION['panier'][] = $_GET['produit'];
-    header("Location: panier.php");
-    exit();
-}
-
-if(isset($_GET['supprimer'])){
-    $produit = $_GET['supprimer'];
-    if(($rechercheIndex = array_search($produit, $_SESSION['panier'])) !== false){
-        unset($_SESSION['panier'][$rechercheIndex]);
-    }
-    $_SESSION['panier'] = array_values($_SESSION['panier']);
-    header("Location: panier.php");
-    exit();
-}
-?>
-
+<?php include("start.php"); ?>
 <!DOCTYPE html>
 <html>
 

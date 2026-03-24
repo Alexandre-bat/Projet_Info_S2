@@ -1,13 +1,4 @@
-<?php
-session_start();
-
-if(isset($_GET['deco'])) {
-    session_destroy();
-    header("Location: Accueil.php");
-    exit();
-}
-?>
-
+<?php include("start.php"); ?>
 <!DOCTYPE html>
 <html>
 
@@ -28,16 +19,19 @@ if(isset($_GET['deco'])) {
         </div>
 
         <div class="nav2">
-            <a href="Admin.php">Admin</a>
+            <?php
+                if($role === "admin") {
+                    echo '<a href="Admin.php">Admin</a>';
+                }
+            ?>
             <a href="Commandes.php">Commandes</a>
             <a href="Livraison.php">Livraison</a>
             <a href="Notation.php">Notation</a>
             <a href="Menu.php">Carte</a>
-            
             <?php 
                 if(isset($_SESSION['nom']) && isset($_SESSION['prenom'])) {
                     echo '<a href="Profil.php">' . $_SESSION['nom'] . ' ' . $_SESSION['prenom'] . ' '. '<img src="Img/profil.png" alt="Logo" class="profil_nav">' .'</a>';
-                    echo '<a href=Accueil.php?deco=1>Déconnexion</a>';
+                    echo '<a href="Accueil.php?deco=1">Déconnexion</a>';
                 } else {
                     echo '<a href="Connexion.php">Connexion</a>';
                     echo '<a href="Inscription.php">Inscription</a>';
@@ -87,7 +81,7 @@ if(isset($_GET['deco'])) {
             Les plats que nous proposons à la carte de notre restaurant japonais privilégient les produits de saison et
             sont préparés sans altérer le goût naturel des aliments. Cela donne une cuisine légère et saine qui concilie
             naturellement plaisir, diététique, simplicité, sophistication et esthétique.
-
+        </p>
     </div>
 
 

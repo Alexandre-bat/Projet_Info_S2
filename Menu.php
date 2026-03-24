@@ -1,13 +1,4 @@
-<?php
-session_start();
-
-$nbr = 0;
-
-if(isset($_SESSION['panier'])){
-    $nbr = count($_SESSION['panier']);
-}
-?>
-
+<?php include("start.php"); ?>
 <!DOCTYPE html>
 <html>
 
