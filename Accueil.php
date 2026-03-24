@@ -22,10 +22,15 @@
             <?php
                 if($role === "admin") {
                     echo '<a href="Admin.php">Admin</a>';
+                    echo '<a href="Livraison.php">Livraison</a>';
                 }
             ?>
             <a href="Commandes.php">Commandes</a>
-            <a href="Livraison.php">Livraison</a>
+            <?php
+                if($role === "Livreur") {
+                    echo '<a href="Livraison.php">Livraison</a>';
+                }
+            ?>
             <a href="Notation.php">Notation</a>
             <a href="Menu.php">Carte</a>
             <?php 

@@ -49,31 +49,9 @@
             <p>Gérez les utilisateurs et leurs permissions</p>
         </div>
         <div class="adminGestion">
-            <div class="admin_who">
-                <h2 class="write">Ronaldo Cristiano</h2>
-                <form id="perms" action="Profil.php" method="get">
-                    <label class="perm-label">PERM</label>
-                    <select class="perm-select">
-                        <option value="Client">Client</option>
-                        <option value="Livreur">Livreur</option>
-                    </select>
-                </form>
-                <a href="Profil.php" class="adminProfil">PROFIL
-                </a>
-            </div>
 
-            <div class="admin_who">
-                <h2 class="write">Messi Lionel</h2>
-                <form id="perms" action="Profil.php" method="get">
-                    <label class="perm-label">PERM</label>
-                    <select class="perm-select">
-                        <option value="Client">Client</option>
-                        <option value="Livreur">Livreur</option>
-                    </select>
-                </form>
-                <a href="Profil.php" class="adminProfil">PROFIL
-                </a>
-            </div>
+            <?php montrer_utilisateurs("id.json"); ?>
+
         </div>
     </div>
 
