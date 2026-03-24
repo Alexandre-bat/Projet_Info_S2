@@ -12,8 +12,8 @@
     <div class="navbar">
         <div class="nav1">
             <a href="Accueil.php" class="menu">
-                <img src="Img/logo.png" alt="Logo" class="logo">
-                Accueil
+                <img src="Img/logo.png" alt="Logo" class="logo_nav">
+                SIUUSHI
             </a>
         </div>
 
@@ -23,8 +23,17 @@
             <a href="Livraison.php">Livraison</a>
             <a href="Notation.php">Notation</a>
             <a href="Menu.php">Carte</a>
-            <a href="Connexion.php">Connexion</a>
-            <a href="Profil.php">Profil</a>
+            
+            <?php 
+                if(isset($_SESSION['nom']) && isset($_SESSION['prenom'])) {
+                    echo '<a href="Profil.php">' . $_SESSION['nom'] . ' ' . $_SESSION['prenom'] . ' '. '<img src="Img/profil.png" alt="Logo" class="profil_nav">' .'</a>';
+                    echo '<a href=Accueil.php?deco=1>Déconnexion</a>';
+                } else {
+                    echo '<a href="Connexion.php">Connexion</a>';
+                    echo '<a href="Inscription.php">Inscription</a>';
+                    
+                }
+            ?>
         </div>
     </div>
 

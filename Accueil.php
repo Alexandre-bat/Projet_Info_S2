@@ -28,23 +28,23 @@ if(isset($_GET['deco'])) {
         </div>
 
         <div class="nav2">
-    <a href="Admin.php">Admin</a>
-    <a href="Commandes.php">Commandes</a>
-    <a href="Livraison.php">Livraison</a>
-    <a href="Notation.php">Notation</a>
-    <a href="Menu.php">Carte</a>
-    
-    <?php 
-if(isset($_SESSION['nom']) && isset($_SESSION['prenom'])) {
-    echo '<a href="Profil.php">' . $_SESSION['nom'] . ' ' . $_SESSION['prenom'] . ' '. '<img src="Img/profil.png" alt="Logo" class="profil_nav">' .'</a>';
-    echo '<a href=Accueil.php?deco=1>Déconnexion</a>';
-} else {
-    echo '<a href="Connexion.php">Connexion</a>';
-    echo '<a href="Inscription.php">Inscription</a>';
-    
-}
-?>
-</div>
+            <a href="Admin.php">Admin</a>
+            <a href="Commandes.php">Commandes</a>
+            <a href="Livraison.php">Livraison</a>
+            <a href="Notation.php">Notation</a>
+            <a href="Menu.php">Carte</a>
+            
+            <?php 
+                if(isset($_SESSION['nom']) && isset($_SESSION['prenom'])) {
+                    echo '<a href="Profil.php">' . $_SESSION['nom'] . ' ' . $_SESSION['prenom'] . ' '. '<img src="Img/profil.png" alt="Logo" class="profil_nav">' .'</a>';
+                    echo '<a href=Accueil.php?deco=1>Déconnexion</a>';
+                } else {
+                    echo '<a href="Connexion.php">Connexion</a>';
+                    echo '<a href="Inscription.php">Inscription</a>';
+                    
+                }
+            ?>
+        </div>
     </div>
 
 
