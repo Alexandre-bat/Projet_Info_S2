@@ -37,6 +37,15 @@ $produits = json_decode($json, true);
 
                 }
             ?>
+            <?php
+                $nbrsession = 0;
+                if(isset($_SESSION['panier'])){
+                    $nbrsession = count($_SESSION['panier']);
+                }
+            ?>
+            <a href="panier.php">
+                <img src="Img/panier.png" alt="Panier" id="logoPanier"><?php echo $nbrsession;?>
+            </a>
         </div>
     </div>
     <video autoplay muted loop playsinline class="video-bg">
@@ -78,9 +87,10 @@ $produits = json_decode($json, true);
                     </div>
                     <div class="basBox">
                         <span id="prix">Prix : <?php echo $p['prix']; ?>€</span>
-                        <a href="panier.php?produit=<?php echo $p['id']; ?>">
+                        <form action="panier.php" method="post">
+                            <input type="hidden" name="produit" value="<?php echo $p['id']; ?>">
                             <button class="bouttonclassique">Commander</button>
-                        </a>
+                    </form>
                     </div>
                 </div>
                 <?php }} ?>
@@ -103,9 +113,10 @@ $produits = json_decode($json, true);
                     </div>
                     <div class="basBox">
                         <span id="prix">Prix : <?php echo $p['prix']; ?>€</span>
-                        <a href="panier.php?produit=<?php echo $p['id']; ?>">
+                        <form action="panier.php" method="post">
+                            <input type="hidden" name="produit" value="<?php echo $p['id']; ?>">
                             <button class="bouttonclassique">Commander</button>
-                        </a>
+                        </form>
                     </div>
                 </div>
                 <?php }} ?>
@@ -128,9 +139,10 @@ $produits = json_decode($json, true);
                     </div>
                     <div class="basBox">
                         <span id="prix">Prix : <?php echo $p['prix']; ?>€</span>
-                        <a href="panier.php?produit=<?php echo $p['id']; ?>">
+                        <form action="panier.php" method="post">
+                            <input type="hidden" name="produit" value="<?php echo $p['id']; ?>">
                             <button class="bouttonclassique">Commander</button>
-                        </a>
+                        </form>
                     </div>
                 </div>
                 <?php }} ?>
@@ -153,9 +165,10 @@ $produits = json_decode($json, true);
                     </div>
                     <div class="basBox">
                         <span id="prix">Prix : <?php echo $p['prix']; ?>€</span>
-                        <a href="panier.php?produit=<?php echo $p['id']; ?>">
+                        <form action="panier.php" method="post">
+                            <input type="hidden" name="produit" value="<?php echo $p['id']; ?>">
                             <button class="bouttonclassique">Commander</button>
-                        </a>
+                        </form>
                     </div>
                 </div>
                 <?php }} ?>

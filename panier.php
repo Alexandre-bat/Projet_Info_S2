@@ -1,4 +1,5 @@
-<?php include("start.php"); 
+<?php
+include("start.php");
 $json = file_get_contents("carte.json");
 $produits = json_decode($json, true);
 
@@ -80,9 +81,10 @@ function getProduit($produits, $id){
                 </div>
                 <div class="basBox">
                     <span id="prix">Prix : <?php echo $prixTotal; ?>€</span>
-                    <a href="panier.php?supprimer=<?php echo $id; ?>">
+                    <form action="panier.php" method="post">
+                        <input type="hidden" name="supprimer" value="<?php echo $id; ?>">
                         <button class="bouttonclassique">Supprimer</button>
-                    </a>
+                    </form>
                 </div>
             </div>
             <?php
@@ -97,9 +99,10 @@ function getProduit($produits, $id){
                 </div>
                 <div class="basBox">
                     <span id="prix">Prix : <?php echo $prixTotal; ?>€</span>
-                    <a href="panier.php?supprimer=<?php echo $id; ?>">
+                    <form action="panier.php" method="post">
+                        <input type="hidden" name="supprimer" value="<?php echo $id; ?>">
                         <button class="bouttonclassique">Supprimer</button>
-                    </a>
+                    </form>
                 </div>
             </div>
         <?php
@@ -109,17 +112,19 @@ function getProduit($produits, $id){
         ?>
         </div>
         <div class="blocTotal">
-            <h2 style="text-align:center; color:white;">Total : <?php echo $total; ?>€</h2>
-            <a href="panier.php?supprimer=<?php echo $id; ?>">
+            <h2>Total : <?php echo $total; ?>€</h2>
+            <form action="panier.php" method="post">
+                <button class="bouttonclassique" name="vider">Vider le panier</button>
+            </form>
+            <form action="Payer.php" method="post">
                 <button class="bouttonclassique">Payer</button>
-            </a>
+            </form>
         </div>
         <?php
             } else {
-                echo "<p style='color:white; text-align:center;'>Votre panier est vide</p>";
+                echo "<p class='paniervide'>Votre panier est vide</p>";
             }
         ?>
-
     </div>
 </main>
                     

@@ -23,23 +23,29 @@ if(isset($_SESSION['nom']) && isset($_SESSION['prenom'])) {
 }
 
 $nbr = 0;
-
-if(isset($_SESSION['panier'])){
-    $nbr = count($_SESSION['panier']);
-}
-
-if(isset($_GET['produit'])){
-    $_SESSION['panier'][] = $_GET['produit'];
-    header("Location: panier.php");
+if(isset($_POST['produit'])){
+    $id = $_POST['produit'];
+    if(!isset($_SESSION['panier'])){
+        $_SESSION['panier'] = [];
+    }
+    $_SESSION['panier'][] = $id;
+    header("Location: Carte.php");
     exit();
 }
 
-if(isset($_GET['supprimer'])){
-    $produit = $_GET['supprimer'];
+if(isset($_POST['supprimer'])){
+    $produit = $_POST['supprimer'];
     if(($rechercheIndex = array_search($produit, $_SESSION['panier'])) !== false){
         unset($_SESSION['panier'][$rechercheIndex]);
     }
     $_SESSION['panier'] = array_values($_SESSION['panier']);
+    header("Location: Panier.php");
+    exit();
+}
+
+if(isset($_POST['vider'])){
+    unset($_SESSION['panier']); // supprime tout le panier
+
     header("Location: panier.php");
     exit();
 }

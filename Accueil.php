@@ -32,7 +32,7 @@
                 }
             ?>
             <a href="Notation.php">Notation</a>
-            <a href="Menu.php">Carte</a>
+            <a href="Carte.php">Carte</a>
             <?php 
                 if(isset($_SESSION['nom']) && isset($_SESSION['prenom'])) {
                     echo '<a href="Profil.php">' . $_SESSION['nom'] . ' ' . $_SESSION['prenom'] . ' '. '<img src="Img/profil.png" alt="Logo" class="profil_nav">' .'</a>';

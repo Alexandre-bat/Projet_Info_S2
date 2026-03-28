@@ -890,6 +890,12 @@ span~button {
     align-items: center;
 }
 
+.paniervide {
+    color: white;
+    text-align: center;
+    font-size: 18px;
+}
+
 .blocTotal h2 {
     justify-content: center;
     margin: auto;
@@ -899,3 +905,4 @@ span~button {
     justify-content: right;
     margin-left: auto;
 }
+
