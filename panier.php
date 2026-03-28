@@ -35,7 +35,7 @@ function getProduit($produits, $id){
             <a href="Commandes.php">Commandes</a>
             <a href="Livraison.php">Livraison</a>
             <a href="Notation.php">Notation</a>
-            <a href="Menu.php">Carte</a>
+            <a href="Carte.php">Carte</a>
             
             <?php 
                 if(isset($_SESSION['nom']) && isset($_SESSION['prenom'])) {

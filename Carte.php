@@ -26,7 +26,6 @@ $produits = json_decode($json, true);
             <a href="Commandes.php">Commandes</a>
             <a href="Livraison.php">Livraison</a>
             <a href="Notation.php">Notation</a>
-            <a href="Menu.php">Carte</a>
             
             <?php 
                 if(isset($_SESSION['nom']) && isset($_SESSION['prenom'])) {
