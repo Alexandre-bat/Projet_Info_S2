@@ -3,6 +3,12 @@
 $json = file_get_contents("carte.json");
 $produits = json_decode($json, true);
 ?>
+<?php
+$filtres = null;
+if(isset($_GET['filtres'])){
+    $filtres = $_GET['filtres'];
+}
+?>
 <!DOCTYPE html>
 <html>
 
@@ -63,12 +69,17 @@ $produits = json_decode($json, true);
                 <button id="rechercheBouton">Rechercher</button>
             </div>
             <div class="cadreBoutonFiltres">
-                <button class="bouttonclassique">Plats</button>
-                <button class="bouttonclassique">Entrées</button>
-                <button class="bouttonclassique">Desserts</button>
-                <button class="bouttonclassique">Allergènes</button>
+                <form method="get">
+                    <button class= bouttonclassique type="submit" name="filtres" value="menu">Menus</button>
+                    <button class= bouttonclassique type="submit" name="filtres" value="entree">Entrées</button>
+                    <button class= bouttonclassique type="submit" name="filtres" value="plat">Plats</button>
+                    <button class= bouttonclassique type="submit" name="filtres" value="dessert">Desserts</button>
+                    <button class= bouttonclassique type="submit" name="filtres" value="tous">Tous</button>
+                </form>
+                <button class= bouttonclassique id="allergènes">Allergènes</button>
             </div>
         </div>
+        <?php if($filtres == "menu" || !isset($filtres) || $filtres == "tous") { ?>
         <div class="blocMenu">
             <div class="titreMenu">
                 <h1>Menus</h1>
@@ -96,6 +107,9 @@ $produits = json_decode($json, true);
                 <?php }} ?>
             </div>
         </div>
+        <?php } 
+        if($filtres == "entree" || !isset($filtres) || $filtres == "tous") {
+        ?>
         <div class="blocMenu">
             <div class="titreMenu">
                 <h1>Entrées</h1>
@@ -122,6 +136,9 @@ $produits = json_decode($json, true);
                 <?php }} ?>
             </div>
         </div>
+        <?php } 
+        if($filtres == "plat" || !isset($filtres) || $filtres == "tous") {
+        ?>
         <div class="blocMenu">
             <div class="titreMenu">
                 <h3>Plats</h3>
@@ -148,6 +165,9 @@ $produits = json_decode($json, true);
                 <?php }} ?>
             </div>
         </div>
+        <?php } 
+        if($filtres == "dessert" || !isset($filtres) || $filtres == "tous") {
+        ?>
         <div class="blocMenu">
             <div class="titreMenu">
                 <h3>Desserts</h3>
@@ -174,6 +194,7 @@ $produits = json_decode($json, true);
                 <?php }} ?>
             </div>
         </div>
+        <?php } ?>
     </main>
 
     <!-- Pied de page -->
