@@ -3,7 +3,12 @@
 <html>
 
 <body id="accueilBody">
-
+    <head>
+        <title>SIUUSHI - Accueil</title>
+        <link rel="icon" href="Img/logo.png" type="image/png">
+        <link rel="stylesheet" type="text/css" href="Style.css">
+    </head>
+    <body>
     <?php include("Utilitaire/nav.php"); ?>
 
     <section class="blocImage">

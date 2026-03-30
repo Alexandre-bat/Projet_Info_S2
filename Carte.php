@@ -11,8 +11,14 @@ if(isset($_GET['filtres'])){
 ?>
 <!DOCTYPE html>
 <html>
+    <head>
+        <title>SIUUSHI - Accueil</title>
+        <link rel="icon" href="Img/logo.png" type="image/png">
+        <link rel="stylesheet" type="text/css" href="Style.css">
+    </head>
+    <body>
+    <?php include("Utilitaire/nav.php"); ?>
 
-<?php include("Utilitaire/nav.php"); ?>
     <main>
         <div class="blocTitre">
             <h1 class="grandTitre">Carte</h1>

@@ -1,5 +1,4 @@
-<?php
-include("start.php");
+<?php include("Utilitaire/start.php");
 $json = file_get_contents("carte.json");
 $produits = json_decode($json, true);
 
@@ -23,37 +22,9 @@ function getProduit($produits, $id){
 </head>
 
 <body>
-    <div class="navbar">
-        <div class="nav1">
-            <a href="Accueil.php" class="menu">
-                <img src="Img/logo.png" alt="Logo" class="logo_nav">
-                SIUUSHI
-            </a>
-        </div>
 
-        <div class="nav2">
-            <a href="Admin.php">Admin</a>
-            <a href="Commandes.php">Commandes</a>
-            <a href="Livraison.php">Livraison</a>
-            <a href="Notation.php">Notation</a>
-            <a href="Carte.php">Carte</a>
-            
-            <?php 
-                if(isset($_SESSION['nom']) && isset($_SESSION['prenom'])) {
-                    echo '<a href="Profil.php">' . $_SESSION['nom'] . ' ' . $_SESSION['prenom'] . ' '. '<img src="Img/profil.png" alt="Logo" class="profil_nav">' .'</a>';
-                    echo '<a href=Accueil.php?deco=1>Déconnexion</a>';
-                } else {
-                    echo '<a href="Connexion.php">Connexion</a>';
-                    echo '<a href="Inscription.php">Inscription</a>';
-                    
-                }
-            ?>
-        </div>
-    </div>
-    <video autoplay muted loop playsinline class="video-bg">
-        <source src="Img/fond.mp4" type="video/mp4">
-        Votre navigateur ne supporte pas la vidéo.
-    </video>
+    <?php include("Utilitaire/nav.php"); ?>
+
     <main>
     <div class="blocTitre">
         <div class="titreMenu">

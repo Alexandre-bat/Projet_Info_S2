@@ -1,9 +1,3 @@
-<head>
-        <title>SIUUSHI - Accueil</title>
-        <link rel="icon" href="Img/logo.png" type="image/png">
-        <link rel="stylesheet" type="text/css" href="Style.css">
-    </head>
-
     <div class="navbar">
         <div class="nav1">
             <a href="Accueil.php" class="menu">
