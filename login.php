@@ -40,7 +40,7 @@ foreach($data as $user){
 }
 
 if($trouve){
-    header("Location: Profil.php");
+    header("Location: Accueil.php");
     exit();
 }else{
     header("Location: Connexion.php?error=1");
