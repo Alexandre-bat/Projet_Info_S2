@@ -1,5 +1,17 @@
-<?php include("Utilitaire/start.php"); ?>
 <!DOCTYPE html>
+<?php
+
+if (isset($_POST['livre'])) {
+    header("Location: Livraison.php?Livre=1");
+    exit();
+}
+
+if (isset($_POST['abandone'])) {
+    header("Location: Livraison.php?Abandon=1");
+    exit();
+}
+
+?>
 <html lang="fr">
 
 <head>
@@ -32,8 +44,17 @@
                 </a>
             </div>
         </div>
+    <div class="validation">
+        <form method="post" action="Livraison.php">
+            <button class="bouttonclassique" type="submit" name="livre" value="1">
+                Commande Livrée
+            </button>
+            <button class="bouttonclassique" type="submit" name="abandone" value="1">
+                Abandonner la Commande
+            </button>
+        </form>
+    </div>
 </div>
-
     <footer>
         <div class="f-container">
             <div class="f-section">
