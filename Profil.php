@@ -1,4 +1,26 @@
-<?php include("Utilitaire/start.php"); ?>
+<?php 
+    include("Utilitaire/start.php"); 
+    
+    if (isset($_GET["nom"]) && isset($_GET["prenom"]) && $role === "admin") {
+        $nomCible    = $_GET["nom"];
+        $prenomCible = $_GET["prenom"];
+    } else {
+        $nomCible    = $_SESSION["nom"]    ?? null;
+        $prenomCible = $_SESSION["prenom"] ?? null;
+    }
+
+    $profilUser = null;
+    if ($nomCible && $prenomCible) {
+        $json  = file_get_contents("id.json");
+        $users = json_decode($json, true);
+        foreach ($users as $user) {
+            if ($user["nom"] === $nomCible && $user["prenom"] === $prenomCible) {
+                $profilUser = $user;
+                break;
+            }
+        }
+    }
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -22,10 +44,10 @@
                     <input type="image" src="Img/crayon.png" alt="crayon pour modifier" class="crayon">
                 </form>
             </div>
-            <p>Nom : <?php echo $_SESSION['nom']; ?></p>
-            <p>Prénom : <?php echo $_SESSION['prenom']; ?></p>
-            <p>Adresse : <?php echo $_SESSION['adresse']; ?></p>
-            <p>Téléphone : <?php echo $_SESSION['telephone']; ?></p>
+            <p>Nom : <?php echo htmlspecialchars($profilUser["nom"]); ?></p>
+            <p>Prénom : <?php echo htmlspecialchars($profilUser["prenom"]); ?></p>
+            <p>Adresse : <?php echo htmlspecialchars($profilUser["adresse"] ?? "Non renseignée"); ?></p>
+            <p>Téléphone : <?php echo htmlspecialchars($profilUser["tel"] ?? "Non renseigné"); ?></p>
         </div>
         <div class="histoCommandes">
             <div class="commandesProfil">
