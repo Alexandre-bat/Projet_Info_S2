@@ -100,8 +100,7 @@ button:hover {
     font-weight: bold;
     border-radius: 15px;
     background-color: rgb(223, 71, 71);
-    max-width: 150px;
-    min-height: 25px;
+    min-height: 20px;
     padding: 8px 15px;
     transition: 0.3s ease;
 }
@@ -551,6 +550,11 @@ footer {
 .info h3 {
     color: black;
     font-weight: 500;
+}
+
+.validation{
+    margin-top: 20px;
+    scale: 120%
 }
 
 .adresse {

@@ -62,7 +62,7 @@ if(isset($_GET['filtres'])){
                         <form action="panier.php" method="post">
                             <input type="hidden" name="produit" value="<?php echo $p['id']; ?>">
                             <button class="bouttonclassique">Commander</button>
-                    </form>
+                        </form>
                     </div>
                 </div>
                 <?php }} ?>
