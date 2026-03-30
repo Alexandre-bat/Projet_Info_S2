@@ -17,4 +17,13 @@
         "role": "Livreur",
         "inscription": "2026-03-24 17:01:08"
     }
+    {
+        "id": "user_69ca79077da191.50625539",
+        "prenom": "Mathias",
+        "nom": "Cordero",
+        "tel": "0769233554",
+        "mdp": "Mat-cor",
+        "role": "client",
+        "inscription": "2026-03-30 15:22:15"
+    }
 ]
