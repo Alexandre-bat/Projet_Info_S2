@@ -16,7 +16,7 @@ function getProduit($produits, $id){
 <html>
 
 <head>
-    <title>SIUUSHI - MENU</title>
+    <title>SIUUSHI - Panier</title>
     <link rel="icon" href="Img/logo.png" type="image/png">
     <link rel="stylesheet" type="text/css" href="Style.css">
 </head>
