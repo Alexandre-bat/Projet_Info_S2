@@ -50,22 +50,45 @@
             <p>Téléphone : <?php echo htmlspecialchars($profilUser["tel"] ?? "Non renseigné"); ?></p>
         </div>
         <div class="histoCommandes">
-            <div class="commandesProfil">
-                <h3>Commande #1267</h3>
-                <p>10/02/2026</p>
-                <p>Statut : Livrée</p>
-                <p>Total : 67,00€</p>
-                <p>Plat : Supreme Ronaldo</p>
-            </div>
-            <div class="commandesProfil">
-                <h3>Commande #6321</h3>
-                <p>15/01/2026</p>
-                <p>Statut : Livrée</p>
-                <p>Total : 45,00€</p>
-                <p>Plat : Siuuushimi,
-                    Rona-roll-do
-                </p>
-            </div>
+            <h2>Commandes</h2>
+            <?php
+                $contenu = file_get_contents("commandes.json");
+                $data    = json_decode($contenu, true);
+
+                if (!is_array($data)) {
+                    $data = [];
+                }
+
+                $commandesUtilisateur = [];
+                foreach ($data as $commande) {
+                    if ($commande["id"] == $_SESSION["id"]) {
+                        $commandesUtilisateur[] = $commande;
+                    }
+                }
+
+                if (empty($commandesUtilisateur)) {
+                    echo "<p>Vous n'avez pas encore de commandes.</p>";
+                } 
+                else {
+                    foreach ($commandesUtilisateur as $commande) {
+                        $total = 0;
+                        $plats = [];
+
+                        foreach ($commande["Produits"] as $produit) {
+                            $total  += $produit["prix"];
+                            $plats[] = $produit["nom"] . " x" . $produit["quantite"];
+                        }
+                        
+                        echo "
+                        <div class='commandesProfil'>
+                        <p>" . htmlspecialchars($commande["Date"]) . "</p>
+                        <p>Statut : Livrée</p>
+                        <p>Total : " . number_format($total, 2) . "€</p>
+                        <p>Plats : " . htmlspecialchars(implode(", ", $plats)) . "</p>
+                        </div>";
+                    }
+                }
+            ?>
         </div>
     </div>
 
