@@ -45,7 +45,11 @@ function getProduit($produits, $id){
             <div class="box">
                 <img src="Img/Imagesmenu/<?php echo $produit['img']; ?>" class="imgBox">
                 <div class="contenuBox">
-                    <h2><?php echo $produit['nom']; ?></h2>
+                    <h2><?php echo $produit['nom'];
+                        if($quantite > 1){ ?>
+                            <span class="quantite">x<?php echo $quantite; ?></span>
+                        <?php } ?>
+                    </h2>
                         <p><?php echo $produit['description']; ?></p>
                         <p><?php echo $produit['personnes_min']; ?> personnes minimum</p>
                         <p><?php echo $produit['plats'][0] . " | " . $produit['plats'][1] . " | " . $produit['plats'][2]; ?></p>
@@ -64,7 +68,11 @@ function getProduit($produits, $id){
             <div class="box">
                 <img src="Img/Imagesmenu/<?php echo $produit['img']; ?>" class="imgBox">
                 <div class="contenuBox">
-                    <h2><?php echo $produit['nom']; ?> x<?php echo $quantite; ?></h2>
+                    <h2><?php echo $produit['nom'];
+                        if($quantite > 1){ ?>
+                            <span class="quantite">x<?php echo $quantite; ?></span>
+                        <?php } ?>
+                    </h2>
                     <p><?php echo $produit['description']; ?></p>
                     <p><?php echo $produit['ingredients']; ?></p>
                 </div>
