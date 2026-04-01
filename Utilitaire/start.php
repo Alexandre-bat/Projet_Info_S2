@@ -81,4 +81,14 @@ function montrer_utilisateurs($fichier){
             </div>';
     }
 }
+
+if (isset($_POST['livre'])) {
+    header("Location: Livraison.php?Livre=1");
+    exit();
+}
+
+if (isset($_POST['abandone'])) {
+    header("Location: Livraison.php?Abandon=1");
+    exit();
+}
 ?>

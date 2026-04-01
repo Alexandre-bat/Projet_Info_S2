@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<?php include("Utilitaire/start.php"); ?>
 <?php
 
 if (isset($_POST['livre'])) {
@@ -12,6 +12,8 @@ if (isset($_POST['abandone'])) {
 }
 
 ?>
+
+<!DOCTYPE html>
 <html lang="fr">
 
 <head>
