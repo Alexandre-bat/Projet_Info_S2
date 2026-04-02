@@ -92,6 +92,7 @@ function getProduit($produits, $id){
         </div>
         <div class="blocTotal">
             <h2>Total : <?php echo $total; ?>€</h2>
+            <?php  $_SESSION['prix'] = $total; ?>
             <form action="panier.php" method="post">
                 <button class="bouttonclassique" name="vider">Vider le panier</button>
             </form>
