@@ -17,7 +17,7 @@
         <div class="blocGaucheNotation">
             <h1 id="titre">Notez-nous !</h1>
             <p>Votre avis compte pour nous !</p>
-            <form action="submit_rating.php" method="POST" class="rating-form">
+            <form action="Notation.php" method="POST" class="rating-form">
                 <p>Plat :</p>
                 <div class="etoiles">
                     <input class="ip" type="radio" id="platEtoile5" name="plat" value="5"><label class="lb" for="platEtoile5">★</label>

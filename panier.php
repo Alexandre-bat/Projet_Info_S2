@@ -101,11 +101,20 @@ function getProduit($produits, $id){
             <div class="blocDroitPanier">
             <?php if(!isset($_GET['payer'])){ ?>
                 <form action='validation.php' method='POST'>
-                    <input type="radio" name="momentCommande" value="immediate" checked> Immédiat 
-                    <input type="radio" name="momentCommande" value="emporter"> Emporter 
-                    <input type="radio" name="momentCommande" value="livraison"> Livraison 
-                    <input type="date" name="dateCommande" required> 
-                    <input type="time" name="heureCommande" required>
+                    <label class="radioBox">
+                        <input class="momentPanier" type="radio" name="momentCommande" value="immediate" checked>
+                        <span>Immédiat</span>
+                    </label>
+                    <label class="radioBox">
+                        <input class="momentPanier" type="radio" name="momentCommande" value="emporter">
+                        <span>Emporter</span>
+                    </label>
+                    <label class="radioBox">
+                        <input class="momentPanier" type="radio" name="momentCommande" value="livraison">
+                        <span>Livraison</span>
+                    </label>
+                    <input class="bouttondate" type="date" min="2026-04-06" name="dateCommande" required> 
+                    <input class="bouttonheure" type="time" name="heureCommande" required>
                     <button type="submit" class="bouttonclassique">Valider</button>
                 </form>
             <?php };?>

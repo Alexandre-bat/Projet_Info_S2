@@ -27,9 +27,9 @@ $control = $_GET['control'];
 $api_key = getAPIKey($vendeur);
 
 if ($status == "accepted") {
-    $statutCommande = "Payée";
+    $statutCommande = "Payee";
 } else {
-    $statutCommande = "Paiement échoué";
+    $statutCommande = "Paiement_echoue";
 }
 
 $control_verif = md5($api_key
