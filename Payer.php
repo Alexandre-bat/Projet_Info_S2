@@ -13,9 +13,9 @@ function getProduit($produits, $id) {
     }
     return null;
 }
-$moment = $_POST['momentCommande'];
-$date = $_POST['dateCommande'];
-$heure = $_POST['heureCommande'];
+$moment = $_SESSION['momentCommande'];
+$date = $_SESSION['dateCommande'];
+$heure = $_SESSION['heureCommande'];
 
 $transaction = $_GET['transaction'];
 $montant = $_GET['montant'];
@@ -89,7 +89,7 @@ function mettre_fichier($fichier, $panier, $produits, $transaction, $montant, $v
 
     $_SESSION['panier'] = [];
 
-    header("Location: Accueil.php");
+    header("Location: Notation.php");
     exit();
 }
 

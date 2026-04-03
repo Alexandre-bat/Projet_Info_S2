@@ -99,9 +99,18 @@ function getProduit($produits, $id){
             </form>
             </div>
             <div class="blocDroitPanier">
-
+            <?php if(!isset($_GET['payer'])){ ?>
+                <form action='validation.php' method='POST'>
+                    <input type="radio" name="momentCommande" value="immediate" checked> Immédiat 
+                    <input type="radio" name="momentCommande" value="emporter"> Emporter 
+                    <input type="radio" name="momentCommande" value="livraison"> Livraison 
+                    <input type="date" name="dateCommande" required> 
+                    <input type="time" name="heureCommande" required>
+                    <button type="submit" class="bouttonclassique">Valider</button>
+                </form>
+            <?php };?>
                 <?php 
-                /* API CYBANK */
+                if(isset($_GET['payer'])){
                     require('getapikey.php');
 
                     $transaction = uniqid();
@@ -127,11 +136,7 @@ function getProduit($produits, $id){
                     <input type='hidden' name='control' value="<?php echo $control ?>">
                     <button type="submit" class="bouttonclassique">Payer</button>
                 </form>
-                <?php
-                    $_SESSION['momentCommande'] = $_POST['momentCommande'];
-                    $_SESSION['dateCommande'] = $_POST['dateCommande'];
-                    $_SESSION['heureCommande'] = $_POST['heureCommande'];
-                ?>
+                <?php }?>
         </div>
         <?php
             } else {
@@ -141,9 +146,6 @@ function getProduit($produits, $id){
     </div>
 </main>
                     
-    <!-- Pied de page -->
-
-
     <footer>
         <div class="f-container">
             <div class="f-section">
