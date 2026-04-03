@@ -884,7 +884,7 @@ span~button {
 
 /* Panier */
 
-.blocTotal {
+.blocTotalPanier {
     border-radius: 20px;
     background-color: rgb(180, 60, 60);
     margin: 20px;
@@ -892,6 +892,40 @@ span~button {
     border: 4px double rgba(255, 99, 99, 0.8);
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.blocTotalPanier form {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.choixCommande {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.blocTotalPanier .bouttonclassique input {
+    display: none;
+}
+
+.radioBoutons span {
+    background-color: rgb(255, 150, 150);
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.radioBoutons span:hover {
+    background-color: rgb(255, 100, 100);
+}
+
+.radioBoutons input:checked + span {
+    border: 2px solid white;
 }
 
 .paniervide {
@@ -899,14 +933,3 @@ span~button {
     text-align: center;
     font-size: 18px;
 }
-
-.blocTotal h2 {
-    justify-content: center;
-    margin: auto;
-}
-
-.blocTotal .bouttonclassique{
-    justify-content: right;
-    margin-left: auto;
-}
-

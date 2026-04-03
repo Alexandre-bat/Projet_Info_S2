@@ -90,15 +90,30 @@ function getProduit($produits, $id){
             }
         ?>
         </div>
-        <div class="blocTotal">
+        <div class="blocTotalPanier">
+            <div class="blocGauchePanier">
             <h2>Total : <?php echo $total; ?>€</h2>
             <?php  $_SESSION['prix'] = $total; ?>
             <form action="panier.php" method="post">
                 <button class="bouttonclassique" name="vider">Vider le panier</button>
             </form>
-            <form action="Payer.php" method="post">
-                <button class="bouttonclassique">Payer</button>
-            </form>
+            </div>
+            <div class="blocDroitPanier">
+                <form action="Payer.php" method="post">
+                    <div class="choixCommande">
+                        <span class="labelChoix">Quand voulez-vous la commande ?</span>
+                        <label class="bouttonclassique">
+                            <input type="radio" name="temps" value="instant" checked="checked">
+                            <span>Instantanée</span>
+                        </label>
+                        <label class="bouttonclassique">
+                            <input type="radio" name="temps" value="tard">
+                            <span>Plus tard</span>
+                        </label>
+                    </div>
+                    <button id="payer" class="bouttonclassique">Payer</button>
+                </form>
+            </div>
         </div>
         <?php
             } else {
