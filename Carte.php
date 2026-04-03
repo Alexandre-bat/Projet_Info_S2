@@ -59,7 +59,12 @@ if(isset($_GET['filtres'])){
                     </div>
                     <div class="basBox">
                         <span id="prix">Prix : <?php echo $p['prix']; ?>€</span>
-                        <form action="panier.php" method="post">
+                        <form action="<?php if(isset($_SESSION['nom']) && isset($_SESSION['prenom'])) {
+                            echo 'panier.php';
+                        } else {
+                            echo 'Connexion.php';
+                        }
+                        ?>" method="post">
                             <input type="hidden" name="produit" value="<?php echo $p['id']; ?>">
                             <button class="bouttonclassique">Commander</button>
                         </form>
@@ -88,7 +93,12 @@ if(isset($_GET['filtres'])){
                     </div>
                     <div class="basBox">
                         <span id="prix">Prix : <?php echo $p['prix']; ?>€</span>
-                        <form action="panier.php" method="post">
+                        <form action="<?php if(isset($_SESSION['nom']) && isset($_SESSION['prenom'])) {
+                            echo 'panier.php';
+                        } else {
+                            echo 'Connexion.php';
+                        }
+                        ?>" method="post">
                             <input type="hidden" name="produit" value="<?php echo $p['id']; ?>">
                             <button class="bouttonclassique">Commander</button>
                         </form>
@@ -117,7 +127,12 @@ if(isset($_GET['filtres'])){
                     </div>
                     <div class="basBox">
                         <span id="prix">Prix : <?php echo $p['prix']; ?>€</span>
-                        <form action="panier.php" method="post">
+                        <form action="<?php if(isset($_SESSION['nom']) && isset($_SESSION['prenom'])) {
+                            echo 'panier.php';
+                        } else {
+                            echo 'Connexion.php';
+                        }
+                        ?>" method="post">
                             <input type="hidden" name="produit" value="<?php echo $p['id']; ?>">
                             <button class="bouttonclassique">Commander</button>
                         </form>
@@ -146,7 +161,12 @@ if(isset($_GET['filtres'])){
                     </div>
                     <div class="basBox">
                         <span id="prix">Prix : <?php echo $p['prix']; ?>€</span>
-                        <form action="panier.php" method="post">
+                        <form action="<?php if(isset($_SESSION['nom']) && isset($_SESSION['prenom'])) {
+                            echo 'panier.php';
+                        } else {
+                            echo 'Connexion.php';
+                        }
+                        ?>" method="post">
                             <input type="hidden" name="produit" value="<?php echo $p['id']; ?>">
                             <button class="bouttonclassique">Commander</button>
                         </form>

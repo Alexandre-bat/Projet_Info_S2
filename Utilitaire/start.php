@@ -24,11 +24,20 @@ if(isset($_SESSION['nom']) && isset($_SESSION['prenom'])) {
 
 $nbr = 0;
 if(isset($_POST['produit'])){
+
+    // Vérifie si connecté
+    if(!isset($_SESSION['nom']) || !isset($_SESSION['prenom'])){
+        header("Location: Connexion.php");
+        exit();
+    }
+
+    // Si connecté → ajout panier
     $id = $_POST['produit'];
     if(!isset($_SESSION['panier'])){
         $_SESSION['panier'] = [];
     }
     $_SESSION['panier'][] = $id;
+
     header("Location: Carte.php");
     exit();
 }
