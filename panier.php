@@ -99,13 +99,15 @@ function getProduit($produits, $id){
             </form>
             </div>
             <div class="blocDroitPanier">
+
                 <?php 
+                /* API CYBANK */
                     require('getapikey.php');
 
                     $transaction = uniqid();
                     $montant = $_SESSION["prix"];
                     $vendeur = "MI-3_A";
-                    $retour = "Payer.php";
+                    $retour = "http://localhost:3000/Payer.php";
 
                     $api_key = getAPIKey($vendeur);
 
@@ -115,7 +117,9 @@ function getProduit($produits, $id){
                             . "#" . $vendeur
                             . "#" . $retour . "#" );
                 ?>
+
                 <form action='https://www.plateforme-smc.fr/cybank/index.php' method='POST'>
+
                     <input type='hidden' name='transaction' value="<?php echo $transaction ?>">
                     <input type='hidden' name='montant' value="<?php echo $montant ?>">
                     <input type='hidden' name='vendeur' value="<?php echo $vendeur ?>">
@@ -123,6 +127,11 @@ function getProduit($produits, $id){
                     <input type='hidden' name='control' value="<?php echo $control ?>">
                     <button type="submit" class="bouttonclassique">Payer</button>
                 </form>
+                <?php
+                    $_SESSION['momentCommande'] = $_POST['momentCommande'];
+                    $_SESSION['dateCommande'] = $_POST['dateCommande'];
+                    $_SESSION['heureCommande'] = $_POST['heureCommande'];
+                ?>
         </div>
         <?php
             } else {
