@@ -99,21 +99,30 @@ function getProduit($produits, $id){
             </form>
             </div>
             <div class="blocDroitPanier">
-                <form action="Payer.php" method="post">
-                    <div class="choixCommande">
-                        <span class="labelChoix">Quand voulez-vous la commande ?</span>
-                        <label class="bouttonclassique">
-                            <input type="radio" name="temps" value="instant" checked="checked">
-                            <span>Instantanée</span>
-                        </label>
-                        <label class="bouttonclassique">
-                            <input type="radio" name="temps" value="tard">
-                            <span>Plus tard</span>
-                        </label>
-                    </div>
-                    <button id="payer" class="bouttonclassique">Payer</button>
+                <?php 
+                    require('getapikey.php');
+
+                    $transaction = uniqid();
+                    $montant = $_SESSION["prix"];
+                    $vendeur = "MI-3_A";
+                    $retour = "Payer.php";
+
+                    $api_key = getAPIKey($vendeur);
+
+                    $control = md5($api_key
+                            . "#" . $transaction
+                            . "#" . $montant
+                            . "#" . $vendeur
+                            . "#" . $retour . "#" );
+                ?>
+                <form action='https://www.plateforme-smc.fr/cybank/index.php' method='POST'>
+                    <input type='hidden' name='transaction' value="<?php echo $transaction ?>">
+                    <input type='hidden' name='montant' value="<?php echo $montant ?>">
+                    <input type='hidden' name='vendeur' value="<?php echo $vendeur ?>">
+                    <input type='hidden' name='retour' value="<?php echo $retour ?>">
+                    <input type='hidden' name='control' value="<?php echo $control ?>">
+                    <button type="submit" class="bouttonclassique">Payer</button>
                 </form>
-            </div>
         </div>
         <?php
             } else {

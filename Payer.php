@@ -53,7 +53,7 @@ function mettre_fichier($id, $fichier, $panier, $produits) {
 
     $_SESSION['panier'] = [];
 
-    header("Location: Transaction.php");
+    header("Location: RetourPayement.php");
     exit();
 }
 
