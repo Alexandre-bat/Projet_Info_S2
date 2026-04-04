@@ -74,7 +74,8 @@ function mettre_fichier($fichier, $panier, $produits, $transaction, $montant, $v
     }
 
     $data[] = [
-        "id" => $transaction,
+        "idCommande" => $transaction,
+        "idUtilisateur" => $_SESSION["id"],
         "Date" => date("Y-m-d H:i"),
         "Produits" => $produitsCommandes,
         "Prix" => $montant,
