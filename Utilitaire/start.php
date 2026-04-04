@@ -73,7 +73,7 @@ function montrer_utilisateurs($fichier){
         exit();
     }
     foreach($data as $user){
-        echo '<div class="admin_who">
+        echo '<div class="adminUtilisateurs">
                 <h2 class="write">' 
                     . htmlspecialchars($user["nom"]) . ' ' . htmlspecialchars($user["prenom"]) . 
                 '</h2>
@@ -86,7 +86,14 @@ function montrer_utilisateurs($fichier){
                         <option value="Livreur" ' . ($user["role"] == "Livreur" ? "selected" : "") . '>Livreur</option>
                         <option value="admin" ' . ($user["role"] == "admin" ? "selected" : "") . '>Admin</option>
                     </select>
-                    <button type="submit">Valider</button>
+                    <button class="bouttonclassique" type="submit">Valider</button>
+                </form>
+                <div id=remise>
+                    <button class="bouttonclassique">Accorder une remise</button>
+                </div>
+                <form action="fct.php" method="post">
+                    <input type="hidden" name="supprimerCompte" value="'. $user["id"] .'">
+                    <button class="bouttonclassique">Supprimer le compte</button>
                 </form>
                 <a href="Profil.php?nom=' . urlencode($user["nom"]) . '&prenom=' . urlencode($user["prenom"]) . '" class="adminProfil">PROFIL</a>
             </div>';
