@@ -188,7 +188,6 @@
   "plats": ["maki", "pokeBowl", "mochiNutella"],
   "personnes_min": 2,
   "img": "menuDuo.png"
-
   },
   {
     "id": "menuUltime",
@@ -199,6 +198,5 @@
     "plats": ["supremeRonaldo", "grosSushi", "cheesecake"],
     "personnes_min": 3,
     "img": "menuUltime.png"
-
   }
 ]

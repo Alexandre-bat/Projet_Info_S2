@@ -124,7 +124,7 @@ function choisir_livreur($fichier, $Commande){
                 <p>Total: <?php echo $commande["Prix"]; ?>€</p>
 
                 <div class="bouttonsCommandes">
-                    <a href="details_commande.php?id=<?php echo $commande["idCommande"]; ?>">
+                    <a href="DetailCommande.php?id=<?php echo $commande["idCommande"]; ?>">
                         <button class="bouttonclassique">Détails</button>
                     </a>
                     <form action="CommandesModifs.php" method="post">
@@ -157,7 +157,7 @@ function choisir_livreur($fichier, $Commande){
                 <p>Total: <?php echo $commande["Prix"]; ?>€</p>
 
                 <div class="bouttonsCommandes">
-                    <a href="details_commande.php?id=<?php echo $commande["idCommande"]; ?>">
+                    <a href="DetailCommande.php?id=<?php echo $commande["idCommande"]; ?>">
                         <button class="bouttonclassique">Détails</button>
                     </a>
                     <form action="CommandesModifs.php" method="post">
@@ -190,7 +190,7 @@ function choisir_livreur($fichier, $Commande){
                 <p>Total: <?php echo $commande["Prix"]; ?>€</p>
 
                 <div class="bouttonsCommandes">
-                    <a href="details_commande.php?id=<?php echo $commande["idCommande"]; ?>">
+                    <a href="DetailCommande.php?id=<?php echo $commande["idCommande"]; ?>">
                         <button class="bouttonclassique">Détails</button>
                     </a>
                     <form action="Commandes.php" method="post">
