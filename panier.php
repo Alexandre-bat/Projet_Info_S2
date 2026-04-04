@@ -113,7 +113,7 @@ function getProduit($produits, $id){
                         <input class="momentPanier" type="radio" name="momentCommande" value="livraison">
                         <span>Livraison</span>
                     </label>
-                    <input class="bouttondate" type="date" min=<?php echo'date("Y-m-d")'?> max="<?php echo date('Y-m-d', strtotime('+7 days')); ?>" name="dateCommande" required>
+                    <input class="bouttondate" type="date" min="<?php echo date("Y-m-d") ?>" max="<?php echo date('Y-m-d', strtotime('+7 days')); ?>" name="dateCommande" required>
                     <input class="bouttonheure" type="time" min="11:00" max="23:00" name="heureCommande" required>                    
                     <button type="submit" class="bouttonclassique">Valider</button>
                 </form>
