@@ -1,4 +1,33 @@
-<?php include("Utilitaire/start.php"); ?>
+<?php include("Utilitaire/start.php"); 
+
+function choisir_livreur($fichier){
+    if(!file_exists($fichier)){
+        header("Location: Connexion.php?error=1");
+        exit();
+    }
+
+    $contenu = file_get_contents($fichier);
+    $data = json_decode($contenu, true);
+
+    if(!is_array($data)){
+        header("Location: Connexion.php?error=1");
+        exit();
+    }
+
+    echo '<select class="perm-select" name="perm">';
+
+    foreach($data as $user){
+        if($user["role"] == "Livreur"){
+            echo '<option value="'.$user["id"].'">'
+                .$user["prenom"].' '.$user["nom"].
+                '</option>';
+        }
+    }
+
+    echo '</select>';
+}
+
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -25,7 +54,7 @@
             } else if($commande["Statut"]=="attente"){
                 $commandeAttente[] = $commande;
             }
-            else if($commande["Statut"]=="enLivraison"){
+            else if($commande["Statut"]=="En livraison"){
                 $commandeLivraison[] = $commande;
             }
         }
@@ -106,6 +135,8 @@
                 <a href="details_commande.php?id=<?php echo $commande["idCommande"]; ?>">
                     <button class="bouttonclassique">Détails</button>
                 </a>
+                <?php choisir_livreur('id.json'); ?>
+                <button type="submit">Valider</button>';
             </div>
         </div>
     <?php } ?>
