@@ -1,0 +1,21 @@
+[
+    {
+        "idCommande": "69d15db37f0ab",
+        "idUtilisateur": "user_69c1547d26ebd3.48819465",
+        "Date": "2026-04-04 20:51",
+        "Produits": [
+            {
+                "nom": "Menu Ultime Ronaldo",
+                "quantite": 1,
+                "prix": 70
+            }
+        ],
+        "Prix": "70",
+        "Vendeur": "MI-3_A",
+        "Paiement": "Payee",
+        "Moment": "immediate",
+        "Date prevue": "2026-04-04",
+        "Heure prevue": "11:00",
+        "Statut": "preparation"
+    }
+]

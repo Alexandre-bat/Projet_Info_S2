@@ -71,8 +71,9 @@
                         echo "<div class='histoUnique'>";
                             echo "<div class='histoHeader'>
                                 <span>" . $commande["Date"] . "</span>
-                                <span>" . $commande["Paiement"] . "</span>
                             </div>";
+                            echo "<span>" . $commande["Paiement"] . "</span><br>";
+                            echo "<span>" ." ". $commande["Statut"] . "</span>";
                             echo "<div class='histoCorps'>";
                                 foreach ($commande["Produits"] as $produit) {
                                     echo "<p>" . $produit["nom"] . " x" . $produit["quantite"] . "</p>";

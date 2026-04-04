@@ -113,8 +113,8 @@ function getProduit($produits, $id){
                         <input class="momentPanier" type="radio" name="momentCommande" value="livraison">
                         <span>Livraison</span>
                     </label>
-                    <input class="bouttondate" type="date" min="2026-04-06" name="dateCommande" required> 
-                    <input class="bouttonheure" type="time" name="heureCommande" required>
+                    <input class="bouttondate" type="date" min=<?php echo'date("Y-m-d")'?> max="<?php echo date('Y-m-d', strtotime('+7 days')); ?>" name="dateCommande" required>
+                    <input class="bouttonheure" type="time" min="11:00" max="23:00" name="heureCommande" required>                    
                     <button type="submit" class="bouttonclassique">Valider</button>
                 </form>
             <?php };?>
@@ -125,7 +125,7 @@ function getProduit($produits, $id){
                     $transaction = uniqid();
                     $montant = $_SESSION["prix"];
                     $vendeur = "MI-3_A";
-                    $retour = "http://localhost:3000/Payer.php";
+                    $retour = "http://localhost:8080/Payer.php";
 
                     $api_key = getAPIKey($vendeur);
 
