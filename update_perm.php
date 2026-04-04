@@ -1,5 +1,5 @@
 <?php 
-include("start.php");
+session_start();
 
 if(isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['perm'])){
 
