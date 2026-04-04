@@ -57,33 +57,31 @@
                 if (!is_array($data)) {
                     $data = [];
                 }
-                $commandesUtilisateur = [];
+                $commandeUtilisateur = [];
                 foreach ($data as $commande) {
                     if ($commande["idUtilisateur"] == $_SESSION["id"]) {
-                        $commandesUtilisateur[] = $commande;
+                        $commandeUtilisateur[] = $commande;
                     }
                 }
-                if (empty($commandesUtilisateur)) {
+                if (empty($commandeUtilisateur)) {
                     echo "<p>Vous n'avez pas encore de commandes.</p>";
                 } 
                 else {
-                    foreach ($commandesUtilisateur as $commande) {
-                        $total = 0;
-                        $plats = [];
+                    foreach ($commandeUtilisateur as $commande) {
                         echo "<div class='histoUnique'>";
-                        echo "<div class='histoHeader'>
-                            <span>" . $commande["Date"] . "</span>
-                            <span class='status'>" . $commande["Status"] . "</span>
-                        </div>";
-                        echo "<div class='histoCorps'>";
-                            foreach ($commande["Produits"] as $produit) {
-                                echo "<p>" . $produit["nom"] . " x" . $produit["quantite"] . "</p>";
-                            }
-                        echo "</div>";
-                        echo "<div class='histoFooter'>
-                            <span>Total : " . $commande["Prix"] . "€</span>
-                            <span>" . $commande["Moment"] . "</span>
-                        </div>";
+                            echo "<div class='histoHeader'>
+                                <span>" . $commande["Date"] . "</span>
+                                <span>" . $commande["Paiement"] . "</span>
+                            </div>";
+                            echo "<div class='histoCorps'>";
+                                foreach ($commande["Produits"] as $produit) {
+                                    echo "<p>" . $produit["nom"] . " x" . $produit["quantite"] . "</p>";
+                                }
+                            echo "</div>";
+                            echo "<div class='histoFooter'>
+                                <span>Total : " . $commande["Prix"] . "€</span>
+                                <span>" . $commande["Moment"] . "</span>
+                            </div>";
                         echo "</div>";
                     }
                 }

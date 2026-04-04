@@ -73,6 +73,13 @@ function mettre_fichier($fichier, $panier, $produits, $transaction, $montant, $v
         }
     }
 
+    if($moment=="immediate"){
+        $statut="preparation";
+    }
+    else {
+        $statut="attente";
+    }
+
     $data[] = [
         "idCommande" => $transaction,
         "idUtilisateur" => $_SESSION["id"],
@@ -80,10 +87,11 @@ function mettre_fichier($fichier, $panier, $produits, $transaction, $montant, $v
         "Produits" => $produitsCommandes,
         "Prix" => $montant,
         "Vendeur" => $vendeur,
-        "Status" => $statutCommande,
+        "Paiement" => $statutCommande,
         "Moment" => $moment,
         "Date prevue" => $date,
         "Heure prevue" => $heure,
+        "Statut" => $moment
     ];
 
     file_put_contents($fichier, json_encode($data, JSON_PRETTY_PRINT));

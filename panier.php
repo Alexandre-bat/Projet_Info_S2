@@ -101,7 +101,7 @@ function getProduit($produits, $id){
             <div class="blocDroitPanier">
             <?php if(!isset($_GET['payer'])){ ?>
                 <form action='validation.php' method='POST'>
-                    <label class="radioBox">
+                    <label class="radioBox"> 
                         <input class="momentPanier" type="radio" name="momentCommande" value="immediate" checked>
                         <span>Immédiat</span>
                     </label>
