@@ -91,7 +91,7 @@ function mettre_fichier($fichier, $panier, $produits, $transaction, $montant, $v
         "Moment" => $moment,
         "Date prevue" => $date,
         "Heure prevue" => $heure,
-        "Statut" => $moment
+        "Statut" => $statut
     ];
 
     file_put_contents($fichier, json_encode($data, JSON_PRETTY_PRINT));
