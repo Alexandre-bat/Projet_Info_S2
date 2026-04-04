@@ -30,22 +30,43 @@
             <form action="crayon.php" method="post">
         </div>
         <div class="histoCommandes">
-            <div class="commandesProfil">
-                <h3>Commande #1267</h3>
-                <p>10/02/2026</p>
-                <p>Statut : Livrée</p>
-                <p>Total : 67,00€</p>
-                <p>Plat : Supreme Ronaldo</p>
-            </div>
-            <div class="commandesProfil">
-                <h3>Commande #6321</h3>
-                <p>15/01/2026</p>
-                <p>Statut : Livrée</p>
-                <p>Total : 45,00€</p>
-                <p>Plat : Siuuushimi,
-                    Rona-roll-do
-                </p>
-            </div>
+            <h2>Commandes</h2>
+            <?php
+                $contenu = file_get_contents("commandes.json");
+                $data    = json_decode($contenu, true);
+                if (!is_array($data)) {
+                    $data = [];
+                }
+                $commandeUtilisateur = [];
+                foreach ($data as $commande) {
+                    if ($commande["idUtilisateur"] == $_SESSION["id"]) {
+                        $commandeUtilisateur[] = $commande;
+                    }
+                }
+                if (empty($commandeUtilisateur)) {
+                    echo "<p>Vous n'avez pas encore de commandes.</p>";
+                } 
+                else {
+                    foreach ($commandeUtilisateur as $commande) {
+                        echo "<div class='histoUnique'>";
+                            echo "<div class='histoHeader'>
+                                <span>" . $commande["Date"] . "</span>
+                            </div>";
+                            echo "<span>" . $commande["Paiement"] . "</span><br>";
+                            echo "<span>" ." ". $commande["Statut"] . "</span>";
+                            echo "<div class='histoCorps'>";
+                                foreach ($commande["Produits"] as $produit) {
+                                    echo "<p>" . $produit["nom"] . " x" . $produit["quantite"] . "</p>";
+                                }
+                            echo "</div>";
+                            echo "<div class='histoFooter'>
+                                <span>Total : " . $commande["Prix"] . "€</span>
+                                <span>" . $commande["Moment"] . "</span>
+                            </div>";
+                        echo "</div>";
+                    }
+                }
+            ?>
         </div>
     </div>
 
