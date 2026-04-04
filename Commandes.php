@@ -1,6 +1,26 @@
 <?php include("Utilitaire/start.php"); 
 
-function choisir_livreur($fichier){
+if(isset($_POST['livreur']) && isset($_POST['idCommande'])){
+    $idLivreur = $_POST['livreur'];
+    $idCommande = $_POST['idCommande'];
+
+    $contenu = file_get_contents('commandes.json');
+    $data = json_decode($contenu, true);
+
+    foreach($data as &$commande){
+        if($commande["idCommande"] == $idCommande){
+            $commande["idLivreur"] = $idLivreur;
+            $commande["Statut"] = "En livraison";
+            break;
+        }
+    }
+
+    file_put_contents('commandes.json', json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+    header("Location: Commandes.php");
+    exit();
+}
+
+function choisir_livreur($fichier, $Commande){
     if(!file_exists($fichier)){
         header("Location: Connexion.php?error=1");
         exit();
@@ -14,17 +34,19 @@ function choisir_livreur($fichier){
         exit();
     }
 
-    echo '<select class="perm-select" name="perm">';
-
+    echo '<select class="perm-select" name="livreur">';
     foreach($data as $user){
         if($user["role"] == "Livreur"){
-            echo '<option value="'.$user["id"].'">'
-                .$user["prenom"].' '.$user["nom"].
-                '</option>';
+            $selected = (isset($Commande["idLivreur"]) && $Commande["idLivreur"] == $user["id"]) ? "selected" : "";
+            echo '<option value="' . $user["id"] . '" ' . $selected . '>'
+                . $user["prenom"] . ' ' . $user["nom"]
+                . '</option>';
         }
     }
+echo '</select>';
 
-    echo '</select>';
+    echo '<input type="hidden" name="idCommande" value="'.$Commande["idCommande"].'">';
+    echo '<button type="submit">Valider</button>';
 }
 
 ?>
@@ -135,8 +157,9 @@ function choisir_livreur($fichier){
                 <a href="details_commande.php?id=<?php echo $commande["idCommande"]; ?>">
                     <button class="bouttonclassique">Détails</button>
                 </a>
-                <?php choisir_livreur('id.json'); ?>
-                <button type="submit">Valider</button>';
+                <form action="Commandes.php" method="post">
+                    <?php choisir_livreur('id.json', $commande); ?>
+                </form>
             </div>
         </div>
     <?php } ?>

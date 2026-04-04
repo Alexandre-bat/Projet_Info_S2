@@ -83,14 +83,15 @@ function mettre_fichier($fichier, $panier, $produits, $transaction, $montant, $v
     $data[] = [
         "idCommande" => $transaction,
         "idUtilisateur" => $_SESSION["id"],
+        "idLivreur" => "",
         "Date" => date("Y-m-d H:i"),
         "Produits" => $produitsCommandes,
         "Prix" => $montant,
         "Vendeur" => $vendeur,
         "Paiement" => $statutCommande,
-        "Moment" => $moment,
         "Date prevue" => $date,
         "Heure prevue" => $heure,
+        "Moment" => $moment,
         "Statut" => $statut
     ];
 
