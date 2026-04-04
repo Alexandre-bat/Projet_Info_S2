@@ -31,7 +31,7 @@ function prepaToLivraison($idCommande){
     }
     foreach ($data as &$commande) {
         if ($commande["idCommande"] == $idCommande) {
-            $commande["Statut"] = "livraison";
+            $commande["Statut"] = "enLivraison";
         }
     }
     file_put_contents("commandes.json", json_encode($data, JSON_PRETTY_PRINT));

@@ -65,7 +65,7 @@
 <div class="en_attente">
     <h2>Commandes en préparation</h2>
 <div class="liste_commandes">
-    <?php foreach ($commandeAttente as $commande) { ?>
+    <?php foreach ($commandeImmediate as $commande) { ?>
         <div class="commande">
             <h4>Commande n° <?php echo $commande["idCommande"]; ?></h4>
             <?php foreach ($commande["Produits"] as $produit) { ?>
@@ -92,7 +92,7 @@
 <div class="en_attente">
     <h2>Commandes en livraison</h2>
 <div class="liste_commandes">
-    <?php foreach ($commandeAttente as $commande) { ?>
+    <?php foreach ($commandeLivraison as $commande) { ?>
         <div class="commande">
             <h4>Commande n° <?php echo $commande["idCommande"]; ?></h4>
             <?php foreach ($commande["Produits"] as $produit) { ?>
