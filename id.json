@@ -1,1 +1,32 @@
-
+[
+    {
+        "id": "user_69d173ecb0c612.01232958",
+        "prenom": "Alexandre",
+        "nom": "Bernard",
+        "tel": "0767339221",
+        "adresse": "3 Rue Lebon",
+        "mdp": "517369",
+        "role": "admin",
+        "inscription": "2026-04-04 20:26:20"
+    },
+    {
+        "id": "user_69d17428532496.50817671",
+        "prenom": "Anne",
+        "nom": "S1",
+        "tel": "0685858585",
+        "adresse": "tqt",
+        "mdp": "tqt",
+        "role": "Livreur",
+        "inscription": "2026-04-04 20:27:20"
+    },
+    {
+        "id": "user_69d17428532496.50817672",
+        "prenom": "Anne",
+        "nom": "S2",
+        "tel": "0685858585",
+        "adresse": "tqt",
+        "mdp": "tqt",
+        "role": "Livreur",
+        "inscription": "2026-04-04 20:27:20"
+    }
+]

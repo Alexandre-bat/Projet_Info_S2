@@ -1,4 +1,5 @@
-<?php include("Utilitaire/start.php"); 
+<?php 
+include("Utilitaire/start.php"); 
 
 if(isset($_POST['livreur']) && isset($_POST['idCommande'])){
     $idLivreur = $_POST['livreur'];
@@ -18,6 +19,25 @@ if(isset($_POST['livreur']) && isset($_POST['idCommande'])){
     file_put_contents('commandes.json', json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
     header("Location: Commandes.php");
     exit();
+}
+
+$contenu = file_get_contents("commandes.json");
+$data = json_decode($contenu, true);
+if (!is_array($data)) { $data = []; }
+
+$commandeImmediate = [];
+$commandeAttente = [];
+$commandeLivraison = [];
+foreach ($data as $commande) {
+    if($commande["Paiement"] == "Payee"){
+        if ($commande["Statut"] == "preparation") {
+            $commandeImmediate[] = $commande;
+        } else if($commande["Statut"] == "attente"){
+            $commandeAttente[] = $commande;
+        } else if($commande["Statut"] == "En livraison"){
+            $commandeLivraison[] = $commande;
+        }
+    }
 }
 
 function choisir_livreur($fichier, $Commande){
@@ -43,12 +63,10 @@ function choisir_livreur($fichier, $Commande){
                 . '</option>';
         }
     }
-echo '</select>';
-
+    echo '</select>';
     echo '<input type="hidden" name="idCommande" value="'.$Commande["idCommande"].'">';
     echo '<button type="submit">Valider</button>';
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="fr">
