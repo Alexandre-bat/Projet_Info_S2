@@ -46,8 +46,8 @@
             </div>
             <p>Nom : <?php echo htmlspecialchars($profilUser["nom"]); ?></p>
             <p>Prénom : <?php echo htmlspecialchars($profilUser["prenom"]); ?></p>
-            <p>Adresse : <?php echo htmlspecialchars($profilUser["adresse"] ?? "Non renseignée"); ?></p>
-            <p>Téléphone : <?php echo htmlspecialchars($profilUser["tel"] ?? "Non renseigné"); ?></p>
+            <p>Adresse : <?php echo htmlspecialchars($profilUser["adresse"]); ?></p>
+            <p>Téléphone : <?php echo htmlspecialchars($profilUser["tel"]); ?></p>
         </div>
         <div class="histoCommandes">
             <h2>Commandes</h2>

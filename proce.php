@@ -7,10 +7,11 @@ function traiter_fichier($fichier){
         file_put_contents($fichier, "[]");
     }
 
-    $f_name = trim($_POST["prenom"]);
-    $l_name = trim($_POST["nom"]);
-    $contact = trim($_POST["tel"]);
-    $security = trim($_POST["mdp"]);
+    $prenom = trim($_POST["prenom"]);
+    $nom = trim($_POST["nom"]);
+    $tel = trim($_POST["tel"]);
+    $adresse = trim($_POST["adresse"]);
+    $mdp = trim($_POST["mdp"]);
 
     $contenu = file_get_contents($fichier);
     $data = json_decode($contenu, true);
@@ -20,7 +21,7 @@ function traiter_fichier($fichier){
     }
 
     foreach($data as $user){
-        if($user["tel"] === $contact){
+        if($user["tel"] === $tel){
             header("Location: Inscription.php?erreur=1");
             exit();
         }
@@ -30,10 +31,11 @@ function traiter_fichier($fichier){
 
     $data[] = [
         "id" => $id,               
-        "prenom" => $f_name,
-        "nom" => $l_name,
-        "tel" => $contact,
-        "mdp" => $security,
+        "prenom" => $prenom,
+        "nom" => $nom,
+        "tel" => $tel,
+        "adresse" => $adresse,
+        "mdp" => $mdp,
         "role" => "client",
         "inscription" => date("Y-m-d H:i:s")
     ];
@@ -41,10 +43,10 @@ function traiter_fichier($fichier){
     file_put_contents($fichier, json_encode($data, JSON_PRETTY_PRINT));
 
     $_SESSION['id'] = $id;        
-    $_SESSION['nom'] = $l_name;
-    $_SESSION['prenom'] = $f_name;
-    $_SESSION['adresse'] = "";
-    $_SESSION['telephone'] = $contact;
+    $_SESSION['nom'] = $nom;
+    $_SESSION['prenom'] = $prenom;
+    $_SESSION['adresse'] = $adresse;
+    $_SESSION['telephone'] = $tel;
 
     header("Location: Profil.php");
     exit();

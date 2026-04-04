@@ -39,6 +39,11 @@
             </div>
 
             <div class="input-group">
+                <label class="lb">Adresse</label>
+                <input class="ip" type="text" name="adresse" required>
+            </div>
+
+            <div class="input-group">
                 <label class="lb">Mot de Passe</label>
                 <input class="ip" type="password" name="mdp" required>
             </div>
