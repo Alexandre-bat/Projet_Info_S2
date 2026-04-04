@@ -16,14 +16,14 @@
     if (!is_array($data)) { $data = []; }
 
     $contenuUtilisateurs = file_get_contents("id.json");
-    $users = json_decode($contenuUtilisateurs, true);
-    if (!is_array($users)) { $users = []; }
+    $utilisateurs = json_decode($contenuUtilisateurs, true);
+    if (!is_array($utilisateurs)) { $utilisateurs = []; }
 
     // Trouver un utilisateur par son id
-    function trouver_user($users, $id) {
-        foreach ($users as $user) {
-            if ($user["id"] == $id) {
-                return $user;
+    function trouver_utilisateur($utilisateurs, $id) {
+        foreach ($utilisateurs as $utilisateur) {
+            if ($utilisateur["id"] == $id) {
+                return $utilisateur;
             }
         }
         return null;
@@ -56,7 +56,7 @@
             </div>
         <?php else: ?>
             <?php foreach ($aLivrer as $commande): ?>
-                <?php $client = trouver_user($users, $commande["idUtilisateur"]); ?>
+                <?php $client = trouver_utilisateur($utilisateurs, $commande["idUtilisateur"]); ?>
                 <div class="cours_livraison">
                     <h2>Livraison — Commande <?php echo $commande["idCommande"]; ?></h2>
                     <div class="info">
