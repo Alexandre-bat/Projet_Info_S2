@@ -15,7 +15,7 @@ function attenteToPrepa($idCommande){
     }
     foreach ($data as &$commande) {
         if ($commande["idCommande"] == $idCommande) {
-            $commande["Statut"] = "preparation";
+            $commande["Statut"] = "En preparation";
         }
     }
     file_put_contents("commandes.json", json_encode($data, JSON_PRETTY_PRINT));
@@ -31,7 +31,7 @@ function prepaToLivraison($idCommande){
     }
     foreach ($data as &$commande) {
         if ($commande["idCommande"] == $idCommande) {
-            $commande["Statut"] = "enLivraison";
+            $commande["Statut"] = "En livraison";
         }
     }
     file_put_contents("commandes.json", json_encode($data, JSON_PRETTY_PRINT));

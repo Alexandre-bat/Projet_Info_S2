@@ -74,10 +74,10 @@ function mettre_fichier($fichier, $panier, $produits, $transaction, $montant, $v
     }
 
     if($moment=="immediate"){
-        $statut="preparation";
+        $statut="En preparation";
     }
     else {
-        $statut="attente";
+        $statut="Attente";
     }
 
     $data[] = [
