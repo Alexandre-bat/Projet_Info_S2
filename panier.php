@@ -1,16 +1,8 @@
 <?php include("Utilitaire/start.php");
 $json = file_get_contents("carte.json");
 $produits = json_decode($json, true);
-
-function getProduit($produits, $id){
-    foreach($produits as $p){
-        if($p['id'] == $id){
-            return $p;
-        }
-    }
-    return null;
-}
 ?>
+
 
 <!DOCTYPE html>
 <html>
@@ -40,6 +32,7 @@ function getProduit($produits, $id){
                         if($produit){ 
                             $prixTotal = $produit['prix'] * $quantite;
                             $total += $prixTotal;
+                            //défini les variables nécessaires dans l'affichage plus bas
                             if($produit['categorie'] == "menu"){
             ?>
             <div class="box">
@@ -59,10 +52,10 @@ function getProduit($produits, $id){
                     <form action="panier.php" method="post">
                         <input type="hidden" name="supprimer" value="<?php echo $id; ?>">
                         <button class="bouttonclassique">Supprimer</button>
-                        <!-- bouton pour supprimer le menu de la commande-->
                     </form>
                 </div>
             </div>
+            <!-- Affichages des menus -->
             <?php
                             } else {
             ?>
@@ -82,11 +75,10 @@ function getProduit($produits, $id){
                     <form action="panier.php" method="post">
                         <input type="hidden" name="supprimer" value="<?php echo $id; ?>">
                         <button class="bouttonclassique">Supprimer</button>
-                        <!-- bouton pour supprimer le plat de la commande-->
                     </form>
                 </div>
             </div>
-            <!-- calculer le prix total et afficher le element de la commande-->
+            <!-- Affichage de ce qui n'est pas menu -->
         <?php
             }
             }
@@ -99,9 +91,9 @@ function getProduit($produits, $id){
             <?php  $_SESSION['prix'] = $total; ?>
             <form action="panier.php" method="post">
                 <button class="bouttonclassique" name="vider">Vider le panier</button>
-                <!-- bouton pour reinitialiser le panier-->
             </form>
             </div>
+            <!-- Total plus bouton pour vider le panier -->
             <div class="blocDroitPanier">
             <?php if(!isset($_GET['payer'])){ ?>
                 <form action='validation.php' method='POST'>
@@ -121,7 +113,7 @@ function getProduit($produits, $id){
                     <input class="bouttonheure" type="time" min="11:00" max="23:00" name="heureCommande" required>                    
                     <button type="submit" class="bouttonclassique">Valider</button>
                 </form>
-                <!-- formulaire pour avoir l'heure ou le mode de la commande-->
+                <!-- formulaire pour avoir l'heure ou le mode de la commande (on supprimera la date et l'heure quand on appuiera sur immediat quand on aura le JS)-->
             <?php };?>
                 <?php 
                 if(isset($_GET['payer'])){

@@ -1,4 +1,5 @@
 <?php include("Utilitaire/start.php"); ?>
+<!-- Comme Accueil.php quasi que du html donc plutôt clair -->
 <!DOCTYPE html>
 <html lang="fr">
 

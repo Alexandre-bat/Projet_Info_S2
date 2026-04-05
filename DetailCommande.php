@@ -29,6 +29,8 @@ foreach ($data as $commande) {
     }
 }
 
+//verifications et récupération fichier
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -49,6 +51,7 @@ foreach ($data as $commande) {
         <div class="commande">
             <p>ID de la Commande : <?php echo $commandeTrouvee["idCommande"]; ?></p>
             <p>ID de l'Utilisateur : <?php echo $commandeTrouvee["idUtilisateur"]; ?></p>
+            <p>ID du Livreur : <?php echo $commandeTrouvee["idLivreur"]; ?></p>
             <p>Date de commande : <?php echo $commandeTrouvee["Date"]; ?></p>
             <p>Type de commande : <?php echo $commandeTrouvee["Moment"]; ?></p>
             <p>Date demandée : <?php echo $commandeTrouvee["Date prevue"]; ?></p>
@@ -70,6 +73,8 @@ foreach ($data as $commande) {
         </div>
     </div>
 </main>
+
+<!-- Affichage de tous les champs de la commande pour ses details -->
 
 </body>
 </html>

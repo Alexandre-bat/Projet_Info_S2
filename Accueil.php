@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 
-<body id="accueilBody">
+<body id="accueilBody"> <!-- Accueil du restaurant que du html rien de plus (sauf les fichiers inclus) -->
     <head>
         <title>SIUUSHI - Accueil</title>
         <link rel="icon" href="Img/logo.png" type="image/png">

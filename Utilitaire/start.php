@@ -96,7 +96,7 @@ function montrer_utilisateurs($fichier){
                 <div id=remise>
                     <button class="bouttonclassique">Accorder une remise</button>
                 </div>
-                <form action="fct.php" method="post">
+                <form action="SupprCompte.php" method="post">
                     <input type="hidden" name="supprimerCompte" value="'. $user["id"] .'">
                     <button class="bouttonclassique">Supprimer le compte</button>
                 </form>
@@ -104,6 +104,15 @@ function montrer_utilisateurs($fichier){
             </div>';
     }
 }
+
+function getProduit($produits, $id){
+    foreach($produits as $p){
+        if($p['id'] == $id){
+            return $p;
+        }
+    }
+    return null;
+}//Récupère les produits envoyées dans le panier
 
 if (isset($_POST['livre'])) {
     header("Location: Livraison.php?Livre=1");

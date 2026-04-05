@@ -5,14 +5,6 @@ include("getapikey.php");
 $json     = file_get_contents("carte.json");
 $produits = json_decode($json, true);
 
-function getProduit($produits, $id) {
-    foreach ($produits as $p) {
-        if ($p['id'] == $id) {
-            return $p;
-        }
-    }
-    return null;
-}
 $moment = $_SESSION['momentCommande'];
 $date = $_SESSION['dateCommande'];
 $heure = $_SESSION['heureCommande'];
@@ -23,6 +15,7 @@ $vendeur = $_GET['vendeur'];
 $status = $_GET['status'];
 $control = $_GET['control'];
 
+//récupération de l'API + formulaire pour date et heure commande
 
 $api_key = getAPIKey($vendeur);
 
@@ -41,6 +34,8 @@ $control_verif = md5($api_key
 if ($control != $control_verif) {
     exit("Erreur : paiement invalide");
 }
+
+//Verification de l'API
 
 
 function mettre_fichier($fichier, $panier, $produits, $transaction, $montant, $vendeur, $statutCommande, $moment, $date, $heure) {
@@ -72,6 +67,7 @@ function mettre_fichier($fichier, $panier, $produits, $transaction, $montant, $v
             ];
         }
     }
+    //definition des variables lectures du fichiers et recuperation des produits commandés
 
     if($moment=="immediate"){
         $statut="En preparation";
@@ -94,6 +90,7 @@ function mettre_fichier($fichier, $panier, $produits, $transaction, $montant, $v
         "Moment" => $moment,
         "Statut" => $statut
     ];
+    //Toutes les informations mises dans le fichier
 
     file_put_contents($fichier, json_encode($data, JSON_PRETTY_PRINT));
 
