@@ -78,6 +78,14 @@
                             <?php foreach ($commande["Produits"] as $produit){ ?>
                                 <p><?php echo $produit["nom"]; ?> x<?php echo $produit["quantite"]; ?></p>
                             <?php } ?>
+                            <div class="adresse">
+                                <a href="https://www.google.com/maps?q=49.034695, 2.070082" target="_blank">
+                                    <img src="Img\map.jpg" alt="Ouvrir dans Google Maps">
+                                </a>
+                                <a href="https://waze.com/ul?q=49.034695, 2.070082" target="_blank">
+                                    <img src="Img\waze.png" alt="Ouvrir dans Waze">
+                                </a>
+                            </div>
                         </div>
 
                         <div class="validation">

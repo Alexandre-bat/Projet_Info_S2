@@ -1,4 +1,4 @@
-<?php
+<?php    
     include(__DIR__ ."/../Utilitaire/start.php");
     include(__DIR__ ."/../Fonctions/getapikey.php");
 
