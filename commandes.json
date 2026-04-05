@@ -2,7 +2,7 @@
     {
         "idCommande": "69d17ca92ec6d",
         "idUtilisateur": "user_69d173ecb0c612.01232958",
-        "idLivreur": "user_69d17428532496.50817671",
+        "idLivreur": "user_69d17428532496.50817672",
         "Date": "2026-04-04 23:03",
         "Produits": [
             {
@@ -17,7 +17,7 @@
         "Date prevue": "2026-04-10",
         "Heure prevue": "11:00",
         "Moment": "immediate",
-        "Statut": "En livraison"
+        "Statut": "livree"
     },
     {
         "idCommande": "69d18b9fb58b6",

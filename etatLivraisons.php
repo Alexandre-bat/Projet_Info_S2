@@ -20,6 +20,7 @@
             if (isset($_POST["livre"])) {
                 $commande["Statut"] = "livree";
             } elseif (isset($_POST["abandone"])) {
+                $commande["idLivreur"] = "";
                 $commande["Statut"] = "abandonnee";
             }
             break;

@@ -25,21 +25,6 @@ $contenu = file_get_contents("commandes.json");
 $data = json_decode($contenu, true);
 if (!is_array($data)) { $data = []; }
 
-$commandeImmediate = [];
-$commandeAttente = [];
-$commandeLivraison = [];
-foreach ($data as $commande) {
-    if($commande["Paiement"] == "Payee"){
-        if ($commande["Statut"] == "En preparation") {
-            $commandeImmediate[] = $commande;
-        } else if($commande["Statut"] == "attente"){
-            $commandeAttente[] = $commande;
-        } else if($commande["Statut"] == "En livraison"){
-            $commandeLivraison[] = $commande;
-        }
-    }
-}
-
 function choisir_livreur($fichier, $Commande){
     if(!file_exists($fichier)){
         header("Location: Connexion.php?error=1");
@@ -88,6 +73,8 @@ function choisir_livreur($fichier, $Commande){
     $commandeImmediate = [];
     $commandeAttente = [];
     $commandeLivraison = [];
+    $commandeLivree=[];
+    $commandeAbandonnee=[];
     foreach ($data as $commande) {
         if($commande["Paiement"]=="Payee"){
             if ($commande["Statut"] == "En preparation") {
@@ -97,6 +84,10 @@ function choisir_livreur($fichier, $Commande){
             }
             else if($commande["Statut"]=="En livraison"){
                 $commandeLivraison[] = $commande;
+            }else if($commande["Statut"] == "abandonnee"){
+                $commandeAbandonnee[] = $commande;
+            }else if($commande["Statut"] == "livree"){
+                $commandeLivree[] = $commande;
             }
         }
     }
@@ -140,31 +131,63 @@ function choisir_livreur($fichier, $Commande){
 
 <div class="en_attente">
     <h2>Commandes en préparation</h2>
-<div class="liste_commandes">
-    <?php if(empty($commandeImmediate)): ?>
-        <p>Il n'y a pas de commande à cette étape</p>
-    <?php else: ?>
-        <?php foreach ($commandeImmediate as $commande) { ?>
-            <div class="commande">
-                <h4>Commande n° <?php echo $commande["idCommande"]; ?></h4>
-                <?php foreach ($commande["Produits"] as $produit) { ?>
-                    <p>
-                        <?php echo "Plats =" . $produit["nom"]; ?> x<?php echo $produit["quantite"]; ?>
-                    </p>
-                <?php } ?>
-                <p>Date: <?php echo $commande["Date prevue"]; ?> </p>
-                <p>Date: <?php echo $commande["Heure prevue"]; ?> </p>
-                <p>Total: <?php echo $commande["Prix"]; ?>€</p>
+    <div class="liste_commandes">
+        <?php if(empty($commandeImmediate)): ?>
+            <p>Il n'y a pas de commande à cette étape</p>
+        <?php else: ?>
+            <?php foreach ($commandeImmediate as $commande) { ?>
+                <div class="commande">
+                    <h4>Commande n° <?php echo $commande["idCommande"]; ?></h4>
+                    <?php foreach ($commande["Produits"] as $produit) { ?>
+                        <p>
+                            <?php echo "Plats =" . $produit["nom"]; ?> x<?php echo $produit["quantite"]; ?>
+                        </p>
+                    <?php } ?>
+                    <p>Date: <?php echo $commande["Date prevue"]; ?> </p>
+                    <p>Date: <?php echo $commande["Heure prevue"]; ?> </p>
+                    <p>Total: <?php echo $commande["Prix"]; ?>€</p>
 
-                <div class="bouttonsCommandes">
-                    <a href="DetailCommande.php?id=<?php echo $commande["idCommande"]; ?>">
-                        <button class="bouttonclassique">Détails</button>
-                    </a>
-                    <form action="CommandesModifs.php" method="post">
-                        <input type="hidden" name="priseEnLivraison" value="<?php echo $commande["idCommande"]; ?>">
-                        <button class="bouttonclassique">Attribuer aux livreurs</button>
-                    </form>
+                    <div class="bouttonsCommandes">
+                        <a href="DetailCommande.php?id=<?php echo $commande["idCommande"]; ?>">
+                            <button class="bouttonclassique">Détails</button>
+                        </a>
+                        <form action="CommandesModifs.php" method="post">
+                            <input type="hidden" name="priseEnLivraison" value="<?php echo $commande["idCommande"]; ?>">
+                            <button class="bouttonclassique">Attribuer aux livreurs</button>
+                        </form>
+                    </div>
                 </div>
+            <?php } ?>
+        <?php endif; ?>
+    </div>
+</div>
+
+<div class="en_attente">
+    <h2>Commandes en livraison</h2>
+    <div class="liste_commandes">
+        <?php if(empty($commandeLivraison)): ?>
+            <p>Il n'y a pas de commande à cette étape</p>
+        <?php else: ?>
+            <?php foreach ($commandeLivraison as $commande) { ?>
+                <div class="commande">
+                    <h4>Commande n° <?php echo $commande["idCommande"]; ?></h4>
+                    <?php foreach ($commande["Produits"] as $produit) { ?>
+                        <p>
+                            <?php echo "Plats =" . $produit["nom"]; ?> x<?php echo $produit["quantite"]; ?>
+                        </p>
+                    <?php } ?>
+                    <p>Date: <?php echo $commande["Date prevue"]; ?> </p>
+                    <p>Date: <?php echo $commande["Heure prevue"]; ?> </p>
+                    <p>Total: <?php echo $commande["Prix"]; ?>€</p>
+
+                    <div class="bouttonsCommandes">
+                        <a href="DetailCommande.php?id=<?php echo $commande["idCommande"]; ?>">
+                            <button class="bouttonclassique">Détails</button>
+                        </a>
+                        <form action="Commandes.php" method="post">
+                            <?php choisir_livreur('id.json', $commande); ?>
+                        </form>
+                    </div>
             </div>
         <?php } ?>
     <?php endif; ?>
@@ -172,12 +195,12 @@ function choisir_livreur($fichier, $Commande){
 </div>
 
 <div class="en_attente">
-    <h2>Commandes en livraison</h2>
+    <h2>Commandes Abandonnee</h2>
 <div class="liste_commandes">
-    <?php if(empty($commandeLivraison)): ?>
+    <?php if(empty($commandeAbandonnee)): ?>
         <p>Il n'y a pas de commande à cette étape</p>
     <?php else: ?>
-        <?php foreach ($commandeLivraison as $commande) { ?>
+        <?php foreach ($commandeAbandonnee as $commande) { ?>
             <div class="commande">
                 <h4>Commande n° <?php echo $commande["idCommande"]; ?></h4>
                 <?php foreach ($commande["Produits"] as $produit) { ?>
@@ -197,6 +220,29 @@ function choisir_livreur($fichier, $Commande){
                         <?php choisir_livreur('id.json', $commande); ?>
                     </form>
                 </div>
+            </div>
+        <?php } ?>
+    <?php endif; ?>
+    </div>
+</div>
+
+<div class="en_attente">
+    <h2>Commandes Livrées</h2>
+    <div class="liste_commandes">
+    <?php if(empty($commandeLivree)): ?>
+        <p>Il n'y a pas de commande à cette étape</p>
+    <?php else: ?>
+        <?php foreach ($commandeLivree as $commande) { ?>
+            <div class="commande">
+                <h4>Commande n° <?php echo $commande["idCommande"]; ?></h4>
+                <?php foreach ($commande["Produits"] as $produit) { ?>
+                    <p>
+                        <?php echo "Plats =" . $produit["nom"]; ?> x<?php echo $produit["quantite"]; ?>
+                    </p>
+                <?php } ?>
+                <p>Date: <?php echo $commande["Date prevue"]; ?> </p>
+                <p>Date: <?php echo $commande["Heure prevue"]; ?> </p>
+                <p>Total: <?php echo $commande["Prix"]; ?>€</p>
             </div>
         <?php } ?>
     <?php endif; ?>
