@@ -1,57 +1,55 @@
 <?php include("Utilitaire/start.php"); ?>
 <!DOCTYPE html>
-<html>
+    <html>
+        <head>
+            <title>SIUUSHI - Accueil</title>
+            <link rel="icon" href="Img/logo.png" type="image/png">
+            <link rel="stylesheet" type="text/css" href="Style.css">
+        </head>
+        <body id="accueilBody"> <!-- Accueil du restaurant que du html rien de plus (sauf les fichiers inclus) -->
+            <?php include("Utilitaire/nav.php"); ?>
 
-<body id="accueilBody"> <!-- Accueil du restaurant que du html rien de plus (sauf les fichiers inclus) -->
-    <head>
-        <title>SIUUSHI - Accueil</title>
-        <link rel="icon" href="Img/logo.png" type="image/png">
-        <link rel="stylesheet" type="text/css" href="Style.css">
-    </head>
-    <body>
-    <?php include("Utilitaire/nav.php"); ?>
+            <section class="blocImage">
 
-    <section class="blocImage">
+                <div class="imageInfos">
+                    <h1>SIUUSHI</h1>
+                    <p class="imageSousTitre">Restaurant japonais traditionnel</p>
 
-        <div class="imageInfos">
-            <h1>SIUUSHI</h1>
-            <p class="imageSousTitre">Restaurant japonais traditionnel</p>
+                    <p class="imageTexte">
+                        Découvrez l'authenticité de la cuisine japonaise à travers
+                        des plats préparés avec passion et des ingrédients frais.
+                    </p>
+                </div>
+            </section>
 
-            <p class="imageTexte">
-                Découvrez l'authenticité de la cuisine japonaise à travers
-                des plats préparés avec passion et des ingrédients frais.
-            </p>
-        </div>
-    </section>
+            <div id="blocAccueil">
+                <div id="titreAccueil">
+                    <h2>SIUUSHI</h2>
+                    <h4>Restaurant traditionnel depuis 1967</h4>
+                    <img src="Img/logoAccueil.png" alt="Logo" class="logo_accueil">
+                </div>
+                <p id="texteAccueil">
+                    Bienvenue chez SIUUSHI, votre adresse incontournable pour découvrir toute la richesse de la cuisine
+                    japonaise dans un cadre à la fois élégant et chaleureux. Depuis 1967, notre établissement cultive avec
+                    passion l’art culinaire nippon en mettant à l’honneur des recettes authentiques, préparées dans le respect
+                    des traditions. <br><br>
 
-    <div id="blocAccueil">
-        <div id="titreAccueil">
-            <h2>SIUUSHI</h2>
-            <h4>Restaurant traditionnel depuis 1967</h4>
-            <img src="Img/logoAccueil.png" alt="Logo" class="logo_accueil">
-        </div>
-        <p id="texteAccueil">
-            Bienvenue chez SIUUSHI, votre adresse incontournable pour découvrir toute la richesse de la cuisine
-            japonaise dans un cadre à la fois élégant et chaleureux. Depuis 1967, notre établissement cultive avec
-            passion l’art culinaire nippon en mettant à l’honneur des recettes authentiques, préparées dans le respect
-            des traditions. <br><br>
+                    Chaque jour, notre équipe sélectionne des ingrédients frais et de qualité afin de vous garantir des saveurs
+                    pures et équilibrées. De nos sushis délicatement façonnés à la main à nos plats chauds généreux, en passant
+                    par nos spécialités revisitées, chaque création est pensée pour offrir une expérience gustative raffinée et
+                    mémorable. Notre chef s’attache à préserver l’essence de la cuisine japonaise tout en apportant une touche
+                    de modernité qui fait la signature de SIUUSHI.<br><br>
 
-            Chaque jour, notre équipe sélectionne des ingrédients frais et de qualité afin de vous garantir des saveurs
-            pures et équilibrées. De nos sushis délicatement façonnés à la main à nos plats chauds généreux, en passant
-            par nos spécialités revisitées, chaque création est pensée pour offrir une expérience gustative raffinée et
-            mémorable. Notre chef s’attache à préserver l’essence de la cuisine japonaise tout en apportant une touche
-            de modernité qui fait la signature de SIUUSHI.<br><br>
-
-            Les plats que nous proposons à la carte de notre restaurant japonais privilégient les produits de saison et
-            sont préparés sans altérer le goût naturel des aliments. Cela donne une cuisine légère et saine qui concilie
-            naturellement plaisir, diététique, simplicité, sophistication et esthétique.
-        </p>
-    </div>
+                    Les plats que nous proposons à la carte de notre restaurant japonais privilégient les produits de saison et
+                    sont préparés sans altérer le goût naturel des aliments. Cela donne une cuisine légère et saine qui concilie
+                    naturellement plaisir, diététique, simplicité, sophistication et esthétique.
+                </p>
+            </div>
 
 
-    <footer>
-        <?php include("Utilitaire/footer.php"); ?>
-    </footer>
-</body>
+            <footer>
+                <?php include("Utilitaire/footer.php"); ?>
+            </footer>
+        </body>
 
-</html>
+    </html>
