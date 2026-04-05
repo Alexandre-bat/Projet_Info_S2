@@ -9,6 +9,7 @@ if(isset($_GET['filtres'])){
     $filtres = $_GET['filtres'];
 }
 ?>
+<!-- Récupère le fichier et verifie si des filtres sont présents -->
 <!DOCTYPE html>
 <html>
     <head>
@@ -41,6 +42,7 @@ if(isset($_GET['filtres'])){
             </div>
         </div>
         <?php if($filtres == "menu" || !isset($filtres) || $filtres == "tous") { ?>
+        <!-- Les bouttons de filtres servent à gérer les différentes types de commandes que l'on veut (les allergenes marcheront en JS)-->
         <div class="blocMenu">
             <div class="titreMenu">
                 <h1>Menus</h1>
@@ -73,6 +75,7 @@ if(isset($_GET['filtres'])){
                 <?php }} ?>
             </div>
         </div>
+        <!-- Type d'affichage classique (comme phase1) lorsque le code récupère un menu dans le fichier carte.json -->
         <?php } 
         if($filtres == "entree" || !isset($filtres) || $filtres == "tous") {
         ?>
@@ -107,6 +110,7 @@ if(isset($_GET['filtres'])){
                 <?php }} ?>
             </div>
         </div>
+                <!-- La meme mais pour les entrées dans le fichier carte.json -->
         <?php } 
         if($filtres == "plat" || !isset($filtres) || $filtres == "tous") {
         ?>
@@ -141,6 +145,7 @@ if(isset($_GET['filtres'])){
                 <?php }} ?>
             </div>
         </div>
+        <!-- La meme mais pour les plats dans le fichier carte.json -->
         <?php } 
         if($filtres == "dessert" || !isset($filtres) || $filtres == "tous") {
         ?>
@@ -174,7 +179,7 @@ if(isset($_GET['filtres'])){
                 </div>
                 <?php }} ?>
             </div>
-        </div>
+        <!-- La meme mais pour les desserts dans le fichier carte.json -->
         <?php } ?>
     </main>
 

@@ -38,7 +38,7 @@ $contenu = file_get_contents("id.json");
         </div>
         <div class="adminGestion">
 
-            <?php montrer_utilisateurs("id.json"); ?>
+            <?php montrer_utilisateurs("id.json"); ?> <!-- Appel la fonction montrer_utilisateurs pour pouvoir gérer les utilisateurs via l'admin --> 
 
         </div>
     </div>

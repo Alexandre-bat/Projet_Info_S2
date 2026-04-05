@@ -6,4 +6,5 @@ function getAPIKey($vendeur)
 	}
 	return "zzzz";
 }
+// Fonction donnée par l'API
 ?>

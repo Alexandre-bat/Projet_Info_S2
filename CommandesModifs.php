@@ -6,6 +6,7 @@ if (isset($_POST["priseEnCharge"])) {
 else if(isset($_POST["priseEnLivraison"])){
     prepaToLivraison($_POST["priseEnLivraison"]);
 }
+//verification de quelle fonction appelée
 
 function attenteToPrepa($idCommande){
     $contenu = file_get_contents("commandes.json");
@@ -22,6 +23,7 @@ function attenteToPrepa($idCommande){
     header("Location: Commandes.php"); 
     exit();
 }
+// Si cette fonction est appelée le statut de la commande devient "En preparation"
 
 function prepaToLivraison($idCommande){
     $contenu = file_get_contents("commandes.json");
@@ -38,4 +40,5 @@ function prepaToLivraison($idCommande){
     header("Location: Commandes.php"); 
     exit();
 }
+// Si cette fonction est appelée le statut de la commande devient "En livraison"
 ?>
