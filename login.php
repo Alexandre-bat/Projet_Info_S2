@@ -1,5 +1,5 @@
 <?php
-session_start();
+session_start(); 
 
 $numtel = trim($_POST['tel'] ?? "");
 $password = trim($_POST['mdp'] ?? "");
@@ -38,6 +38,7 @@ foreach($data as $user){
         }
     }
 }
+//chercher l'utilisateur dans le fichier id.json 
 
 if($trouve){
     header("Location: Accueil.php");
@@ -46,4 +47,5 @@ if($trouve){
     header("Location: Connexion.php?error=1");
     exit();
 }
+//renvoie sur accueil si ca marche sinon sur connexion
 ?>

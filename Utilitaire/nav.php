@@ -16,6 +16,7 @@
                 if($role === "Livreur") {
                     echo '<a href="Livraison.php">Livraison</a>';
                 }
+                //affichage different selon le type de compte: rien pour client, livraison pour livreur, tout pour admin
             ?>
             <a href="Carte.php">Carte</a>
             <?php 
@@ -35,6 +36,7 @@
                     echo '<a href="Connexion.php">Connexion</a>';
                     echo '<a href="Inscription.php">Inscription</a>';
                 }
+                //affiche en fonction de si un compte est connecté ou non : son profil, son panier et une option de deconnexion ou des boutons de connexion de d'inscription
             ?>
         </div>
     </div>

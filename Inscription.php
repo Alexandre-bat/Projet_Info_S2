@@ -17,6 +17,7 @@
             if(isset($_GET['erreur'])){
                 echo "<p class='connexion'> Utilisateur déjà utilisé</p>";
             }
+            // message d'erreur dans le cas ou l'id(numéro de tel) est deja utilisé
         ?>
 
         <h2>Inscription</h2>
@@ -49,12 +50,13 @@
             </div>
 
             <button class="boutons" type="submit">S'inscrire</button>
-
+            <!-- formulaire d'inscription-->
         </form>
         <p class="connexion">
             Vous avez déjà un compte ?
             <a href="Connexion.php" class="lien">Se connecter</a>
         </p>
+        <!-- bouton pour se connecter-->
     </div>
     </div>
     

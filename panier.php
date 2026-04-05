@@ -59,6 +59,7 @@ function getProduit($produits, $id){
                     <form action="panier.php" method="post">
                         <input type="hidden" name="supprimer" value="<?php echo $id; ?>">
                         <button class="bouttonclassique">Supprimer</button>
+                        <!-- bouton pour supprimer le menu de la commande-->
                     </form>
                 </div>
             </div>
@@ -81,9 +82,11 @@ function getProduit($produits, $id){
                     <form action="panier.php" method="post">
                         <input type="hidden" name="supprimer" value="<?php echo $id; ?>">
                         <button class="bouttonclassique">Supprimer</button>
+                        <!-- bouton pour supprimer le plat de la commande-->
                     </form>
                 </div>
             </div>
+            <!-- calculer le prix total et afficher le element de la commande-->
         <?php
             }
             }
@@ -96,6 +99,7 @@ function getProduit($produits, $id){
             <?php  $_SESSION['prix'] = $total; ?>
             <form action="panier.php" method="post">
                 <button class="bouttonclassique" name="vider">Vider le panier</button>
+                <!-- bouton pour reinitialiser le panier-->
             </form>
             </div>
             <div class="blocDroitPanier">
@@ -117,6 +121,7 @@ function getProduit($produits, $id){
                     <input class="bouttonheure" type="time" min="11:00" max="23:00" name="heureCommande" required>                    
                     <button type="submit" class="bouttonclassique">Valider</button>
                 </form>
+                <!-- formulaire pour avoir l'heure ou le mode de la commande-->
             <?php };?>
                 <?php 
                 if(isset($_GET['payer'])){
@@ -145,12 +150,14 @@ function getProduit($produits, $id){
                     <input type='hidden' name='control' value="<?php echo $control ?>">
                     <button type="submit" class="bouttonclassique">Payer</button>
                 </form>
+                <!-- envoie des information a l'api cybank-->
                 <?php }?>
         </div>
         <?php
             } else {
                 echo "<p class='paniervide'>Votre panier est vide</p>";
             }
+            // cas ou le panier est vide 
         ?>
     </div>
 </main>

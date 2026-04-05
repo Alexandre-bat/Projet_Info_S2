@@ -8,6 +8,7 @@ if(isset($_GET['deco'])) {
     header("Location: Accueil.php");
     exit();
 }
+//deconnexion 
 
 $role = null;
 
@@ -24,6 +25,7 @@ if(isset($_SESSION['nom']) && isset($_SESSION['prenom'])) {
     }
 }
 
+
 $nbr = 0;
 if(isset($_POST['produit'])){
 
@@ -33,7 +35,7 @@ if(isset($_POST['produit'])){
         exit();
     }
 
-    // Si connecté → ajout panier
+    // Si connecté, ajout panier
     $id = $_POST['produit'];
     if(!isset($_SESSION['panier'])){
         $_SESSION['panier'] = [];
@@ -52,14 +54,16 @@ if(isset($_POST['supprimer'])){
     $_SESSION['panier'] = array_values($_SESSION['panier']);
     header("Location: Panier.php");
     exit();
-}
+} 
+//supprime un element du panier
 
 if(isset($_POST['vider'])){
-    unset($_SESSION['panier']); // supprime tout le panier
+    unset($_SESSION['panier']); 
 
     header("Location: panier.php");
     exit();
 }
+// supprime tout le panier
 
 function montrer_utilisateurs($fichier){
     if(!file_exists($fichier)){
