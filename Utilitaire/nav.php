@@ -13,10 +13,13 @@
                     echo '<a href="Livraison.php">Livraison</a>';
                     echo '<a href="Commandes.php">Commandes</a>';
                 }
-                if($role === "Livreur") {
+                else if($role === "Livreur") {
                     echo '<a href="Livraison.php">Livraison</a>';
                 }
-                //affichage different selon le type de compte: rien pour client, livraison pour livreur, tout pour admin
+                else if($role === "restaurateur"){
+                    echo '<a href="Commandes.php">Commandes</a>';
+                }
+                //affichage different selon le type de compte: rien pour client, livraison pour livreur, commandes pour restaurateur, tout pour admin
             ?>
             <a href="Carte.php">Carte</a>
             <?php 
