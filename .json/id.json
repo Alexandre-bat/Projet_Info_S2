@@ -46,7 +46,7 @@
         "tel": "0123456789",
         "adresse": "Cergy",
         "mdp": "client1",
-        "role": "client",
+        "role": "Client",
         "inscription": "2026-04-05 12:01:19"
     }
 ]

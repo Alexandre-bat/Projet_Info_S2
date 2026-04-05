@@ -112,7 +112,7 @@
                             <?php } ?>
                             <?php 
                                 if(isset($_GET['payer'])){
-                                require('getapikey.php');
+                                require(__DIR__ . "/Fonctions/getapikey.php");
 
                                 $transaction = uniqid();
                                 $montant = $_SESSION["prix"];

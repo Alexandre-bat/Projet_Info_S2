@@ -12,9 +12,12 @@
 
     $role = null;
 
+     $fichier_id = __DIR__ . "/../.json/id.json";
+
     if(isset($_SESSION['nom']) && isset($_SESSION['prenom'])) {
 
-        $json = file_get_contents(".json/id.json");
+
+        $json = file_get_contents("$fichier_id");
         $users = json_decode($json, true);
 
         foreach ($users as $user) {

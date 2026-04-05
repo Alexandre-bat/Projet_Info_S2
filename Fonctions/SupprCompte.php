@@ -4,7 +4,7 @@
         header("Location:  ../Admin.php");
         exit();
     }
-    //verification de l'information appel fct puis renvoie sur admin.php
+    //verification de l'information appel fct puis renvoie sur Admin.php
 
     function supprimerCompte($idSupprimer) {
 

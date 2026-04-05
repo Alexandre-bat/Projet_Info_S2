@@ -37,6 +37,20 @@
         "Date prevue": "2026-04-12",
         "Heure prevue": "11:11",
         "Moment": "immediate",
+        "Statut": "livree"
+    },
+    {
+        "idCommande": "69d29787150e5",
+        "idUtilisateur": "user_69d17428532496.50817671",
+        "idLivreur": "user_69d17428532496.50817672",
+        "Date": "2026-04-05 19:10",
+        "Produits": [],
+        "Prix": "70",
+        "Vendeur": "MI-3_A",
+        "Paiement": "Payee",
+        "Date prevue": "2026-04-05",
+        "Heure prevue": "20:00",
+        "Moment": "livraison",
         "Statut": "En livraison"
     }
 ]
