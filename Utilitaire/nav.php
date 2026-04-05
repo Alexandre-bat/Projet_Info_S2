@@ -30,7 +30,7 @@
                 if(isset($_SESSION['panier'])){
                     $nbrsession = count($_SESSION['panier']);
         ?>
-        <a href="panier.php">
+        <a href="Panier.php">
             <img src="Img/panier.png" alt="Panier" id="logoPanier"><?php echo $nbrsession;?>
         </a>
         <?php

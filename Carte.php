@@ -59,7 +59,7 @@
                                 <div class="basBox">
                                     <span id="prix">Prix : <?php echo $p['prix']; ?>€</span>
                                     <form action="<?php if(isset($_SESSION['nom']) && isset($_SESSION['prenom'])) {
-                                        echo 'panier.php';
+                                        echo 'Panier.php';
                                     } else {
                                         echo 'Connexion.php';
                                     }
@@ -94,7 +94,7 @@
                                 <div class="basBox">
                                     <span id="prix">Prix : <?php echo $p['prix']; ?>€</span>
                                     <form action="<?php if(isset($_SESSION['nom']) && isset($_SESSION['prenom'])) {
-                                        echo 'panier.php';
+                                        echo 'Panier.php';
                                     } else {
                                         echo 'Connexion.php';
                                     }
@@ -129,7 +129,7 @@
                                 <div class="basBox">
                                     <span id="prix">Prix : <?php echo $p['prix']; ?>€</span>
                                     <form action="<?php if(isset($_SESSION['nom']) && isset($_SESSION['prenom'])) {
-                                        echo 'panier.php';
+                                        echo 'Panier.php';
                                     } else {
                                         echo 'Connexion.php';
                                     }
@@ -164,7 +164,7 @@
                                 <div class="basBox">
                                     <span id="prix">Prix : <?php echo $p['prix']; ?>€</span>
                                     <form action="<?php if(isset($_SESSION['nom']) && isset($_SESSION['prenom'])) {
-                                        echo 'panier.php';
+                                        echo 'Panier.php';
                                     } else {
                                         echo 'Connexion.php';
                                     }

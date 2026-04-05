@@ -122,7 +122,7 @@
                                     <a href="DetailCommande.php?id=<?php echo $commande["idCommande"]; ?>">
                                         <button class="bouttonclassique">Détails</button>
                                     </a>
-                                    <form action="Fonctions/CommandesModifs.php" method="post">
+                                    <form action="Fonctions/commandesModifs.php" method="post">
                                         <input type="hidden" name="priseEnCharge" value="<?php echo $commande["idCommande"]; ?>">
                                         <button class="bouttonclassique">Prise en charge</button>
                                     </form>
@@ -155,7 +155,7 @@
                                     <a href="DetailCommande.php?id=<?php echo $commande["idCommande"]; ?>">
                                         <button class="bouttonclassique">Détails</button>
                                     </a>
-                                    <form action="Fonctions/CommandesModifs.php" method="post">
+                                    <form action="Fonctions/commandesModifs.php" method="post">
                                         <input type="hidden" name="priseEnLivraison" value="<?php echo $commande["idCommande"]; ?>">
                                         <button class="bouttonclassique">Attribuer aux livreurs</button>
                                     </form>

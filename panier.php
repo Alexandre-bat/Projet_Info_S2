@@ -46,7 +46,7 @@
                                             </div>
                                             <div class="basBox">
                                                 <span id="prix">Prix : <?php echo $prixTotal; ?>€</span>
-                                                <form action="panier.php" method="post">
+                                                <form action="Panier.php" method="post">
                                                     <input type="hidden" name="supprimer" value="<?php echo $id; ?>">
                                                     <button class="bouttonclassique">Supprimer</button>
                                                 </form>
@@ -68,7 +68,7 @@
                                             </div>
                                             <div class="basBox">
                                                 <span id="prix">Prix : <?php echo $prixTotal; ?>€</span>
-                                                <form action="panier.php" method="post">
+                                                <form action="Panier.php" method="post">
                                                     <input type="hidden" name="supprimer" value="<?php echo $id; ?>">
                                                     <button class="bouttonclassique">Supprimer</button>
                                                 </form>
@@ -117,7 +117,7 @@
                                 $transaction = uniqid();
                                 $montant = $_SESSION["prix"];
                                 $vendeur = "MI-3_A";
-                                $retour = "http://localhost:8080/Fonctions/Payer.php";
+                                $retour = "http://localhost:8080/Fonctions/payer.php";
 
                                 $api_key = getAPIKey($vendeur);
 

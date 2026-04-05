@@ -1,5 +1,5 @@
 <?php include("Utilitaire/start.php");
-    include("Fonctions/MontrerUtilisateurs.php");
+    include("Fonctions/montrerUtilisateurs.php");
     $contenu = file_get_contents(".json/id.json");
     $data = json_decode($contenu, true);
     if(!is_array($data)){

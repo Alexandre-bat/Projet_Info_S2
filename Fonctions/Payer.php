@@ -101,7 +101,7 @@
     }
 
     if (!isset($_SESSION["panier"]) || empty($_SESSION["panier"])) {
-        header("Location: panier.php");
+        header("Location: Panier.php");
         exit();
     }
 
