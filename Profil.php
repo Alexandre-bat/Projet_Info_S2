@@ -12,7 +12,7 @@
 
     $profilUser = null;
     if ($nomCible && $prenomCible) {
-        $json  = file_get_contents("id.json");
+        $json  = file_get_contents(".json/id.json");
         $users = json_decode($json, true);
         foreach ($users as $user) {
             if ($user["nom"] === $nomCible && $user["prenom"] === $prenomCible) {
@@ -55,7 +55,7 @@
                     <h2>Commandes</h2>
                     <!-- Affiche l'historique des commandes -->
                     <?php
-                        $contenu = file_get_contents("commandes.json");
+                        $contenu = file_get_contents(".json/commandes.json");
                         $data    = json_decode($contenu, true);
                         if (!is_array($data)) {
                             $data = [];

@@ -10,7 +10,7 @@
     $idCommande = $_POST["idCommande"];
 
     // Fichier JSON
-    $contenu = file_get_contents("commandes.json");
+    $contenu = file_get_contents(".json/commandes.json");
     $data = json_decode($contenu, true);
     if (!is_array($data)) { $data = []; }
 
@@ -28,7 +28,7 @@
     }
 
     // Sauvegarder le fichier JSON
-    file_put_contents("commandes.json", json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+    file_put_contents(".json/commandes.json", json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
 
     // Redirection selon le choix
     if (isset($_POST["livre"])) {

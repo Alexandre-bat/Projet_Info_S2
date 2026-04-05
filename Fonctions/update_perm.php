@@ -8,7 +8,7 @@
         $prenom = $_POST['prenom'];
         $nouveau_role = $_POST['perm'];
 
-        $fichier = "id.json";
+        $fichier = ".json/id.json";
 
         if(!file_exists($fichier)){
             header("Location: Admin.php");

@@ -1,8 +1,8 @@
 <?php
     include("Utilitaire/start.php");
-    include("getapikey.php");
+    include("Fonctions/getapikey.php");
 
-    $json     = file_get_contents("carte.json");
+    $json     = file_get_contents(".json/carte.json");
     $produits = json_decode($json, true);
 
     $moment = $_SESSION['momentCommande'];
@@ -105,5 +105,5 @@
         exit();
     }
 
-    mettre_fichier("commandes.json", $_SESSION["panier"], $produits, $transaction, $montant, $vendeur, $statutCommande, $moment, $date, $heure);
+    mettre_fichier(".json/commandes.json", $_SESSION["panier"], $produits, $transaction, $montant, $vendeur, $statutCommande, $moment, $date, $heure);
 ?>

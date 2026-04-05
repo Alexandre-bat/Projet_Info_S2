@@ -2,11 +2,11 @@
     include("Utilitaire/start.php");
 
     // Lecture des fichiers JSON
-    $contenu = file_get_contents("commandes.json");
+    $contenu = file_get_contents(".json/commandes.json");
     $data = json_decode($contenu, true);
     if (!is_array($data)) { $data = []; }
 
-    $contenuUtilisateurs = file_get_contents("id.json");
+    $contenuUtilisateurs = file_get_contents(".json/id.json");
     $utilisateurs = json_decode($contenuUtilisateurs, true);
     if (!is_array($utilisateurs)) { $utilisateurs = []; }
 
@@ -81,7 +81,7 @@
                         </div>
 
                         <div class="validation">
-                            <form action="etatLivraisons.php" method="post">
+                            <form action="Fonctions/etatLivraisons.php" method="post">
                                 <input type="hidden" name="idCommande" value="<?php echo $commande["idCommande"]; ?>">
                                 <button class="bouttonclassique" type="submit" name="livre" value="1">
                                     Commande Livrée

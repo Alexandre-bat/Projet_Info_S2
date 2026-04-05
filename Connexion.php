@@ -17,7 +17,7 @@
                 <?php if(isset($_GET['error'])){echo "<p class='connexion'> Id ou Mot de Passe incorrect </p>";}?>
                 <!-- Message d'erreur dans le cas ou le compte n'est pas dans id.json-->
 
-                <form action="login.php" method="post"> 
+                <form action="Fonctions/login.php" method="post"> 
 
                     <div class="input-group">
                         <label class="lb">Téléphone</label>

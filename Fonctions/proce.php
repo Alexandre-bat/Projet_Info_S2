@@ -54,5 +54,5 @@
         exit();
     }
 
-    traiter_fichier("id.json");
+    traiter_fichier(".json/id.json");
 ?>

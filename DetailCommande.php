@@ -8,12 +8,12 @@
 
     $idCommande = $_GET['id'];
 
-    if (!file_exists("commandes.json")) {
+    if (!file_exists(".json/commandes.json")) {
         echo "Aucune commande";
         exit();
     }
 
-    $contenu = file_get_contents("commandes.json");
+    $contenu = file_get_contents(".json/commandes.json");
     $data = json_decode($contenu, true);
 
     if (!is_array($data)) {

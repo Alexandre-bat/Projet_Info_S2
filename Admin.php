@@ -1,5 +1,6 @@
-<?php include("Utilitaire/start.php"); 
-    $contenu = file_get_contents("id.json");
+<?php include("Utilitaire/start.php");
+    include("Fonctions/MontrerUtilisateurs.php");
+    $contenu = file_get_contents(".json/id.json");
     $data = json_decode($contenu, true);
     if(!is_array($data)){
         header("Location: Connexion.php?error=1");
@@ -38,7 +39,7 @@
                 </div>
                 <div class="adminGestion">
 
-                    <?php montrer_utilisateurs("id.json"); ?> <!-- Appel la fonction montrer_utilisateurs pour pouvoir gérer les utilisateurs via l'admin --> 
+                    <?php montrer_utilisateurs(".json/id.json"); ?> <!-- Appel la fonction montrer_utilisateurs pour pouvoir gérer les utilisateurs via l'admin --> 
 
                 </div>
             </div>

@@ -22,7 +22,7 @@
 
                 <h2>Inscription</h2>
 
-                <form action="proce.php" method="post">
+                <form action="Fonctions/proce.php" method="post">
 
                     <div class="input-group">
                         <label class="lb">Prénom</label>

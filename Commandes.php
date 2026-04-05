@@ -5,7 +5,7 @@
         $idLivreur = $_POST['livreur'];
         $idCommande = $_POST['idCommande'];
 
-        $contenu = file_get_contents('commandes.json');
+        $contenu = file_get_contents('.json/commandes.json');
         $data = json_decode($contenu, true);
 
         foreach($data as &$commande){
@@ -16,13 +16,13 @@
             }
         }
 
-        file_put_contents('commandes.json', json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+        file_put_contents('.json/commandes.json', json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
         header("Location: Commandes.php");
         exit();
     }
 
     // Fichier JSON
-    $contenu = file_get_contents("commandes.json");
+    $contenu = file_get_contents(".json/commandes.json");
     $data = json_decode($contenu, true);
     if (!is_array($data)) { $data = []; }
 
@@ -68,7 +68,7 @@
 
         <!-- Trie des Status pour l'affichage -->
         <?php
-            $contenu = file_get_contents("commandes.json");
+            $contenu = file_get_contents(".json/commandes.json");
             $data = json_decode($contenu, true);
             if (!is_array($data)) {
                 $data = [];
@@ -122,7 +122,7 @@
                                     <a href="DetailCommande.php?id=<?php echo $commande["idCommande"]; ?>">
                                         <button class="bouttonclassique">Détails</button>
                                     </a>
-                                    <form action="CommandesModifs.php" method="post">
+                                    <form action="Fonctions/CommandesModifs.php" method="post">
                                         <input type="hidden" name="priseEnCharge" value="<?php echo $commande["idCommande"]; ?>">
                                         <button class="bouttonclassique">Prise en charge</button>
                                     </form>
@@ -155,7 +155,7 @@
                                     <a href="DetailCommande.php?id=<?php echo $commande["idCommande"]; ?>">
                                         <button class="bouttonclassique">Détails</button>
                                     </a>
-                                    <form action="CommandesModifs.php" method="post">
+                                    <form action="Fonctions/CommandesModifs.php" method="post">
                                         <input type="hidden" name="priseEnLivraison" value="<?php echo $commande["idCommande"]; ?>">
                                         <button class="bouttonclassique">Attribuer aux livreurs</button>
                                     </form>
@@ -189,7 +189,7 @@
                                         <button class="bouttonclassique">Détails</button>
                                     </a>
                                     <form action="Commandes.php" method="post">
-                                        <?php choisir_livreur('id.json', $commande); ?>
+                                        <?php choisir_livreur('.json/id.json', $commande); ?>
                                     </form>
                                 </div>
                             </div>
@@ -221,7 +221,7 @@
                                         <button class="bouttonclassique">Détails</button>
                                     </a>
                                     <form action="Commandes.php" method="post">
-                                        <?php choisir_livreur('id.json', $commande); ?>
+                                        <?php choisir_livreur('.json/id.json', $commande); ?>
                                     </form>
                                 </div>
                             </div>

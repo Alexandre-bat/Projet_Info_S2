@@ -4,7 +4,7 @@
     $numtel = trim($_POST['tel'] ?? "");
     $password = trim($_POST['mdp'] ?? "");
 
-    $fichier = "id.json";
+    $fichier = ".json/id.json";
 
     if(!file_exists($fichier)){
         header("Location: Connexion.php?error=1");

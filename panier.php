@@ -1,5 +1,5 @@
 <?php include("Utilitaire/start.php");
-    $json = file_get_contents("carte.json");
+    $json = file_get_contents(".json/carte.json");
     $produits = json_decode($json, true);
 ?>
 
@@ -91,7 +91,7 @@
                         <!-- Total plus bouton pour vider le panier -->
                         <div class="blocDroitPanier">
                             <?php if(!isset($_GET['payer'])){ ?>
-                                <form action='validation.php' method='POST'>
+                                <form action='Fonctions/validation.php' method='POST'>
                                     <label class="radioBox"> 
                                         <input class="momentPanier" type="radio" name="momentCommande" value="immediate" checked>
                                         <span>Immédiat</span>
@@ -117,7 +117,7 @@
                                 $transaction = uniqid();
                                 $montant = $_SESSION["prix"];
                                 $vendeur = "MI-3_A";
-                                $retour = "http://localhost:8080/Payer.php";
+                                $retour = "http://localhost:8080/Fonctions/Payer.php";
 
                                 $api_key = getAPIKey($vendeur);
 
