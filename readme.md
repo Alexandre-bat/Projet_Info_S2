@@ -41,17 +41,42 @@ https://paletton.com/#uid=1000u0klExijAPMkTH6lTs0lqmA
 
 Le projet est structuré de la manière suivante :
 
-Pages HTML séparées pour chaque page du site
+Pages php principales visibles
 Fichier CSS unique partagé par toutes les pages
 Dossier "Img" contenant les images nécessaires
+Dossier "Utilitaire" contenant les fonctions utilisées par toutes les pages
+Dossier "Fonctions" contenant les fonctions utilisées par qu'une ou deux pages
+Dossier "Rapports" contenant les rapports de projet
 
 🛠️ Lancement du site
 
 Tout d’abord, assurez-vous d’avoir un navigateur web installé sur votre machine.
 
 Téléchargez les fichiers depuis le github
+N'oubliez pas le localhost8080! (Très important que ce soit 8080!)
 
-Ensuite, ouvrez le fichier principal du site :
-Accueil.html
+Ensuite, ouvrez le fichier principal du site avec :
+localhost:8080/Accueil.php
 
 📱 Il ne vous reste plus qu’à naviguer sur le site et découvrir ses fonctionnalités !
+
+
+⚠️ ATTENTION !
+
+Certaines fonctionnalités ne sont pas encore disponible et le serons qu'à la phase 3 !
+
+• Les allergènes sur la "Carte" ne le sont pas encore.
+• Lors de la commande sur le panier à partir de la phase 3 lorsque vous cliquerez sur
+"Immédiat" le choix de la date disparaitra, pour l'instant ce n'est pas encore possible.
+• Les remises ne seront égalements disponibles qu'à la phase 3.
+• La modification des informations du "Profil" sera effective en phase 3 aussi.
+
+💡 Comment marche la gestion des commandes
+
+Lorsqu'un utilisateur commande la commande à le statut "En preparation" si elle à été commandé comme "Immediate"
+Sinon elle à le statut "Attente".
+
+Le restaurateur peut choisir de changer le statut des commandes de "Attente" à "En preparation" puis "En livraison"
+si elle doit être livrée.
+
+Enfin le livreur la prends en charge et peux choisir de l'abandonner ou de l'avoir livrée.
