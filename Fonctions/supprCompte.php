@@ -1,4 +1,4 @@
-<?php
+<?php    
     if (isset($_POST['supprimerCompte'])) {
         supprimerCompte($_POST['supprimerCompte']);
         header("Location:  ../Admin.php");
