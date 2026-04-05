@@ -34,7 +34,7 @@
                         <input type="hidden" name="supprimerCompte" value="'. $user["id"] .'">
                         <button class="bouttonclassique">Supprimer le compte</button>
                     </form>
-                    <a href="Profil.php?nom=' . urlencode($user["nom"]) . '&prenom=' . urlencode($user["prenom"]) . '" class="adminProfil">PROFIL</a>
+                    <a href="Profil.php?nom=' . urlencode($user["nom"]) . '&prenom=' . urlencode($user["prenom"]) . '&id=' . urlencode($user["id"]) . '" class="adminProfil">PROFIL</a>;
                 </div>';
         }
     }

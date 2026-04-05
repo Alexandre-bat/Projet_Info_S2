@@ -8,11 +8,11 @@
 
     function supprimerCompte($idSupprimer) {
 
-        if (!file_exists(".json/id.json")) {
+        if (!file_exists(__DIR__ . "/../.json/id.json")) {
             return;
         }
 
-        $contenu = file_get_contents(".json/id.json");
+        $contenu = file_get_contents(__DIR__ . "/../.json/id.json");
         $data = json_decode($contenu, true);
 
         if (!is_array($data)) {
@@ -27,11 +27,11 @@
         }
 
         $data = array_values($data);
-        file_put_contents(".json/id.json", json_encode($data, JSON_PRETTY_PRINT));
+        file_put_contents(__DIR__ . "/../.json/id.json", json_encode($data, JSON_PRETTY_PRINT));
 
         //verifications, recuperation id.json et suppression du compte
 
-        $fichierCommandes = ".json/commandes.json";
+        $fichierCommandes = __DIR__ . "/../.json/commandes.json";
         if (file_exists($fichierCommandes)) {
             $contenu = file_get_contents($fichierCommandes);
             $commandes = json_decode($contenu, true);

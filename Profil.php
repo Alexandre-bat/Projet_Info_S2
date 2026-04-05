@@ -1,21 +1,23 @@
 <?php 
-    include("Utilitaire/start.php"); 
+    include(__DIR__ . "/Utilitaire/start.php"); 
     
     // Affiche soit l'utilisateur où l'on souhaite voir le profil via Admin.php ou son profil
     if (isset($_GET["nom"]) && isset($_GET["prenom"]) && $role === "admin") {
         $nomCible    = $_GET["nom"];
         $prenomCible = $_GET["prenom"];
+        $idCible = $_GET["id"];
     } else {
         $nomCible    = $_SESSION["nom"]    ?? null;
         $prenomCible = $_SESSION["prenom"] ?? null;
+        $idCible = $_SESSION["id"] ?? null;
     }
 
     $profilUser = null;
     if ($nomCible && $prenomCible) {
-        $json  = file_get_contents(".json/id.json");
+        $json  = file_get_contents(__DIR__ . "/.json/id.json");
         $users = json_decode($json, true);
         foreach ($users as $user) {
-            if ($user["nom"] === $nomCible && $user["prenom"] === $prenomCible) {
+            if ($user["nom"] === $nomCible && $user["prenom"] === $prenomCible && (string)$user["id"] === (string)$idCible) {
                 $profilUser = $user;
                 break;
             }
@@ -46,23 +48,27 @@
                             <input type="image" src="Img/crayon.png" alt="crayon pour modifier" class="crayon">
                         </form>
                     </div>
-                    <p>Nom : <?php echo htmlspecialchars($profilUser["nom"]); ?></p>
-                    <p>Prénom : <?php echo htmlspecialchars($profilUser["prenom"]); ?></p>
-                    <p>Adresse : <?php echo htmlspecialchars($profilUser["adresse"]); ?></p>
-                    <p>Téléphone : <?php echo htmlspecialchars($profilUser["tel"]); ?></p>
+                    <?php if ($profilUser): ?>
+                        <p>Nom : <?php echo htmlspecialchars($profilUser["nom"]); ?></p>
+                        <p>Prénom : <?php echo htmlspecialchars($profilUser["prenom"]); ?></p>
+                        <p>Adresse : <?php echo htmlspecialchars($profilUser["adresse"] ?? ""); ?></p>
+                        <p>Téléphone : <?php echo htmlspecialchars($profilUser["tel"]); ?></p>
+                    <?php else: ?>
+                        <p>Utilisateur introuvable.</p>
+                    <?php endif; ?>
                 </div>
                 <div class="histoCommandes">
                     <h2>Commandes</h2>
                     <!-- Affiche l'historique des commandes -->
                     <?php
-                        $contenu = file_get_contents(".json/commandes.json");
+                        $contenu = file_get_contents(__DIR__ . "/.json/commandes.json");
                         $data    = json_decode($contenu, true);
                         if (!is_array($data)) {
                             $data = [];
                         }
                         $commandeUtilisateur = [];
                         foreach ($data as $commande) {
-                            if ($commande["idUtilisateur"] == $_SESSION["id"]) {
+                            if ($commande["idUtilisateur"] == $idCible) {
                                 $commandeUtilisateur[] = $commande;
                             }
                         }
