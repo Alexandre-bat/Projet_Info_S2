@@ -4,10 +4,10 @@
     $numtel = trim($_POST['tel'] ?? "");
     $password = trim($_POST['mdp'] ?? "");
 
-    $fichier = ".json/id.json";
+    $fichier = __DIR__ . "/../.json/id.json";
 
     if(!file_exists($fichier)){
-        header("Location: Connexion.php?error=1");
+        header("Location: ../Connexion.php?error=1");
         exit();
     }
 
@@ -15,7 +15,7 @@
     $data = json_decode($contenu, true);
 
     if(!is_array($data)){
-        header("Location: Connexion.php?error=1");
+        header("Location: ../Connexion.php?error=2");
         exit();
     }
 
@@ -41,10 +41,10 @@
     //chercher l'utilisateur dans le fichier id.json 
 
     if($trouve){
-        header("Location: Accueil.php");
+        header("Location:  ../Accueil.php");
         exit();
     }else{
-        header("Location: Connexion.php?error=1");
+        header("Location: ../Connexion.php?error=3");
         exit();
     }
     //renvoie sur accueil si ca marche sinon sur connexion

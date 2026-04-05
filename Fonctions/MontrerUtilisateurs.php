@@ -1,13 +1,13 @@
 <?php
     function montrer_utilisateurs($fichier){
         if(!file_exists($fichier)){
-            header("Location: Connexion.php?error=1");
+            header("Location:  ../Connexion.php?error=1");
             exit();
         }
         $contenu = file_get_contents($fichier);
         $data = json_decode($contenu, true);
         if(!is_array($data)){
-            header("Location: Connexion.php?error=1");
+            header("Location:  ../Connexion.php?error=1");
             exit();
         }
         foreach($data as $user){

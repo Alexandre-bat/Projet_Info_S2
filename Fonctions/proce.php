@@ -24,7 +24,7 @@
 
         foreach($data as $user){
             if($user["tel"] === $tel){
-                header("Location: Inscription.php?erreur=1");
+                header("Location:  ../Inscription.php?erreur=1");
                 exit();
             }
         }
@@ -50,7 +50,7 @@
         $_SESSION['adresse'] = $adresse;
         $_SESSION['telephone'] = $tel;
 
-        header("Location: Profil.php");
+        header("Location:  ../Profil.php");
         exit();
     }
 

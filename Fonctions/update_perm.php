@@ -11,7 +11,7 @@
         $fichier = ".json/id.json";
 
         if(!file_exists($fichier)){
-            header("Location: Admin.php");
+            header("Location:  ../Admin.php");
             exit();
         }
 
@@ -27,7 +27,7 @@
 
         file_put_contents($fichier, json_encode($users, JSON_PRETTY_PRINT));
 
-        header("Location: Admin.php");
+        header("Location:  ../Admin.php");
         exit();
     }
 ?>

@@ -1,7 +1,7 @@
 <?php
     if (isset($_POST['supprimerCompte'])) {
         supprimerCompte($_POST['supprimerCompte']);
-        header("Location: admin.php");
+        header("Location:  ../Admin.php");
         exit();
     }
     //verification de l'information appel fct puis renvoie sur admin.php

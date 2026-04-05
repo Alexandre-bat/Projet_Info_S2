@@ -96,12 +96,12 @@
 
         $_SESSION['panier'] = [];
 
-        header("Location: Notation.php");
+        header("Location:  ../Notation.php");
         exit();
     }
 
     if (!isset($_SESSION["panier"]) || empty($_SESSION["panier"])) {
-        header("Location: Panier.php");
+        header("Location:  ../Panier.php");
         exit();
     }
 

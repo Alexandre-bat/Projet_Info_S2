@@ -3,7 +3,7 @@
 
     // Vérifie que l'utilisateur est connecté et qu'une commande lui est atttribué
     if (!isset($_SESSION["id"]) || !isset($_POST["idCommande"])) {
-        header("Location: Livraison.php");
+        header("Location:  ../Livraison.php");
         exit();
     }
 
@@ -32,11 +32,11 @@
 
     // Redirection selon le choix
     if (isset($_POST["livre"])) {
-        header("Location: Livraison.php?Livre=1");
+        header("Location:  ../Livraison.php?Livre=1");
     } elseif (isset($_POST["abandone"])) {
-        header("Location: Livraison.php?Abandon=1");
+        header("Location:  ../Livraison.php?Abandon=1");
     } else {
-        header("Location: Livraison.php");
+        header("Location:  ../Livraison.php");
     }
     exit();
 ?>

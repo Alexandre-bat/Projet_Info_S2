@@ -20,7 +20,7 @@
             }
         }
         file_put_contents(".json/commandes.json", json_encode($data, JSON_PRETTY_PRINT));
-        header("Location: Commandes.php"); 
+        header("Location:  ../Commandes.php"); 
         exit();
     }
     // Si cette fonction est appelée le statut de la commande devient "En preparation"
@@ -37,7 +37,7 @@
             }
         }
         file_put_contents(".json/commandes.json", json_encode($data, JSON_PRETTY_PRINT));
-        header("Location: Commandes.php"); 
+        header("Location:  ../Commandes.php"); 
         exit();
     }
     // Si cette fonction est appelée le statut de la commande devient "En livraison"
