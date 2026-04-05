@@ -88,6 +88,7 @@ function montrer_utilisateurs($fichier){
                     <select class="perm-select" name="perm">
                         <option value="Client" ' . ($user["role"] == "Client" ? "selected" : "") . '>Client</option>
                         <option value="Livreur" ' . ($user["role"] == "Livreur" ? "selected" : "") . '>Livreur</option>
+                        <option value="restaurateur" ' . ($user["role"] == "restaurateur" ? "selected" : "") . '>Restaurateur</option>
                         <option value="admin" ' . ($user["role"] == "admin" ? "selected" : "") . '>Admin</option>
                     </select>
                     <button class="bouttonclassique" type="submit">Valider</button>
