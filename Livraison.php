@@ -1,15 +1,6 @@
 <?php 
     include("Utilitaire/start.php");
 
-    if (isset($_POST['livre'])) {
-        header("Location: Livraison.php?Livre=1");
-        exit();
-    }
-    if (isset($_POST['abandone'])) {
-        header("Location: Livraison.php?Abandon=1");
-        exit();
-    }
-
     // Lecture des fichiers JSON
     $contenu = file_get_contents("commandes.json");
     $data = json_decode($contenu, true);
@@ -32,8 +23,11 @@
     // Filtrer les commandes du livreur connecté
     $aLivrer = [];
     foreach ($data as $commande) {
-        if (isset($commande["idLivreur"]) && $commande["idLivreur"] == $_SESSION["id"]) {
-            $aLivrer[] = $commande;
+        if (isset($commande["idLivreur"]) 
+            && $commande["idLivreur"] == $_SESSION["id"]
+            && ($commande["Statut"] ?? "") !== "livree"
+            && ($commande["Statut"] ?? "") !== "abandonnee") {
+                $aLivrer[] = $commande;
         }
     }
 ?>
@@ -87,7 +81,7 @@
                     </div>
 
                     <div class="validation">
-                        <form method="post" action="Livraison.php">
+                        <form action="etatLivraisons.php" method="post">
                             <input type="hidden" name="idCommande" value="<?php echo $commande["idCommande"]; ?>">
                             <button class="bouttonclassique" type="submit" name="livre" value="1">
                                 Commande Livrée
