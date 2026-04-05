@@ -58,7 +58,7 @@
 
                 <div class="groupeInputs">
                     <label class="lb">Avis supplémentaire</label>
-                    <input class="ip" type="text" name="avis" required>
+                    <input class="ip" type="text" name="avis">
                 </div>
                 <button class="boutons" type="submit">Envoyer</button>
             </form>

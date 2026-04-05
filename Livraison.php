@@ -90,6 +90,9 @@
                                 Abandonner la Commande
                             </button>
                         </form>
+                        <a href="DetailCommande.php?id=<?php echo $commande["idCommande"]; ?>">
+                                <button class="bouttonclassique">Détails</button>
+                        </a>
                     </div>
                 </div>
             <?php endforeach; ?>
