@@ -39,7 +39,7 @@
     <div class="blocProfil">
         <h1>Profil</h1>
         <div class="infoPerso">
-            // Affiche les données personnelles
+            <!-- Affiche les données personnelles -->
             <div class="modifsPersos">
                 <h3>Mes informations personnelles</h3>
                 <form action="" method="post">
@@ -53,7 +53,7 @@
         </div>
         <div class="histoCommandes">
             <h2>Commandes</h2>
-            // Affiche l'historique des commandes
+            <!-- Affiche l'historique des commandes -->
             <?php
                 $contenu = file_get_contents("commandes.json");
                 $data    = json_decode($contenu, true);

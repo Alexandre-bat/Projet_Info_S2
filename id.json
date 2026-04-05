@@ -28,5 +28,25 @@
         "mdp": "tqt",
         "role": "Livreur",
         "inscription": "2026-04-04 20:27:20"
+    },
+    {
+        "id": "user_69d24e278629a0.63055392",
+        "prenom": "restau",
+        "nom": "rateur",
+        "tel": "0909090909",
+        "adresse": "Cergy",
+        "mdp": "tkt",
+        "role": "restaurateur",
+        "inscription": "2026-04-05 11:57:27"
+    },
+    {
+        "id": "user_69d24f0fbb5af8.46773098",
+        "prenom": "client1",
+        "nom": "test",
+        "tel": "0123456789",
+        "adresse": "Cergy",
+        "mdp": "client1",
+        "role": "client",
+        "inscription": "2026-04-05 12:01:19"
     }
 ]

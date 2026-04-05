@@ -67,7 +67,7 @@ function choisir_livreur($fichier, $Commande){
         <link rel="icon" href="Img/logo.png" type="image/png">
     </head>
 
-    // Trie des Status pour l'affichage
+    <!-- Trie des Status pour l'affichage -->
     <?php
         $contenu = file_get_contents("commandes.json");
         $data = json_decode($contenu, true);
@@ -100,7 +100,7 @@ function choisir_livreur($fichier, $Commande){
     <body>
         <?php include("Utilitaire/nav.php"); ?>
 
-        // Affiche les différentes commandes
+        <!-- Affiche les différentes commandes -->
         <div class="en_attente">
             <h2>Commandes en attente</h2>
             <div class="liste_commandes">
