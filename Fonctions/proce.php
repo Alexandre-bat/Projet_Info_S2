@@ -9,11 +9,11 @@
         }
 
         // Récéption infos
-        $prenom = trim($_POST["prenom"]);
-        $nom = trim($_POST["nom"]);
-        $tel = trim($_POST["tel"]);
-        $adresse = trim($_POST["adresse"]);
-        $mdp = trim($_POST["mdp"]);
+        $prenom = htmlspecialchars(trim($_POST["prenom"]));
+        $nom = htmlspecialchars(trim($_POST["nom"]));
+        $tel = htmlspecialchars(trim($_POST["tel"]));
+        $adresse = htmlspecialchars(trim($_POST["adresse"]));
+        $mdp = htmlspecialchars(trim($_POST["mdp"]));
 
         $contenu = file_get_contents($fichier);
         $data = json_decode($contenu, true);
@@ -54,5 +54,5 @@
         exit();
     }
 
-    traiter_fichier(".json/id.json");
+    traiter_fichier(__DIR__ . "/../.json/id.json");
 ?>

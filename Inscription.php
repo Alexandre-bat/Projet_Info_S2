@@ -10,7 +10,7 @@
         </head>
         <body>
 
-            <?php include("Utilitaire/nav.php"); ?>
+            <?php include(__DIR__ ."/../Utilitaire/nav.php"); ?>
 
             <div class="form">
                 <?php
@@ -60,7 +60,7 @@
             </div>
     
             <footer>
-                <?php include("Utilitaire/footer.php"); ?>
+                <?php include(__DIR__ ."/../Utilitaire/footer.php"); ?>
             </footer>
         </body>
     </html>

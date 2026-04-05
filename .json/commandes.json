@@ -17,7 +17,7 @@
         "Date prevue": "2026-04-10",
         "Heure prevue": "11:00",
         "Moment": "immediate",
-        "Statut": "livree"
+        "Statut": "En livraison"
     },
     {
         "idCommande": "69d18b9fb58b6",
@@ -37,7 +37,7 @@
         "Date prevue": "2026-04-12",
         "Heure prevue": "11:11",
         "Moment": "immediate",
-        "Statut": "livree"
+        "Statut": "En livraison"
     },
     {
         "idCommande": "69d29787150e5",
