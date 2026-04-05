@@ -63,7 +63,7 @@
     if(isset($_POST['vider'])){
         unset($_SESSION['panier']); 
 
-        header("Location: panier.php");
+        header("Location: Panier.php");
         exit();
     }
     // supprime tout le panier
