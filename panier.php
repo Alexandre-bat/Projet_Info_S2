@@ -84,7 +84,7 @@
                         <div class="blocGauchePanier">
                             <h2>Total : <?php echo $total; ?>€</h2>
                             <?php  $_SESSION['prix'] = $total; ?>
-                            <form action="panier.php" method="post">
+                            <form action="Panier.php" method="post">
                                 <button class="bouttonclassique" name="vider">Vider le panier</button>
                             </form>
                         </div>
