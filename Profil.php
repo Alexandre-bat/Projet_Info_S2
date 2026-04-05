@@ -1,6 +1,7 @@
 <?php 
     include("Utilitaire/start.php"); 
     
+    // Affiche soit l'utilisateur où l'on souhaite voir le profil via Admin.php ou son profil
     if (isset($_GET["nom"]) && isset($_GET["prenom"]) && $role === "admin") {
         $nomCible    = $_GET["nom"];
         $prenomCible = $_GET["prenom"];
@@ -38,6 +39,7 @@
     <div class="blocProfil">
         <h1>Profil</h1>
         <div class="infoPerso">
+            // Affiche les données personnelles
             <div class="modifsPersos">
                 <h3>Mes informations personnelles</h3>
                 <form action="" method="post">
@@ -51,6 +53,7 @@
         </div>
         <div class="histoCommandes">
             <h2>Commandes</h2>
+            // Affiche l'historique des commandes
             <?php
                 $contenu = file_get_contents("commandes.json");
                 $data    = json_decode($contenu, true);

@@ -1,12 +1,14 @@
 <?php
 session_start();
 
+// Fonction qui permet d'inscrire un utilisateur et ecriture dans fichier json
 function traiter_fichier($fichier){
 
     if(!file_exists($fichier)){
         file_put_contents($fichier, "[]");
     }
 
+    // Récéption infos
     $prenom = trim($_POST["prenom"]);
     $nom = trim($_POST["nom"]);
     $tel = trim($_POST["tel"]);

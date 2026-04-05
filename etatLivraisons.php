@@ -1,7 +1,7 @@
 <?php
     session_start();
 
-    // Vérifier que l'utilisateur est connecté et qu'une commande est ciblée
+    // Vérifie que l'utilisateur est connecté et qu'une commande lui est atttribué
     if (!isset($_SESSION["id"]) || !isset($_POST["idCommande"])) {
         header("Location: Livraison.php");
         exit();
@@ -9,12 +9,12 @@
 
     $idCommande = $_POST["idCommande"];
 
-    // Lire le fichier JSON
+    // Fichier JSON
     $contenu = file_get_contents("commandes.json");
     $data = json_decode($contenu, true);
     if (!is_array($data)) { $data = []; }
 
-    // Trouver et modifier la commande correspondante
+    // Modifie la commande correspondante
     foreach ($data as &$commande) {
         if ($commande["idCommande"] == $idCommande && $commande["idLivreur"] == $_SESSION["id"]) {
             if (isset($_POST["livre"])) {
@@ -30,7 +30,7 @@
     // Sauvegarder le fichier JSON
     file_put_contents("commandes.json", json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
 
-    // Redirection selon l'action
+    // Redirection selon le choix
     if (isset($_POST["livre"])) {
         header("Location: Livraison.php?Livre=1");
     } elseif (isset($_POST["abandone"])) {

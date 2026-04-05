@@ -1,6 +1,7 @@
 <?php 
 session_start();
 
+// Permet de changer les perm des utilisateurs dans le fichier JSON
 if(isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['perm'])){
 
     $nom = $_POST['nom'];
