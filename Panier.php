@@ -1,7 +1,7 @@
 <?php include("Utilitaire/start.php");
     $json = file_get_contents(".json/carte.json");
     $produits = json_decode($json, true);
-?>
+?>    
 
 
 <!DOCTYPE html>
