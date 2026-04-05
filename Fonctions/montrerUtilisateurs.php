@@ -30,7 +30,7 @@
                     <div id=remise>
                         <button class="bouttonclassique">Accorder une remise</button>
                     </div>
-                    <form action="Fonctions/SupprCompte.php" method="post">
+                    <form action="Fonctions/supprCompte.php" method="post">
                         <input type="hidden" name="supprimerCompte" value="'. $user["id"] .'">
                         <button class="bouttonclassique">Supprimer le compte</button>
                     </form>
