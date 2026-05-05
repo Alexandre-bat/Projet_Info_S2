@@ -3,13 +3,25 @@
     
     // Affiche soit l'utilisateur où l'on souhaite voir le profil via Admin.php ou son profil
     if (isset($_GET["nom"]) && isset($_GET["prenom"]) && $role === "admin") {
-        $nomCible    = $_GET["nom"];
-        $prenomCible = $_GET["prenom"];
-        $idCible = $_GET["id"];
+    $nomCible    = $_GET["nom"];
+    $prenomCible = $_GET["prenom"];
+    $idCible     = $_GET["id"];
     } else {
         $nomCible    = $_SESSION["nom"]    ?? null;
         $prenomCible = $_SESSION["prenom"] ?? null;
-        $idCible = $_SESSION["id"] ?? null;
+        $idCible     = null;
+
+        // Récupère l'id depuis le JSON via le nom et le prenom de la cible
+        if ($nomCible && $prenomCible) {
+            $json  = file_get_contents(__DIR__ . "/.json/id.json");
+            $users = json_decode($json, true);
+            foreach ($users as $user) {
+                if ($user["nom"] === $nomCible && $user["prenom"] === $prenomCible) {
+                    $idCible = $user["id"];
+                    break;
+                }
+            }
+        }
     }
 
     $profilUser = null;
@@ -42,20 +54,110 @@
                 <h1>Profil</h1>
                 <div class="infoPerso">
                     <!-- Affiche les données personnelles -->
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
                     <div class="modifsPersos">
-                        <h3>Mes informations personnelles</h3>
-                        <form action="" method="post">
-                            <input type="image" src="Img/crayon.png" alt="crayon pour modifier" class="crayon">
-                        </form>
-                    </div>
-                    <?php if ($profilUser): ?>
-                        <p>Nom : <?php echo htmlspecialchars($profilUser["nom"]); ?></p>
-                        <p>Prénom : <?php echo htmlspecialchars($profilUser["prenom"]); ?></p>
-                        <p>Adresse : <?php echo htmlspecialchars($profilUser["adresse"] ?? ""); ?></p>
-                        <p>Téléphone : <?php echo htmlspecialchars($profilUser["tel"]); ?></p>
-                    <?php else: ?>
-                        <p>Utilisateur introuvable.</p>
-                    <?php endif; ?>
+                                <h3>Mes informations personnelles</h3>
+
+                                <!-- Mode affichage -->
+                                <div id="vue_profil">
+                                    <?php if ($profilUser): ?>
+                                        <p>Nom : <span id="afficher_nom"><?php echo htmlspecialchars($profilUser["nom"]); ?></span></p>
+                                        <p>Prénom : <span id="afficher_prenom"><?php echo htmlspecialchars($profilUser["prenom"]); ?></span></p>
+                                        <p>Adresse : <span id="afficher_adresse"><?php echo htmlspecialchars($profilUser["adresse"] ?? ""); ?></span></p>
+                                        <p>Téléphone : <span id="afficher_tel"><?php echo htmlspecialchars($profilUser["tel"]); ?></span></p>
+                                    <?php else: ?>
+                                        <p>Utilisateur introuvable.</p>
+                                    <?php endif; ?>
+                                    <button class="bouttonclassique" onclick="modif()"> Modifier </button>
+                                </div>
+
+                                <!-- Mode édition (caché par défaut) -->
+                                <div id="form_profil" style="display:none;">
+                                    <label>Nom :
+                                        <input type="text" id="intput_nom" value="<?php echo htmlspecialchars($profilUser["nom"] ?? ''); ?>">
+                                    </label><br>
+                                    <label>Prénom :
+                                        <input type="text" id="intput_prenom" value="<?php echo htmlspecialchars($profilUser["prenom"] ?? ''); ?>">
+                                    </label><br>
+                                    <label>Adresse :
+                                        <input type="text" id="intput_adresse" value="<?php echo htmlspecialchars($profilUser["adresse"] ?? ''); ?>">
+                                    </label><br>
+                                    <label>Téléphone :
+                                        <input type="text" id="intput_tel" value="<?php echo htmlspecialchars($profilUser["tel"] ?? ''); ?>">
+                                    </label><br>
+                                    <button class="bouttonclassique" id="btn_sauvegarder" onclick="sauvegarder()" data-id="<?= htmlspecialchars($idCible ?? '') ?>"> Sauvegarder </button>
+                                    <button class="bouttonclassique" onclick="annuler()"> Annuler </button>
+                                    <p id="feedback_profil" style="font-size:0.85em; min-height:18px;"></p>
+                                </div>
+                            </div>
+                            <script>
+                                function modif() {
+                                    document.getElementById("vue_profil").style.display = "none";
+                                    document.getElementById("form_profil").style.display = "block";
+                                }
+
+                                function annuler() {
+                                    document.getElementById("form_profil").style.display = "none";
+                                    document.getElementById("vue_profil").style.display = "block";
+                                    document.getElementById("feedback_profil").textContent = "";
+                                }
+
+                                async function sauvegarder() {
+                                    const idUtilisateur = document.getElementById("btn_sauvegarder").dataset.id;
+                                    const nom      = document.getElementById("intput_nom").value.trim();
+                                    const prenom   = document.getElementById("intput_prenom").value.trim();
+                                    const adresse  = document.getElementById("intput_adresse").value.trim();
+                                    const tel      = document.getElementById("intput_tel").value.trim();
+                                    const feedback = document.getElementById("feedback_profil");
+
+                                    if (!idUtilisateur) {
+                                        feedback.textContent = "❌ Utilisateur non identifié.";
+                                        feedback.style.color = "red";
+                                        return;
+                                    }
+                                    if (!nom || !prenom || !tel) {
+                                        feedback.textContent = "❌ Nom, prénom et téléphone sont obligatoires.";
+                                        feedback.style.color = "red";
+                                        return;
+                                    }
+
+                                    const formData = new FormData();
+                                    formData.append("idUtilisateur", idUtilisateur);
+                                    formData.append("nom",     nom);
+                                    formData.append("prenom",  prenom);
+                                    formData.append("adresse", adresse);
+                                    formData.append("tel",     tel);
+
+                                    try {
+                                        const response = await fetch("Fonctions/modifierProfil.php", {
+                                            method: "POST",
+                                            body: formData
+                                        });
+
+                                        const texte = await response.text();
+                                        console.log("Statut HTTP :", response.status);
+                                        console.log("Réponse brute :", texte);
+
+                                        const result = JSON.parse(texte);
+
+                                        if (result.success) {
+                                            document.getElementById("afficher_nom").textContent     = nom;
+                                            document.getElementById("afficher_prenom").textContent  = prenom;
+                                            document.getElementById("afficher_adresse").textContent = adresse;
+                                            document.getElementById("afficher_tel").textContent     = tel;
+                                            annuler();
+                                        } else {
+                                            feedback.textContent = "❌ " + result.message;
+                                            feedback.style.color = "red";
+                                        }
+                                    } catch (e) {
+                                        console.log("Erreur catch :", e);
+                                        feedback.textContent = "❌ Erreur réseau.";
+                                        feedback.style.color = "red";
+                                    }
+                                }
+                            </script>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
                 </div>
                 <div class="histoCommandes">
                     <h2>Commandes</h2>
