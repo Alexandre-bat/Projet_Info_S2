@@ -7,7 +7,8 @@
         "adresse": "3 Rue Lebon",
         "mdp": "517369",
         "role": "admin",
-        "inscription": "2026-04-04 20:26:20"
+        "inscription": "2026-04-04 20:26:20",
+        "bloquer": 0
     },
     {
         "id": "user_69d17428532496.50817671",
@@ -17,7 +18,8 @@
         "adresse": "tqt",
         "mdp": "tqt",
         "role": "Livreur",
-        "inscription": "2026-04-04 20:27:20"
+        "inscription": "2026-04-04 20:27:20",
+        "bloquer": 0
     },
     {
         "id": "user_69d17428532496.50817672",
@@ -27,7 +29,8 @@
         "adresse": "tqt",
         "mdp": "tqt",
         "role": "Livreur",
-        "inscription": "2026-04-04 20:27:20"
+        "inscription": "2026-04-04 20:27:20",
+        "bloquer": 0
     },
     {
         "id": "user_69d24e278629a0.63055392",
@@ -37,7 +40,8 @@
         "adresse": "Cergy",
         "mdp": "tkt",
         "role": "restaurateur",
-        "inscription": "2026-04-05 11:57:27"
+        "inscription": "2026-04-05 11:57:27",
+        "bloquer": 0
     },
     {
         "id": "user_69d24f0fbb5af8.46773098",
@@ -47,7 +51,8 @@
         "adresse": "Cergy",
         "mdp": "client1",
         "role": "Client",
-        "inscription": "2026-04-05 12:01:19"
+        "inscription": "2026-04-05 12:01:19",
+        "bloquer": 0
     },
     {
         "id": "user_69d29f4509ca92.67756041",
@@ -57,6 +62,7 @@
         "adresse": "aaaaaaaaaaaaaaaaa",
         "mdp": "aaaaaaaaaaaaaaaaaaaa",
         "role": "client",
-        "inscription": "2026-04-05 17:43:33"
+        "inscription": "2026-04-05 17:43:33",
+        "bloquer": 0
     }
 ]

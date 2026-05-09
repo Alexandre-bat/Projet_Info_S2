@@ -314,9 +314,9 @@ footer {
 
 .adminUtilisateurs {
     width: 300px;
-    height: 270px;
+    height: auto;
     max-width: 300px;
-    max-height: 270px;
+    max-height: 470px;
     margin-bottom: 20px;
     text-align: center;
     color: white;

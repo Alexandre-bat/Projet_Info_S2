@@ -39,7 +39,8 @@
             "adresse" => $adresse,
             "mdp" => $mdp,
             "role" => "client",
-            "inscription" => date("Y-m-d H:i:s")
+            "inscription" => date("Y-m-d H:i:s"),
+            "bloquer" => 0
         ];
 
         file_put_contents($fichier, json_encode($data, JSON_PRETTY_PRINT));

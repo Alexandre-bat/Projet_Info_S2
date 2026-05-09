@@ -43,6 +43,40 @@
 
                 </div>
             </div>
+            
+            <script>
+                async function Blockage(userId, action) {
+                    try {
+                        const response = await fetch("Fonctions/bloquerCompte.php", {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify({ userId, action })
+                        });
+
+                        const result = await response.json();
+
+                        if (!response.ok || !result.success) {
+                            alert("Erreur : " + (result.message ?? "Une erreur est survenue."));
+                            return;
+                        }
+
+                        const card         = document.querySelector(`.adminUtilisateurs[data-id="${userId}"]`);
+                        const btnBloquer   = card.querySelector(".btn-bloquer");
+                        const btnDebloquer = card.querySelector(".btn-debloquer");
+                        const statut       = card.querySelector(".statut-compte");
+
+                        const estBloquer = (action === "bloquer");
+
+                        btnBloquer.disabled   =  estBloquer;
+                        btnDebloquer.disabled = !estBloquer;
+                        statut.textContent    =  estBloquer ? "Bloqué" : "Actif";
+
+                    } catch (error) {
+                        console.error("Erreur réseau :", error);
+                        alert("Erreur réseau, veuillez réessayer.");
+                    }
+                }
+            </script>
 
             <footer>
                 <?php include("Utilitaire/footer.php"); ?>
