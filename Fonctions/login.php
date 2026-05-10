@@ -26,6 +26,11 @@
         if(isset($user["tel"], $user["mdp"])){
 
             if($numtel === $user["tel"] && $password === $user["mdp"]){
+                if( $user["bloquer"] == 1 ){
+                    header("Location: ../Connexion.php?bloquer=1");
+                    exit();
+                }
+
                 $trouve = true;
 
                 $_SESSION['id'] = $user["id"] ?? null;
@@ -33,6 +38,7 @@
                 $_SESSION['prenom'] = $user["prenom"];
                 $_SESSION['telephone'] = $user["tel"];
                 $_SESSION['adresse'] = $user["adresse"] ?? "";
+                $_SESSION['bloquer'] = 0;
 
                 break;
             }

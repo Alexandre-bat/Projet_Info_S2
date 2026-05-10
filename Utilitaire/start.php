@@ -11,23 +11,23 @@
     //deconnexion 
 
     $role = null;
-
-     $fichier_id = __DIR__ . "/../.json/id.json";
+    $fichier_id = __DIR__ . "/../.json/id.json";
 
     if(isset($_SESSION['nom']) && isset($_SESSION['prenom'])) {
-
-
         $json = file_get_contents("$fichier_id");
         $users = json_decode($json, true);
-
         foreach ($users as $user) {
             if ($user['nom'] == $_SESSION['nom'] && $user['prenom'] == $_SESSION['prenom']) {
                 $role = $user['role'];
+                if(isset($user['bloquer']) && $user['bloquer'] == 1) {
+                    session_destroy();
+                    header("Location: ../Connexion.php?bloquer=1");
+                    exit();
+                }
                 break;
             }
         }
     }
-
 
     $nbr = 0;
     if(isset($_POST['produit'])){

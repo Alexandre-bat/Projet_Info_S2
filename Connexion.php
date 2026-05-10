@@ -15,6 +15,7 @@
             <div class="form">
                 <h2>Connexion</h2>
                 <?php if(isset($_GET['error'])){echo "<p class='connexion'> Id ou Mot de Passe incorrect </p>";}?>
+                <?php if(isset($_GET['bloquer'])){echo "<p class='connexion'> Le compte est bloqué </p>";}?>
                 <!-- Message d'erreur dans le cas ou le compte n'est pas dans id.json-->
 
                 <form action="Fonctions/login.php" method="post"> 
