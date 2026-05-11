@@ -3,7 +3,7 @@
     $produits = json_decode($json, true);
     $filtres = null;
 ?>
-<!-- Récupère le fichier et verifie si des filtres sont présents -->
+<!-- Récupère le fichier et remet les filtres à null -->
 <!DOCTYPE html>
     <html>
         <head>
@@ -30,7 +30,7 @@
                         <button class="bouttonclassique filtres" data-filtres="plat">Plats</button>
                         <button class="bouttonclassique filtres" data-filtres="dessert">Desserts</button>
                         <button class="bouttonclassique filtres" data-filtres="tous">Tous</button>
-                        <button class= bouttonclassique id="allergenes">Allergènes</button>
+                        <button class="bouttonclassique" id="allergenes">Allergènes</button>
                     </div>
 
                     <div id="popupAllergenes" class="popupAllergenes">
@@ -70,43 +70,67 @@
                 <?php include("Utilitaire/footer.php"); ?>
             </footer>
             <script>
+
+                // JS pour les filtres/allergènes/recherche
+
                 const boutons = document.querySelectorAll(".filtres");
                 const zone = document.getElementById("zoneProduits");
-                boutons.forEach(function(bouton){
-                    bouton.addEventListener("click", async function(){
+                const barreRecherche = document.getElementById("rechercheInput");
+                //Recuperation des elements html pour filtre/recherche
+                let allergenesSelectionnes = [];
+                async function chargerProduits(filtre){
+                    let allergenes = allergenesSelectionnes.join(",");
+                    let recherche = barreRecherche.value;
+                    try{
+                        let response = await fetch("afficheProduits.php?filtre=" + filtre + "&allergenes=" + allergenes + "&recherche=" + recherche);
+                        let data = await response.text();
+                        zone.innerHTML = data;
+                    }
+                    catch(error){
+                        console.log("Erreur :", error);
+                    }
+                }
+                //fonction asynchrone pour recuperer les filtres de afficheProduits.php
+                barreRecherche.addEventListener("input", function(){
+                    chargerProduits(localStorage.getItem("filtreActuel"));
+                });
+                boutons.forEach(function (bouton) {
+                    bouton.addEventListener("click", function () {
                         let filtre = this.dataset.filtres;
-                        let requete = new XMLHttpRequest();
-                        requete.open("GET", "afficheProduits.php?filtre=" + filtre);
-                        requete.onload = function(){
-
-                            if(requete.status == 200){
-                                zone.innerHTML = requete.responseText;
-                            }
-
-                        };
-                        requete.send();
+                        localStorage.setItem("filtreActuel", filtre);
+                        chargerProduits(filtre);
                     });
                 });
-                let requete = new XMLHttpRequest();
-                requete.open("GET", "afficheProduits.php?filtre=tous");
-                requete.onload = function(){
-                    if(requete.status == 200){
-                        zone.innerHTML = requete.responseText;
-                    }
-                };
-                requete.send();
+                let filtreActuel = "tous";
+                localStorage.setItem("filtreActuel", filtreActuel);
+                chargerProduits(filtreActuel);
+                const checkboxes = document.querySelectorAll('#popupAllergenes input[type="checkbox"]');
+                checkboxes.forEach(function(checkbox){
+                    checkbox.addEventListener("change", function(){
+                        allergenesSelectionnes = [];
+                        checkboxes.forEach(function(cb){
+                            if(cb.checked){
+                                allergenesSelectionnes.push(cb.value);
+                            }
+                        })
+                        chargerProduits(localStorage.getItem("filtreActuel"));
+                    });
+                });
+                // gestion des evenements
 
-                // Java pour pop up
+                // JS pour afficher pop up
                 
                 const boutonAllergenes = document.getElementById("allergenes");
                 const popup = document.getElementById("popupAllergenes");
                 const fermerPopup = document.getElementById("fermerPopup");
+                //recuperation des elements pour la pop up
                 boutonAllergenes.addEventListener("click", function(){
                     popup.style.display = "flex";
                 });
                 fermerPopup.addEventListener("click", function(){
                     popup.style.display = "none";
                 });
+                // affichage ou non
             </script>
         </body>
     </html>
