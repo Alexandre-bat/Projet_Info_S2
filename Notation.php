@@ -50,7 +50,9 @@
                             <label class="lb">Avis supplémentaire</label>
                             <input class="ip" type="text" name="avis">
                         </div>
-                        <button class="boutons" type="submit">Envoyer</button>
+                        <button class="boutons" type="submit" onclick=GET_Notations(event)> 
+                            Envoyer
+                        </button>
                     </form>
                 </div>
                 <div class="blocDroitInfos">
@@ -82,6 +84,63 @@
                     </div>
                 </div>
             </div>
+
+            <script>
+                async function GET_Notations(event){
+                    // Empêche le rechargement du formulaire
+                    event.preventDefault();
+
+                    try{
+                        // Récupération des infos
+                        const plat = document.querySelector('input[name="plat"]:checked')?.value;
+                        const livraison = document.querySelector('input[name="livraison"]:checked')?.value;
+                        const accessibilite = document.querySelector('input[name="accessibilite"]:checked')?.value;
+                        const avis = document.querySelector('input[name="avis"]').value;
+                        
+                        // Vérification
+                        if(!plat || !livraison || !accessibilite){
+                            alert("Veuillez remplir toutes les notes.");
+                            return;
+                        }
+
+                        const nom = <?php echo json_encode($_SESSION["nom"]); ?>;
+                        const p_nom = <?php echo json_encode($_SESSION["prenom"]); ?>;
+
+                        const date = new Date().toLocaleString();
+
+                        // Structuration du .json
+                        const informations = {
+                            nom: nom,
+                            prenom: p_nom,
+                            date: date,
+                            notes:{
+                                plat: plat,
+                                livraison: livraison,
+                                accessibilite: accessibilite
+                            },
+                            avis: avis
+                        };
+
+                        // On attend laréponse de la fonctions php
+                        const response = await fetch("Fonctions/redactionNotations.php", {
+                            method: "POST",
+                            headers: {"Content-Type": "application/json"},
+                            body: JSON.stringify(informations)
+                        });
+
+                        //Affiche le résultat
+                        const result = await response.json();
+                        alert(result.message);
+
+                        window.location.replace("Accueil.php");
+
+                    }catch(error){
+                        console.error("Erreur réseau :", error);
+                        alert("Erreur réseau, veuillez réessayer.");
+                    }
+                    
+                }
+            </script>
 
             <footer>
                 <?php include("Utilitaire/footer.php"); ?>
