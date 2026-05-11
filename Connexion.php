@@ -27,9 +27,13 @@
 
                     <div class="input-group">
                         <label class="lb">Mot de passe</label>
-                        <input class="ip" type="password" name="mdp" required>
-                    </div>
+                        <input class="ip" type="password" name="mdp" id="mdp" required>
 
+                        <label class="lb">
+                            <input type="checkbox" onclick="togglePassword()"> Afficher le mot de passe
+                        </label>
+                    </div>
+                    
                     <button class="boutons" type="submit">Se connecter</button>
 
                 </form>
@@ -41,6 +45,17 @@
                 </p>
                 <!-- Lien vers inscription -->
             </div>
+
+            <script>
+                function togglePassword() {
+                    var mdp = document.getElementById("mdp");
+                    if (mdp.type === "password") {
+                        mdp.type = "text";
+                    } else {
+                        mdp.type = "password";
+                    }
+                }
+            </script>
 
             <footer>
                 <?php include("Utilitaire/footer.php"); ?>
