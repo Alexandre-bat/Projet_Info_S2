@@ -66,23 +66,58 @@
 
             <div class="fauxAvis">
                 <h2>Avis de nos clients</h2>
-                <div>
-                    <div>
-                        <p><strong>Anonyme</strong></p>
-                        <p>⭐⭐⭐⭐⭐</p>
-                        <p>Excellent restaurant ! Les plats sont délicieux et le service est impeccable.</p>
-                    </div>
-                    <div>
-                        <p><strong>Anonyme</strong></p>
-                        <p>⭐⭐⭐⭐</p>
-                        <p>Très bon rapport qualité-prix. J'ai adoré la variété du menu.</p>
-                    </div>
-                    <div>
-                        <p><strong>Anonyme</strong></p>
-                        <p>⭐</p>
-                        <p>J'ai commandé Ronaldo il est jamais arrivé chez moi. Bref je déconseille vivement ce restaurant.</p>
-                    </div>
-                </div>
+                <?php
+                $fichier = __DIR__ . "/.json/notations.json";
+                    if(!file_exists($fichier)){
+                        header("Location: ../Connexion.php?error=1");
+                        exit();
+                    }
+
+                    $contenu = file_get_contents($fichier);
+                    $data = json_decode($contenu, true);
+                    if(!is_array($data)){
+                        header("Location: ../Connexion.php?error=1");
+                        exit();
+                    }
+                    foreach($data as $user){
+                        $nom = htmlspecialchars($user["nom"]);
+                        $prenom = htmlspecialchars($user["prenom"]);
+
+                        $plat = (int)$user["notes"]["plat"];
+                        $etoilesPlat = "";
+                        for ($i = 0; $i < $plat; $i++) {
+                            $etoilesPlat .= "⭐";
+                        }
+
+                        $livraison = (int)$user["notes"]["livraison"];
+                        $etoilesLivraison = "";
+                        for ($j = 0; $j < $livraison; $j++) {
+                            $etoilesLivraison .= "⭐";                              
+                        }
+
+                        $accessibilite = (int)$user["notes"]["accessibilite"];
+                        $etoilesAccessibilite = "";
+                        for ($k = 0; $k < $accessibilite; $k++) {
+                            $etoilesAccessibilite .= "⭐";
+                        }
+
+                        $avis = htmlspecialchars($user["avis"]);
+                        if( trim($avis) == ""){
+                            $avis = "None";
+                        }
+                        $date = htmlspecialchars($user["date"]);
+
+                        echo "
+                        <div>
+                            <h2 class='write'>$nom $prenom</h2>
+                                <p>$date</p>
+                                <p> Avis : $avis </p>   
+                                <p> Plat : $etoilesPlat</p>
+                                <p> Livraison : $etoilesLivraison</p>                                
+                                <p> Accessibilite : $etoilesAccessibilite</p>                
+                        </div>";
+                    }
+                ?>
             </div>
 
             <script>
