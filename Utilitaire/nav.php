@@ -38,17 +38,19 @@
 
                 if(isset($_SESSION['panier'])){
                     $nbrsession = count($_SESSION['panier']);
+                }
         ?>
 
-        <a href="Panier.php">
+        <a href="Panier.php" id="lienPanier"
+            style="<?php if($nbrsession == 0){ echo 'display:none;'; } ?>">
             <img src="Img/panier.png" alt="Panier" id="logoPanier">
-            <?php echo $nbrsession;?>
+            <span id="compteurPanier">
+                <?php echo $nbrsession; ?>
+            </span>
         </a>
 
         <?php
-                }
             } else {
-
                 echo '<a href="Connexion.php">Connexion</a>';
                 echo '<a href="Inscription.php">Inscription</a>';
             }

@@ -70,6 +70,34 @@
                 <?php include("Utilitaire/footer.php"); ?>
             </footer>
             <script>
+                //Js pour la commande async
+                document.addEventListener("click", async function(e){
+                    if(e.target.classList.contains("boutonCommander")){
+                        let idProduit = e.target.dataset.id;
+                        try{
+                            let response = await fetch("Fonctions/ajoutPanier.php", {
+                                method: "POST",
+                                headers: {
+                                    "Content-Type": "application/x-www-form-urlencoded"
+                                },
+                                body: "produit=" + idProduit
+                            });
+                            let data = await response.text();
+                            if(data == "ok"){
+                                let compteur = document.getElementById("compteurPanier");
+                                let lienPanier = document.getElementById("lienPanier");
+                                compteur.textContent = parseInt(compteur.textContent) + 1;
+                                lienPanier.style.display = "inline-flex";
+                            }
+                            else if(data == "non_connecte"){
+                                window.location.href = "Connexion.php";
+                            }
+                        }
+                        catch(error){
+                            console.log(error);
+                        }
+                    }
+                });
 
                 // JS pour les filtres/allergènes/recherche
 
@@ -82,7 +110,7 @@
                     let allergenes = allergenesSelectionnes.join(",");
                     let recherche = barreRecherche.value;
                     try{
-                        let response = await fetch("afficheProduits.php?filtre=" + filtre + "&allergenes=" + allergenes + "&recherche=" + recherche);
+                        let response = await fetch("Fonctions/afficheProduits.php?filtre=" + filtre + "&allergenes=" + allergenes + "&recherche=" + recherche);
                         let data = await response.text();
                         zone.innerHTML = data;
                     }

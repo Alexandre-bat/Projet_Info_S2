@@ -20,6 +20,7 @@
                         <h1>Panier</h1>
                     </div>
                     <div class="controlBox">
+                        <p id="panierVide" style="display:none;"> Votre panier est vide </p>
                         <?php
                             if(isset($_SESSION['panier']) && !empty($_SESSION['panier'])){
                                 $nbr = array_count_values($_SESSION['panier']);
@@ -37,7 +38,7 @@
                                             <div class="contenuBox">
                                                 <h2><?php echo $produit['nom'];
                                                     if($quantite > 1){ ?>
-                                                        <span class="quantite">x<?php echo $quantite; ?></span>
+                                                        <span class="quantite" data-quantite="<?php echo $quantite; ?>">x<?php echo $quantite; ?></span>
                                                     <?php } ?>
                                                 </h2>
                                                 <p><?php echo $produit['description']; ?></p>
@@ -45,10 +46,13 @@
                                                 <p><?php echo $produit['plats'][0] . " | " . $produit['plats'][1] . " | " . $produit['plats'][2]; ?></p>
                                             </div>
                                             <div class="basBox">
-                                                <span id="prix">Prix : <?php echo $prixTotal; ?>€</span>
-                                                <form action="Panier.php" method="post">
-                                                    <input type="hidden" name="supprimer" value="<?php echo $id; ?>">
-                                                    <button class="bouttonclassique">Supprimer</button>
+                                                <span class="prix" data-prix-unitaire="<?php echo $produit['prix']; ?>"> Prix : <?php echo $prixTotal; ?>€ </span>
+                                                <form class="formSupprimer">
+                                                    <input type="hidden" name="produit" value="<?php echo $id; ?>">
+                                                    <input type="hidden" name="action" value="supprimer">
+                                                    <button class="bouttonclassique">
+                                                        Supprimer
+                                                    </button>
                                                 </form>
                                             </div>
                                         </div>
@@ -60,32 +64,39 @@
                                             <div class="contenuBox">
                                                 <h2><?php echo $produit['nom'];
                                                     if($quantite > 1){ ?>
-                                                        <span class="quantite">x<?php echo $quantite; ?></span>
+                                                        <span class="quantite" data-quantite=">x<?php echo $quantite; ?>"></span>
                                                     <?php } ?>
                                                 </h2>
                                                 <p><?php echo $produit['description']; ?></p>
                                                 <p><?php echo $produit['ingredients']; ?></p>
                                             </div>
                                             <div class="basBox">
-                                                <span id="prix">Prix : <?php echo $prixTotal; ?>€</span>
-                                                <form action="Panier.php" method="post">
-                                                    <input type="hidden" name="supprimer" value="<?php echo $id; ?>">
-                                                    <button class="bouttonclassique">Supprimer</button>
+                                                <span class="prix">Prix : <?php echo $prixTotal; ?>€</span>
+                                                <form class="formSupprimer">
+                                                    <input type="hidden" name="produit" value="<?php echo $id; ?>">
+                                                    <input type="hidden" name="action" value="supprimer">
+                                                    <button class="bouttonclassique">
+                                                        Supprimer
+                                                    </button>
                                                 </form>
                                             </div>
                                         </div>
                                         <!-- Affichage de ce qui n'est pas menu -->
                                     <?php }
-                                }
-                            } 
+                                    }
+                                } 
+                            }
                         ?>
                     </div>
-                    <div class="blocTotalPanier">
+                    <div class="blocTotalPanier" id="blocTotalPanier">
                         <div class="blocGauchePanier">
-                            <h2>Total : <?php echo $total; ?>€</h2>
+                            <h2 id="totalPanier">Total : <?php echo $total; ?>€</h2>
                             <?php  $_SESSION['prix'] = $total; ?>
-                            <form action="Panier.php" method="post">
-                                <button class="bouttonclassique" name="vider">Vider le panier</button>
+                            <form id="formVider">
+                                <input type="hidden" name="action" value="vider">
+                                <button class="bouttonclassique">
+                                    Vider le panier
+                                </button>
                             </form>
                         </div>
                         <!-- Total plus bouton pour vider le panier -->
@@ -140,16 +151,90 @@
                             <!-- envoie des information a l'api cybank-->
                             <?php }?>
                         </div>
-                        <?php
-                            } else {
-                                echo "<p class='paniervide'>Votre panier est vide</p>";
-                            }
-                            // cas ou le panier est vide 
-                        ?>
                 </div>
             </main>
             <footer>
                 <?php include("Utilitaire/footer.php"); ?>
             </footer>
+            <script>
+                // suppr produit
+                document.querySelectorAll(".formSupprimer").forEach(function(form){
+                    form.addEventListener("submit", async function(e){
+                        e.preventDefault();
+                        let formData = new FormData(form);
+                        try{
+                            let response = await fetch("Fonctions/supprPanier.php", {
+                                method: "POST",
+                                body: formData
+                            });
+                            let data = await response.text();
+                            if(data == "ok"){
+                                let box = form.closest(".box");
+                                let quantiteSpan = box.querySelector(".quantite");
+                                let prixSpan = box.querySelector(".prix");
+                                let quantite = 1;
+                                if(quantiteSpan){
+                                    quantite = parseInt(quantiteSpan.dataset.quantite);
+                                }
+                                if(quantite > 1){
+                                    quantite--;
+                                    quantiteSpan.dataset.quantite = quantite;
+                                    quantiteSpan.textContent = "x" + quantite;
+                                    let prixUnitaire = parseFloat(prixSpan.dataset.prixUnitaire);
+                                    prixSpan.textContent = "Prix : " + (prixUnitaire * quantite) + "€";
+                                    let totalPanier = document.getElementById("totalPanier");
+                                    let totalActuel = parseFloat(totalPanier.textContent.replace("Total : ", "").replace("€", ""));
+                                    totalPanier.textContent =
+                                    "Total : " + (totalActuel - prixUnitaire) + "€";
+                                }
+                                else{
+                                    box.remove();
+                                    let prixUnitaire = parseFloat(prixSpan.dataset.prixUnitaire);
+                                    let totalPanier = document.getElementById("totalPanier");
+                                    let totalActuel = parseFloat(totalPanier.textContent.replace("Total : ", "").replace("€", ""));
+                                    totalPanier.textContent =
+                                    "Total : " + (totalActuel - prixUnitaire) + "€";
+                                }
+                                let compteur = document.getElementById("compteurPanier");
+                                let valeur = parseInt(compteur.textContent);
+                                compteur.textContent = valeur - 1;
+                                if(valeur - 1 <= 0){
+                                    document.getElementById("lienPanier").style.display = "none";
+                                    document.getElementById("blocTotalPanier").style.display = "none";
+                                    document.getElementById("panierVide").style.display = "block";
+                                }
+                            }
+                        }
+                        catch(error){
+                            console.log(error);
+                        }
+                    })
+                });
+                // vider panier
+                document.getElementById("formVider").addEventListener("submit", async function(e){
+                    e.preventDefault();
+                    let formData = new FormData(this);
+                    try{
+                        let response = await fetch("Fonctions/supprPanier.php", {
+                            method: "POST",
+                            body: formData
+                            }
+                        );
+                        let data = await response.text();
+                        if(data == "ok"){
+                            document.querySelectorAll(".box").forEach(function(box){
+                                box.remove();
+                            });
+                            document.getElementById("compteurPanier").textContent = 0;
+                            document.getElementById("lienPanier").style.display = "none";
+                            document.getElementById("blocTotalPanier").style.display = "none";
+                            document.getElementById("panierVide").style.display = "block";
+                        }
+                    }
+                    catch(error){
+                        console.log(error);
+                    }
+                });
+            </script>
         </body>
     </html>
