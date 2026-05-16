@@ -2,12 +2,21 @@
     include(__DIR__ ."/../Utilitaire/start.php");
     include(__DIR__ ."/../Fonctions/getapikey.php");
 
-    $json     = file_get_contents(__DIR__ . "/../.json/id.json");
+    $json     = file_get_contents(__DIR__ . "/../.json/carte.json");
     $produits = json_decode($json, true);
 
-    $moment = $_SESSION['momentCommande'];
-    $date = $_SESSION['dateCommande'];
-    $heure = $_SESSION['heureCommande'];
+    $moment = "";
+    if(isset($_SESSION['momentCommande'])){
+        $moment = $_SESSION['momentCommande'];
+    }
+    $date = "";
+    if(isset($_SESSION['dateCommande'])){
+        $date = $_SESSION['dateCommande'];
+    }
+    $heure = "";
+    if(isset($_SESSION['heureCommande'])){
+        $heure = $_SESSION['heureCommande'];
+    }
 
     $transaction = $_GET['transaction'];
     $montant = $_GET['montant'];
@@ -34,9 +43,31 @@
     if ($control != $control_verif) {
         exit("Erreur : paiement invalide");
     }
+    //verification API classique
+    if(isset($_GET["modif"])){
 
-    //Verification de l'API
+        if(!isset($_SESSION["produits_modifies"]) || !isset($_SESSION["nouveau_prix_commande"])){
+            exit("Aucune modification trouvée.");
+        }
+        $jsonCommandes = file_get_contents(__DIR__ . "/../.json/commandes.json");
+        $commandes = json_decode($jsonCommandes, true);
+        foreach($commandes as &$commande){
+            if($commande["idUtilisateur"] == $_SESSION["id"] && $commande["Statut"] == "Attente"){
+                $commande["Produits"] = $_SESSION["produits_modifies"];
+                $commande["Prix"] = $_SESSION["nouveau_prix_commande"];
+                $commande["Paiement"] = $statutCommande;
+                break;
+            }
+        }
 
+        file_put_contents(__DIR__ . "/../.json/commandes.json", json_encode($commandes, JSON_PRETTY_PRINT));
+        unset($_SESSION["modif_commande"]);
+        unset($_SESSION["produits_modifies"]);
+        unset($_SESSION["nouveau_prix_commande"]);
+        header("Location: ../MaCommande.php");
+        exit();
+    }
+    // Si modifications de la commande
 
     function mettre_fichier($fichier, $panier, $produits, $transaction, $montant, $vendeur, $statutCommande, $moment, $date, $heure) {
         if (empty($panier)) {

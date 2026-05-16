@@ -34,30 +34,52 @@
 
                 echo '<a href="Accueil.php?deco=1">Déconnexion</a>';
 
-                $nbrsession = 0;
+                $commandeAttente = false;
 
-                if(isset($_SESSION['panier'])){
-                    $nbrsession = count($_SESSION['panier']);
+                $jsonCommandes = file_get_contents(".json/commandes.json");
+                $commandes = json_decode($jsonCommandes, true);
+
+                foreach($commandes as $commande){
+                    if($commande["idUtilisateur"] == $_SESSION["id"]&& $commande["Statut"] == "Attente"){
+                        $commandeAttente = true;
+                        break;
+                    }
                 }
-        ?>
 
-        <a href="Panier.php" id="lienPanier"
-            style="<?php if($nbrsession == 0){ echo 'display:none;'; } ?>">
-            <img src="Img/panier.png" alt="Panier" id="logoPanier">
-            <span id="compteurPanier">
-                <?php echo $nbrsession; ?>
-            </span>
-        </a>
+                if($commandeAttente){
+                    ?>
+                        <a href="MaCommande.php" id="lienCommande">
+                            Ma Commande
+                        </a>
+                    <?php
+                }
+                //si commande en attente affichage MaCommande
+                else{
+                    $nbrsession = 0;
+                    if(isset($_SESSION['panier'])){
+                        $nbrsession = count($_SESSION['panier']);
+                    }
+                ?>
 
-        <?php
-            } else {
-                echo '<a href="Connexion.php">Connexion</a>';
-                echo '<a href="Inscription.php">Inscription</a>';
-            }
-        ?>
-
-        <button id="theme-btn" class="theme"></button>
-
+                <a href="Panier.php" id="lienPanier"
+                    style="<?php if($nbrsession == 0){ echo 'display:none;'; } ?>">
+                    <img src="Img/panier.png" alt="Panier" id="logoPanier">
+                    <span id="compteurPanier">
+                        <?php echo $nbrsession; ?>
+                    </span>
+                </a>
+                // affichage panier si connecté et si pas de commande en cours
+                <?php 
+                    } 
+                ?>
+                <?php
+                    } 
+                    else {
+                        echo '<a href="Connexion.php">Connexion</a>';
+                        echo '<a href="Inscription.php">Inscription</a>';
+                    }
+                ?>
+            <button id="theme-btn" class="theme"></button>
     </div>
 </div>
 

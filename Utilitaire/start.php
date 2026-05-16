@@ -47,4 +47,16 @@
         header("Location: Livraison.php?Abandon=1");
         exit();
     }
+
+    function recupCommandeActive($idUtilisateur){
+        $json = file_get_contents(__DIR__ . "/../.json/commandes.json");
+        $commandes = json_decode($json, true);
+        foreach($commandes as $commande){
+            if($commande["idUtilisateur"] == $idUtilisateur && $commande["Statut"] == "Attente"){
+                return $commande;
+            }
+        }
+        return null;
+    }
+    //fonction nécessaire pour savoir si commande en attente
 ?>

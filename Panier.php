@@ -64,14 +64,14 @@
                                             <div class="contenuBox">
                                                 <h2><?php echo $produit['nom'];
                                                     if($quantite > 1){ ?>
-                                                        <span class="quantite" data-quantite=">x<?php echo $quantite; ?>"></span>
+                                                        <span class="quantite" data-quantite="<?php echo $quantite; ?>">x<?php echo $quantite; ?></span>
                                                     <?php } ?>
                                                 </h2>
                                                 <p><?php echo $produit['description']; ?></p>
                                                 <p><?php echo $produit['ingredients']; ?></p>
                                             </div>
                                             <div class="basBox">
-                                                <span class="prix">Prix : <?php echo $prixTotal; ?>€</span>
+                                                <span class="prix" data-prix-unitaire="<?php echo $produit['prix']; ?>"> Prix : <?php echo $prixTotal; ?>€ </span>
                                                 <form class="formSupprimer">
                                                     <input type="hidden" name="produit" value="<?php echo $id; ?>">
                                                     <input type="hidden" name="action" value="supprimer">
@@ -184,16 +184,14 @@
                                     prixSpan.textContent = "Prix : " + (prixUnitaire * quantite) + "€";
                                     let totalPanier = document.getElementById("totalPanier");
                                     let totalActuel = parseFloat(totalPanier.textContent.replace("Total : ", "").replace("€", ""));
-                                    totalPanier.textContent =
-                                    "Total : " + (totalActuel - prixUnitaire) + "€";
+                                    totalPanier.textContent = "Total : " + (totalActuel - prixUnitaire) + "€";
                                 }
                                 else{
                                     box.remove();
                                     let prixUnitaire = parseFloat(prixSpan.dataset.prixUnitaire);
                                     let totalPanier = document.getElementById("totalPanier");
                                     let totalActuel = parseFloat(totalPanier.textContent.replace("Total : ", "").replace("€", ""));
-                                    totalPanier.textContent =
-                                    "Total : " + (totalActuel - prixUnitaire) + "€";
+                                    totalPanier.textContent = "Total : " + (totalActuel - prixUnitaire) + "€";
                                 }
                                 let compteur = document.getElementById("compteurPanier");
                                 let valeur = parseInt(compteur.textContent);
@@ -218,8 +216,7 @@
                         let response = await fetch("Fonctions/supprPanier.php", {
                             method: "POST",
                             body: formData
-                            }
-                        );
+                        });
                         let data = await response.text();
                         if(data == "ok"){
                             document.querySelectorAll(".box").forEach(function(box){

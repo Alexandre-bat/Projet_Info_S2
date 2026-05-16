@@ -1,7 +1,6 @@
 <?php include("Utilitaire/start.php"); 
     $json = file_get_contents(".json/carte.json");
     $produits = json_decode($json, true);
-    $filtres = null;
 ?>
 <!-- Récupère le fichier et remet les filtres à null -->
 <!DOCTYPE html>
@@ -92,15 +91,26 @@
                             else if(data == "non_connecte"){
                                 window.location.href = "Connexion.php";
                             }
+                            else if(data == "commande_active"){
+                                let modifier = confirm("Vous avez déjà une commande en attente.\n\nVoulez-vous modifier votre commande ?");
+                                if(modifier){
+                                    await fetch("Fonctions/modifsCommandeAttente.php", {
+                                        method: "POST",
+                                        headers: {
+                                            "Content-Type": "application/x-www-form-urlencoded"
+                                        },
+                                        body: "ajoutCarte=" + idProduit
+                                    });
+                                    alert("Produit ajouté à votre commande.");
+                                }
+                            }
                         }
                         catch(error){
                             console.log(error);
                         }
                     }
                 });
-
                 // JS pour les filtres/allergènes/recherche
-
                 const boutons = document.querySelectorAll(".filtres");
                 const zone = document.getElementById("zoneProduits");
                 const barreRecherche = document.getElementById("rechercheInput");
@@ -147,7 +157,6 @@
                 // gestion des evenements
 
                 // JS pour afficher pop up
-                
                 const boutonAllergenes = document.getElementById("allergenes");
                 const popup = document.getElementById("popupAllergenes");
                 const fermerPopup = document.getElementById("fermerPopup");
