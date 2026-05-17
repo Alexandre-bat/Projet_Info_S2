@@ -26,27 +26,35 @@
 
                     <div class="input-group">
                         <label class="lb">Prénom</label>
-                        <input class="ip" type="text" name="prenom" required>
+                        <input class="ip" type="text" name="prenom" id="prenom" oninput="compteur('prenom',50,'restePn')" required>
+                        <small id="restePn"></small>
                     </div>
 
                     <div class="input-group">
                         <label class="lb">Nom</label>
-                        <input class="ip" type="text" name="nom" required>
+                        <input class="ip" type="text" name="nom" id="nom" oninput="compteur('nom',50,'resteN')" required>
+                        <small id="resteN"></small>
                     </div>
 
                     <div class="input-group">
                         <label class="lb">Téléphone</label>
-                        <input class="ip" type="tel" name="tel" required>
+                         <input class="ip" type="tel" name="tel" id="tel" maxlength="14" required oninput="compteur('tel',14,'resteTel')">
+                        <small id="resteTel"></small>
                     </div>
 
                     <div class="input-group">
                         <label class="lb">Adresse</label>
-                        <input class="ip" type="text" name="adresse" required>
+                        <input class="ip" type="text" name="adresse" id="ad" oninput="compteur('ad',200,'resteA')" required>
+                        <small id="resteA"></small>
                     </div>
 
                     <div class="input-group">
                         <label class="lb">Mot de Passe</label>
-                        <input class="ip" type="password" name="mdp" required>
+                        <input class="ip" type="password" name="mdp" id="mdp" required>
+
+                        <label class="lb">
+                            <input type="checkbox" onclick="togglePassword()"> Afficher le mot de passe
+                        </label>
                     </div>
 
                     <button class="boutons" type="submit">S'inscrire</button>
@@ -58,7 +66,26 @@
                 </p>
                 <!-- bouton pour se connecter-->
             </div>
-    
+            <script src="JS/validation.js"></script>
+            <script>
+                        function togglePassword() {
+                            var mdp = document.getElementById("mdp");
+                            if (mdp.type === "password") {
+                                mdp.type = "text";
+                            } else {
+                                mdp.type = "password";
+                            }
+                        }
+
+                        function compteur(id,number,id2) {
+                            const tel = document.getElementById(id);
+                            const reste = document.getElementById(id2);
+
+                            let restant = number - tel.value.length;
+
+                            reste.textContent = "Il reste " + restant + " caractères";
+                        }
+                    </script>
             <footer>
                 <?php include("Utilitaire/footer.php"); ?>
             </footer>

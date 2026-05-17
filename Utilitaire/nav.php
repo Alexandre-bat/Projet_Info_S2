@@ -68,7 +68,7 @@
                         <?php echo $nbrsession; ?>
                     </span>
                 </a>
-                // affichage panier si connecté et si pas de commande en cours
+                <!-- affichage panier si connecté et si pas de commande en cours -->
                 <?php 
                     } 
                 ?>

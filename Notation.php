@@ -9,7 +9,6 @@
             <link rel="stylesheet" type="text/css" href="Style.css">
             <link rel="icon" href="Img/logo.png" type="image/png">
         </head>
-
         <body>
 
             <?php include("Utilitaire/nav.php"); ?>
@@ -362,7 +361,7 @@
                     
                 }
             </script>
-
+            <script src="JS/validation.js"></script>
             <footer>
                 <?php include("Utilitaire/footer.php"); ?>
             </footer>

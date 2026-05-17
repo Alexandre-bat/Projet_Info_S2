@@ -45,7 +45,6 @@
             <link rel="stylesheet" type="text/css" href="Style.css">
             <link rel="icon" href="Img/logo.png" type="image/png">
         </head>
-
         <body>
 
             <?php include("Utilitaire/nav.php"); ?>
@@ -74,59 +73,85 @@
                                 <!-- Mode édition (caché par défaut) -->
                                 <div id="form_profil" style="display:none;">
                                     <label>Nom :
-                                        <input type="text" id="intput_nom" value="<?php echo htmlspecialchars($profilUser["nom"] ?? ''); ?>">
+                                        <input type="text" id="intput_nom" maxlength="50" value="<?php echo htmlspecialchars($profilUser["nom"] ?? ''); ?>" oninput="compteur('intput_nom',50,'restePn')" required>
+                                        <span id="restePn"></span>
                                     </label><br>
                                     <label>Prénom :
-                                        <input type="text" id="intput_prenom" value="<?php echo htmlspecialchars($profilUser["prenom"] ?? ''); ?>">
+                                        <input type="text" id="intput_prenom" maxlength="50" value="<?php echo htmlspecialchars($profilUser["prenom"] ?? ''); ?>" oninput="compteur('intput_prenom',50,'resteN')" required>
+                                        <span id="resteN"></span>
                                     </label><br>
                                     <label>Adresse :
-                                        <input type="text" id="intput_adresse" value="<?php echo htmlspecialchars($profilUser["adresse"] ?? ''); ?>">
+                                        <input type="text" id="intput_adresse" value="<?php echo htmlspecialchars($profilUser["adresse"] ?? ''); ?>" oninput="compteur('intput_adresse',200,'resteA')" required>
+                                        <span id="resteA"></span>
                                     </label><br>
                                     <label>Téléphone :
-                                        <input type="text" id="intput_tel" value="<?php echo htmlspecialchars($profilUser["tel"] ?? ''); ?>">
+                                        <input type="text" name="tel" id="intput_tel" maxlength="14" value="<?php echo htmlspecialchars($profilUser["tel"] ?? ''); ?>" oninput="compteur('intput_tel',14,'resteTel')" required><br>
+                                        <span id="resteTel"></span>
                                     </label><br>
+
+                                    <label>Mot de passe :
+                                        <input type="password" name="mdp" id="intput_mdp" value="<?php echo htmlspecialchars($profilUser["mdp"] ?? ''); ?>" required><br>
+                                        <input type="checkbox" onclick="togglePassword()"> Afficher le mot de passe </input>
+                                    </label><br>
+
                                     <button class="bouttonclassique" id="btn_sauvegarder" onclick="sauvegarder()" data-id="<?= htmlspecialchars($idCible ?? '') ?>"> Sauvegarder </button>
                                     <button class="bouttonclassique" onclick="annuler()"> Annuler </button>
                                     <p id="feedback_profil" style="font-size:0.85em; min-height:18px;"></p>
                                 </div>
                             </div>
                             <script>
+                                function togglePassword() {
+                                    var mdp = document.getElementById("intput_mdp");
+                                    if (mdp.type === "password") {
+                                        mdp.type = "text";
+                                    } else {
+                                        mdp.type = "password";
+                                    }
+                                }
+                                function compteur(id,number,id2) {
+                                    const tel = document.getElementById(id);
+                                    const reste = document.getElementById(id2);
+
+                                    let restant = number - tel.value.length;
+
+                                    reste.textContent = "Il reste " + restant + " caractères";
+                                }
                                 function modif() {
                                     document.getElementById("vue_profil").style.display = "none";
                                     document.getElementById("form_profil").style.display = "block";
                                 }
-
                                 function annuler() {
                                     document.getElementById("form_profil").style.display = "none";
                                     document.getElementById("vue_profil").style.display = "block";
                                     document.getElementById("feedback_profil").textContent = "";
                                 }
-
                                 async function sauvegarder() {
                                     const idUtilisateur = document.getElementById("btn_sauvegarder").dataset.id;
-                                    const nom      = document.getElementById("intput_nom").value.trim();
-                                    const prenom   = document.getElementById("intput_prenom").value.trim();
-                                    const adresse  = document.getElementById("intput_adresse").value.trim();
-                                    const tel      = document.getElementById("intput_tel").value.trim();
+                                    const nom = document.getElementById("intput_nom").value.trim();
+                                    const prenom = document.getElementById("intput_prenom").value.trim();
+                                    const adresse = document.getElementById("intput_adresse").value.trim();
+                                    const tel = document.getElementById("intput_tel").value.trim();
+                                    const mdp = document.getElementById("intput_mdp").value.trim();
                                     const feedback = document.getElementById("feedback_profil");
 
                                     if (!idUtilisateur) {
-                                        feedback.textContent = "❌ Utilisateur non identifié.";
+                                        feedback.textContent = "Utilisateur non identifié.";
                                         feedback.style.color = "red";
                                         return;
                                     }
-                                    if (!nom || !prenom || !tel) {
-                                        feedback.textContent = "❌ Nom, prénom et téléphone sont obligatoires.";
+                                    if (!nom || !prenom || !tel || !adresse) {
+                                        feedback.textContent = "Nom, prénom, adresse et téléphone sont obligatoires.";
                                         feedback.style.color = "red";
                                         return;
                                     }
 
                                     const formData = new FormData();
                                     formData.append("idUtilisateur", idUtilisateur);
-                                    formData.append("nom",     nom);
-                                    formData.append("prenom",  prenom);
+                                    formData.append("nom", nom);
+                                    formData.append("prenom", prenom);
                                     formData.append("adresse", adresse);
-                                    formData.append("tel",     tel);
+                                    formData.append("tel", tel);
+                                     formData.append("mdp", mdp);
 
                                     try {
                                         const response = await fetch("Fonctions/modifierProfil.php", {
@@ -147,16 +172,17 @@
                                             document.getElementById("afficher_tel").textContent     = tel;
                                             annuler();
                                         } else {
-                                            feedback.textContent = "❌ " + result.message;
+                                            feedback.textContent = result.message;
                                             feedback.style.color = "red";
                                         }
                                     } catch (e) {
                                         console.log("Erreur catch :", e);
-                                        feedback.textContent = "❌ Erreur réseau.";
+                                        feedback.textContent = "Erreur réseau.";
                                         feedback.style.color = "red";
                                     }
                                 }
                             </script>
+                            <script src="JS/validation.js"></script>
 <!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
                 </div>
                 <div class="histoCommandes">
@@ -199,8 +225,7 @@
                         }
                     ?>
                 </div>
-            </div>
-
+            </div>                 
             <footer>
                 <?php include("Utilitaire/footer.php"); ?>
             </footer>

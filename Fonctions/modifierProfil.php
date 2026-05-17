@@ -46,10 +46,11 @@
     $trouve = false;
     foreach ($users as &$user) {
         if ($user["id"] === $idCible) {
-            $user["nom"]     = trim($_POST['nom']);
-            $user["prenom"]  = trim($_POST['prenom']);
+            $user["nom"] = trim($_POST['nom']);
+            $user["prenom"] = trim($_POST['prenom']);
             $user["adresse"] = trim($_POST['adresse'] ?? "");
-            $user["tel"]     = trim($_POST['tel']);
+            $user["tel"] = trim($_POST['tel']);
+            $user["mdp"] = trim($_POST['mdp']);
             $trouve = true;
             break;
         }

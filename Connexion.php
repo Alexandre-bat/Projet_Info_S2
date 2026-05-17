@@ -9,9 +9,7 @@
             <link rel="icon" href="Img/logo.png" type="image/png">
         </head>
         <body>
-
         <?php include("Utilitaire/nav.php"); ?>
-
             <div class="form">
                 <h2>Connexion</h2>
                 <?php if(isset($_GET['error'])){echo "<p class='connexion'> Id ou Mot de Passe incorrect </p>";}?>
@@ -22,7 +20,8 @@
 
                     <div class="input-group">
                         <label class="lb">Téléphone</label>
-                        <input class="ip" type="tel" name="tel" required>
+                         <input class="ip" type="tel" name="tel" id="tel" maxlength="14" required oninput="compteurTel()">
+                        <small id="resteTel"></small>
                     </div>
 
                     <div class="input-group">
@@ -45,7 +44,6 @@
                 </p>
                 <!-- Lien vers inscription -->
             </div>
-
             <script>
                 function togglePassword() {
                     var mdp = document.getElementById("mdp");
@@ -55,8 +53,16 @@
                         mdp.type = "password";
                     }
                 }
-            </script>
+                function compteurTel() {
+                    const tel = document.getElementById("tel");
+                    const reste = document.getElementById("resteTel");
 
+                    let restant = 14 - tel.value.length;
+
+                    reste.textContent = "Il reste " + restant + " caractères";
+                }
+            </script>
+            <script src="JS/validation.js"></script>
             <footer>
                 <?php include("Utilitaire/footer.php"); ?>
             </footer>
