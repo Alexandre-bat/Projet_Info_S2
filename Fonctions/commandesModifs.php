@@ -1,44 +1,62 @@
 <?php
+    header("Content-Type: application/json");
 
-    if (isset($_POST["priseEnCharge"])) {
-        attenteToPrepa($_POST["priseEnCharge"]);
-    }
-    else if(isset($_POST["priseEnLivraison"])){
-        prepaToLivraison($_POST["priseEnLivraison"]);
-    }
-    //verification de quelle fonction appelée
+    $data = json_decode(file_get_contents("php://input"), true);
 
-    function attenteToPrepa($idCommande){
-        $contenu = file_get_contents(".json/commandes.json");
-        $data = json_decode($contenu, true);
-        if (!is_array($data)) {
-            $data = [];
-        }
-        foreach ($data as &$commande) {
-            if ($commande["idCommande"] == $idCommande) {
+    $idCommande = $data['idCommande'] ?? null;
+    $action = $data['action'] ?? null;
+    $idLivreur = $data['idLivreur'] ?? null;
+    if(!$idCommande || !$action){
+        echo json_encode([
+            "success" => false,
+            "message" => "Paramètres manquants"
+        ]);
+        exit();
+    }
+    $fichier = "../.json/commandes.json";
+    if(!file_exists($fichier)){
+        echo json_encode([
+            "success" => false,
+            "message" => "Fichier introuvable"
+        ]);
+        exit();
+    }
+    $commandes = json_decode(file_get_contents($fichier), true);
+    if(!is_array($commandes)){
+        echo json_encode([
+            "success" => false,
+            "message" => "JSON invalide"
+        ]);
+        exit();
+    }
+    $found = false;
+    foreach($commandes as &$commande){
+        if($commande["idCommande"] == $idCommande){
+            if($action == "priseEnCharge"){
                 $commande["Statut"] = "En preparation";
-            }
-        }
-        file_put_contents(".json/commandes.json", json_encode($data, JSON_PRETTY_PRINT));
-        header("Location:  ../Commandes.php"); 
-        exit();
-    }
-    // Si cette fonction est appelée le statut de la commande devient "En preparation"
-
-    function prepaToLivraison($idCommande){
-        $contenu = file_get_contents(".json/commandes.json");
-        $data = json_decode($contenu, true);
-        if (!is_array($data)) {
-            $data = [];
-        }
-        foreach ($data as &$commande) {
-            if ($commande["idCommande"] == $idCommande) {
+            } elseif($action == "priseEnLivraison"){
                 $commande["Statut"] = "En livraison";
+                if($idLivreur){
+                    $commande["idLivreur"] = $idLivreur;
+                }
+            } elseif($action == "Livreur"){
+                if($idLivreur){
+                    $commande["idLivreur"] = $idLivreur;
+                }else{
+                    $commande["idLivreur"] = null;
+                }
             }
+            $found = true;
+            break;
         }
-        file_put_contents(".json/commandes.json", json_encode($data, JSON_PRETTY_PRINT));
-        header("Location:  ../Commandes.php"); 
-        exit();
     }
-    // Si cette fonction est appelée le statut de la commande devient "En livraison"
+    if($found){
+        file_put_contents(
+            $fichier,
+            json_encode($commandes, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE),
+            LOCK_EX
+        );
+    echo json_encode(["success" => true]);
+    exit();
+    }
 ?>

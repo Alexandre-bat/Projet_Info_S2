@@ -2,7 +2,7 @@
     {
         "idCommande": "69d17ca92ec6d",
         "idUtilisateur": "user_69d173ecb0c612.01232958",
-        "idLivreur": "user_69d17428532496.50817672",
+        "idLivreur": "user_69d17428532496.50817671",
         "Date": "2026-04-04 23:03",
         "Produits": [
             {
@@ -22,7 +22,7 @@
     {
         "idCommande": "69d18b9fb58b6",
         "idUtilisateur": "user_69d173ecb0c612.01232958",
-        "idLivreur": "user_69d17428532496.50817671",
+        "idLivreur": null,
         "Date": "2026-04-05 00:07",
         "Produits": [
             {
@@ -37,20 +37,6 @@
         "Date prevue": "2026-04-12",
         "Heure prevue": "11:11",
         "Moment": "immediate",
-        "Statut": "En livraison"
-    },
-    {
-        "idCommande": "69d29787150e5",
-        "idUtilisateur": "user_69d17428532496.50817671",
-        "idLivreur": "user_69d17428532496.50817672",
-        "Date": "2026-04-05 19:10",
-        "Produits": [],
-        "Prix": "70",
-        "Vendeur": "MI-3_A",
-        "Paiement": "Payee",
-        "Date prevue": "2026-04-05",
-        "Heure prevue": "20:00",
-        "Moment": "livraison",
         "Statut": "En livraison"
     }
 ]
