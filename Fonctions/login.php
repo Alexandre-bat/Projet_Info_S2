@@ -39,6 +39,7 @@
                 $_SESSION['telephone'] = $user["tel"];
                 $_SESSION['adresse'] = $user["adresse"] ?? "";
                 $_SESSION['bloquer'] = 0;
+                $_SESSION['reduction'] = 0;
 
                 break;
             }

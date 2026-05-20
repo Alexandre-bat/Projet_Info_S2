@@ -1,6 +1,6 @@
 <?php
     include("Utilitaire/start.php");
-    if(!isset($_SESSION['id'])){
+    if (!isset($_SESSION["id"])) {
         header("Location: Connexion.php");
         exit();
     }

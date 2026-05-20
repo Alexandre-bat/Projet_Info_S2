@@ -1,5 +1,24 @@
 <?php 
     include("Utilitaire/start.php");     // Modif Status des commandes quand un livreur est séléctionné par le restorateur
+    $contenu = file_get_contents(".json/id.json");
+    $data = json_decode($contenu, true);
+    if(!is_array($data)){
+        header("Location: Connexion.php?error=1");
+        exit();
+    }
+    if (!isset($_SESSION["id"])) {
+        header("Location: Connexion.php");
+        exit();
+    }
+    foreach($data as $user){
+        if($_SESSION["id"] == $user["id"]){
+            if ($user["role"]!="restaurateur" && $user["role"]!="admin"){
+                header("Location: Accueil.php");
+                exit();
+            }
+        }
+    }
+
     if(isset($_POST['livreur']) && isset($_POST['idCommande'])){
         $idLivreur = $_POST['livreur'];
         $idCommande = $_POST['idCommande'];

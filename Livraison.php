@@ -1,5 +1,23 @@
 <?php 
     include("Utilitaire/start.php");
+    $contenu = file_get_contents(".json/id.json");
+    $data = json_decode($contenu, true);
+    if(!is_array($data)){
+        header("Location: Connexion.php?error=1");
+        exit();
+    }
+    if (!isset($_SESSION["id"])) {
+        header("Location: Connexion.php");
+        exit();
+    }
+    foreach($data as $user){
+        if($_SESSION["id"] == $user["id"]){
+            if ($user["role"]!="Livraison" && $user["role"]!="admin"){
+                header("Location: Accueil.php");
+                exit();
+            }
+        }
+    }
 
     // Lecture des fichiers JSON
     $contenu = file_get_contents(".json/commandes.json");

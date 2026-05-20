@@ -1,18 +1,4 @@
 <?php
-    //recupCommandeActive
-    function recupCommandeActive($idUtilisateur){
-        $json = file_get_contents(__DIR__ . "/../.json/commandes.json");
-        $commandes = json_decode($json, true);
-        if(!is_array($commandes)){
-            return null;
-        }
-        foreach($commandes as $commande){
-            if($commande["idUtilisateur"] == $idUtilisateur && $commande["Statut"] == "Attente"){
-                return $commande;
-            }
-        }
-        return null;
-    }
     //afficheProduits selon carte.json sous forme de box
     $json = file_get_contents("../.json/carte.json");
     $produits = json_decode($json, true);
@@ -55,7 +41,7 @@
                         }
                     }
                     if(!$verifAllergene){
-                        if(stripos($p["nom"], $recherche) !== false){
+                        if($recherche == "" || stripos($p["nom"], $recherche) !== false){
                             echo '
                             <div class="box">
                                 <img src="Img/Imagesmenu/'.$p['img'].'" class="imgBox">

@@ -51,6 +51,9 @@
     function recupCommandeActive($idUtilisateur){
         $json = file_get_contents(__DIR__ . "/../.json/commandes.json");
         $commandes = json_decode($json, true);
+        if(!is_array($commandes)){
+            return null;
+        }
         foreach($commandes as $commande){
             if($commande["idUtilisateur"] == $idUtilisateur && $commande["Statut"] == "Attente"){
                 return $commande;
@@ -59,4 +62,26 @@
         return null;
     }
     //fonction nécessaire pour savoir si commande en attente
+
+    if(isset($_POST["action"]) && $_POST["action"] == "reduction"){
+        $id = $_POST["id"];
+        $reduction = $_POST["reduction"];
+        $fichier = __DIR__ . "/../.json/id.json";
+        if($id == null || $reduction == null || !file_exists($fichier)){
+            exit("erreur");
+        }
+        $contenu = file_get_contents($fichier);
+        $data = json_decode($contenu, true);
+        if(!is_array($data)){
+            exit("erreur");
+        }
+        foreach($data as &$user){
+            if($user["id"] == $id){
+                $user["reduction"] += (int)$reduction;
+                file_put_contents($fichier, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+                exit("ok");
+            }   
+        }
+    exit("erreur");
+}
 ?>

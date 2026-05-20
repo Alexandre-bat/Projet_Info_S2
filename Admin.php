@@ -62,7 +62,7 @@
                                 <input type='hidden' name='nom'    value='$nom'>
                                 <input type='hidden' name='prenom' value='$prenom'>
                                 <label class='perm-label'>PERM</label>
-                                <select class='perm-select' name='perm'  onchange=\"updateRole('$id', '.this.value.');\">
+                                <select class='perm-select' name='perm'  onchange=\"updateRole('$id', this.value);\">
                                     <option value='Client'      " . ($role == "Client"       ? "selected" : "") . ">Client</option>
                                     <option value='Livreur'      " . ($role == "Livreur"      ? "selected" : "") . ">Livreur</option>
                                     <option value='restaurateur' " . ($role == "restaurateur" ? "selected" : "") . ">Restaurateur</option>
@@ -71,7 +71,8 @@
                                 <span class='statut-compte'>$statut</span>
                                 <span id='role-msg-$id'></span>
                                 <div id='remise-$id'>
-                                    <button class='bouttonclassique'>Accorder une remise</button>
+                                    <input type='number' class='perm-select reduction' min='1' value='10'>
+                                    <button data-id='$id' class='bouttonclassique boutonReduction'>Accorder une remise</button>
                                 </div>
                                 <form action='Fonctions/supprCompte.php' method='post'>
                                     <input type='hidden' name='supprimerCompte' value='$id'>
@@ -139,6 +140,34 @@
                         }
                     }
                 }
+
+                document.querySelectorAll(".boutonReduction").forEach(function(bouton){
+                    bouton.addEventListener("click", async function(){
+                        let id = this.dataset.id;
+                        let card = this.closest(".adminUtilisateurs");
+                        let reduction = card.querySelector(".reduction").value;
+                        try{
+                            let response = await fetch("Utilitaire/start.php", {
+                                method: "POST",
+                                headers: {
+                                    "Content-Type": "application/x-www-form-urlencoded"
+                                },
+                                body: "action=reduction&id=" + id + "&reduction=" + reduction
+                            });
+                            let data = await response.text();
+                            let message = document.getElementById("reduc" + id);
+                            if(data == "ok"){
+                                message.innerHTML = "Remise accordée";
+                            }
+                            else{
+                                message.innerHTML = "Erreur";
+                            }
+                        }
+                        catch(error){
+                            console.log(error);
+                        }
+                    });
+                });
             </script>
             <footer>
                 <?php include("Utilitaire/footer.php"); ?>

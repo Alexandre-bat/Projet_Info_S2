@@ -1,5 +1,9 @@
 <?php 
     include(__DIR__ . "/Utilitaire/start.php"); 
+    if (!isset($_SESSION["id"])) {
+        header("Location: Connexion.php");
+        exit();
+    }
     
     // Affiche soit l'utilisateur où l'on souhaite voir le profil via Admin.php ou son profil
     if (isset($_GET["nom"]) && isset($_GET["prenom"]) && $role === "admin") {
