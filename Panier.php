@@ -10,7 +10,7 @@
         <head>
             <title>SIUUSHI - Panier</title>
             <link rel="icon" href="Img/logo.png" type="image/png">
-            <link rel="stylesheet" type="text/css" href="Style.css">
+            <link rel="stylesheet" type="text/css" href="Dark_Style.css">
         </head>
         <body>
             <?php include("Utilitaire/nav.php"); ?>
