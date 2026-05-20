@@ -5,7 +5,7 @@
         <head>
             <meta charset="UTF-8">
             <title>SIUUSHI - Inscription</title>
-            <link rel="stylesheet" type="text/css" href="Style.css">
+            <link rel="stylesheet" type="text/css" href="Dark_Style.css">
             <link rel="icon" href="Img/logo.png" type="image/png">
         </head>
         <body>
