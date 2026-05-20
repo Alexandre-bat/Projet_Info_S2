@@ -101,7 +101,7 @@ function updateThemeBtn(theme) {
 
     if (theme === "Dark_Style.css") {
         btn.innerHTML = "Light";
-        btn.onclick = () => setTheme("Light-Style.css");
+        btn.onclick = () => setTheme("Light_Style.css");
     } else {
         btn.innerHTML = "Dark";
         btn.onclick = () => setTheme("Dark_Style.css");
