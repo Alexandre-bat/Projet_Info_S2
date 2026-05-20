@@ -82,6 +82,33 @@
                 exit("ok");
             }   
         }
-    exit("erreur");
-}
+        exit("erreur");
+    }
+    //mettre les réductions dans les fichiers
+
+    if(isset($_POST["action"]) && $_POST["action"] == "majPrix"){
+        $nouveauPrix = floatval($_POST["nouveauPrix"]);
+        $fichier = __DIR__ . "/../.json/commandes.json";
+        if(!file_exists($fichier)){
+            exit("erreur");
+        }
+        $contenu = file_get_contents($fichier);
+        $commandes = json_decode($contenu, true);
+        if(!is_array($commandes)){
+            exit("erreur");
+        }
+        foreach($commandes as $i => &$commande){
+            if($commande["idUtilisateur"] == $_SESSION["id"] && $commande["Statut"] == "Attente"){
+                $commande["Prix"] = $nouveauPrix;
+                if($nouveauPrix <= 0){
+                    unset($commandes[$i]);
+                    $commandes = array_values($commandes);
+                }
+                file_put_contents($fichier, json_encode($commandes, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+                exit("ok");
+            }
+        }
+        exit("erreur");
+    }
+    //mettre à jour les prix dans les fichiers
 ?>
