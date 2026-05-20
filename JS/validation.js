@@ -9,9 +9,12 @@ const REGLES = {
 };
 //  Affiche ou efface un message d'erreur sous un champ donné. 
 function setErreur(input, msg) {
+  let span = input.parentNode.querySelector(".erreur-champ");
   // Creer une balise span juste en dessous de l'input
-  span = document.createElement("span");
-  span.className = "erreur-champ";
+  if(!span){
+    span = document.createElement("span");
+    span.className = "erreur-champ";
+  }
   // Insère le span juste après l'input
   input.insertAdjacentElement("afterend", span);
   // Affiche le message
@@ -30,7 +33,7 @@ function setErreur(input, msg) {
   }
 }
 // Valide un seul champ <input> selon les REGLES. 
-function validerChamp(input) {
+function validerChamp(input,regles) {
   const nom = input.name;
   const valeur = input.value.trim();
   // Champ vide
@@ -39,9 +42,9 @@ function validerChamp(input) {
     return false;
   }
   // Règle spécifique au champ
-  if (REGLES[nom]) {
-    if (!REGLES[nom].regex.test(valeur)) {
-      setErreur(input, REGLES[nom].message);
+  if (regles[nom]) {
+    if (!regles[nom].regex.test(valeur)) {
+      setErreur(input, regles[nom].message);
       return false;
     }
   }
@@ -52,12 +55,12 @@ function validerChamp(input) {
 
 // Validation
   //  Validation en temps réel
-  function attacherValidationTempsReel(form) {
+  function attacherValidationTempsReel(form,regles) {
     // Séléctionne tt les élément input[name] 
     const champs = form.querySelectorAll("input[name]");
     champs.forEach((champ) => {
       // Valide quand l'utilisateur quitte le champ
-      champ.addEventListener("blur", () => validerChamp(champ));
+      champ.addEventListener("blur", () => validerChamp(champ,regles));
       // Efface l'erreur dès que l'utilisateur retape
       champ.addEventListener("input", () => {
         const span = champ.parentElement.querySelector(".erreur-champ");
@@ -72,12 +75,12 @@ function validerChamp(input) {
   }
   // Validation quand on submit
     // Valide tous les champs d'un formulaire d'un coup.
-  function validerFormulaire(form) {
+  function validerFormulaire(form, regles) {
     const champs = form.querySelectorAll("input[name]");
     let estValide = true;
 
     champs.forEach((champ) => {
-      if (!validerChamp(champ)) {
+      if (!validerChamp(champ, regles)) {
         estValide = false;
       }
     });
@@ -90,12 +93,15 @@ function validerChamp(input) {
   (function initConnexion() {
     const form = document.querySelector('form[action*="login.php"]');
     if (!form) return;
-    attacherValidationTempsReel(form);
+    const REGLES_CONNEXION = {
+      tel: { regex: /^(\+33|0033|0)[1-9](\s?\d{2}){4}$/, message: "Téléphone invalide. Ex : 0612345678, +33612345678." },
+    };
+    attacherValidationTempsReel(form,REGLES_CONNEXION);
     form.addEventListener("submit", function (e) {
       // Bloque l'envoi systématiquement d'abord
       e.preventDefault(); 
       // Envoie uniquement si tout est valide
-      if (validerFormulaire(form)) {
+      if (validerFormulaire(form, REGLES_CONNEXION)) {
         form.submit();
       }
     });
@@ -105,10 +111,10 @@ function validerChamp(input) {
   (function initInscription() {
     const form = document.querySelector('form[action*="proce.php"]');
     if (!form) return;
-    attacherValidationTempsReel(form);
+    attacherValidationTempsReel(form, REGLES);
     form.addEventListener("submit", function (e) {
       e.preventDefault();
-      if (validerFormulaire(form)) {
+      if (validerFormulaire(form, REGLES)) {
         form.submit();
       }
     });
@@ -168,11 +174,6 @@ function validerChamp(input) {
       intput_tel: { regex: /^(\+33|0033|0)[1-9](\s?\d{2}){4}$/, message: "Téléphone invalide. Ex : 0612345678, +33612345678." },
       intput_mdp: { regex: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/, message: "Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule et un chiffre.",},
     };
-    /**
-     * Affiche/efface une erreur sous un champ identifié par son id.
-     * @param {string} id  - id du champ input
-     * @param {string|null} msg
-     */
     function setErreurProfil(id, msg) {
       const input = document.getElementById(id);
       if (!input) return;
