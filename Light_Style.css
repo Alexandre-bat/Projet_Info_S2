@@ -409,11 +409,11 @@ footer {
 .commande {
     width: 300px;
     padding: 15px;
-    background:  #fff5f5;
+    background:  rgba(217, 123, 173);
     border-radius: 15px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     text-align: left;
-    border: solid #C1538D;
+    border: solid #A5316E;
 }
 
 .commande:hover {
