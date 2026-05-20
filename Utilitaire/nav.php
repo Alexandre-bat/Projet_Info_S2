@@ -110,7 +110,7 @@ function updateThemeBtn(theme) {
 
 window.onload = function () {
 
-    const savedTheme = localStorage.getItem("theme") || "Light-Style.css";
+    const savedTheme = localStorage.getItem("theme") || "Dark_Style.css";
 
     document.getElementById("theme-style").href = savedTheme;
 
