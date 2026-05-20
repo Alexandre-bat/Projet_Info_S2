@@ -4,7 +4,7 @@
         <head>
             <title>SIUUSHI - Accueil</title>
             <link rel="icon" href="Img/logo.png" type="image/png">
-            <link rel="stylesheet" type="text/css" href="Style.css">
+            <link rel="stylesheet" type="text/css" href="Dark_Style.css">
         </head>
         <body id="accueilBody"> <!-- Accueil du restaurant que du html rien de plus (sauf les fichiers inclus) -->
             <?php include("Utilitaire/nav.php"); ?>
