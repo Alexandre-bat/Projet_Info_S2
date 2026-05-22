@@ -125,8 +125,8 @@
                                         <input class="momentPanier" type="radio" name="momentCommande" value="livraison">
                                         <span>Livraison</span>
                                     </label>
-                                    <input class="bouttondate" type="date" min="<?php echo date("Y-m-d") ?>" max="<?php echo date('Y-m-d', strtotime('+7 days')); ?>" name="dateCommande" required>
-                                    <input class="bouttonheure" type="time" min="11:00" max="23:00" name="heureCommande" required>                    
+                                    <input class="bouttondate date" type="date" min="<?php echo date("Y-m-d") ?>" max="<?php echo date('Y-m-d', strtotime('+7 days')); ?>" name="dateCommande" required>
+                                    <input class="bouttonheure date" type="time" min="11:00" max="23:00" name="heureCommande" required>                    
                                     <button type="submit" class="bouttonclassique">Valider</button>
                                 </form>
                                 <!-- formulaire pour avoir l'heure ou le mode de la commande (on supprimera la date et l'heure quand on appuiera sur immediat quand on aura le JS)-->
@@ -240,6 +240,42 @@
                     }
                     catch(error){
                         console.log(error);
+                    }
+                });
+                //gestion du formulaire d'envoie
+                const radiosMoment = document.querySelectorAll(".momentPanier");
+                const champsDate = document.querySelectorAll(".date");
+                const formCommande = document.querySelector("form[action='Fonctions/validation.php']");
+                function gererAffichageDate() {
+                    const modeSelectionne = document.querySelector(".momentPanier:checked").value;
+                    champsDate.forEach(champ => {
+                        if(modeSelectionne === "immediate"){
+                            champ.style.display = "none";
+                            champ.required = false;
+                        }
+                        else{
+                            champ.style.display = "block";
+                            champ.required = true;
+                        }
+                    });
+                }
+                gererAffichageDate();
+                radiosMoment.forEach(radio => {
+                    radio.addEventListener("change", gererAffichageDate);
+                });
+                formCommande.addEventListener("submit", function(e){
+                    const modeSelectionne = document.querySelector(".momentPanier:checked").value;
+                    if(modeSelectionne === "immediate"){const aujourdHui = new Date();
+                        const annee = aujourdHui.getFullYear();
+                        const mois = String(aujourdHui.getMonth() + 1).padStart(2, '0');
+                        const jour = String(aujourdHui.getDate()).padStart(2, '0');
+                        const dateFormattee = `${annee}-${mois}-${jour}`;
+                        const inputDate = document.querySelector("input[name='dateCommande']");
+                        const inputHeure = document.querySelector("input[name='heureCommande']");
+                        inputDate.value = dateFormattee;
+                        const heures = String(aujourdHui.getHours()).padStart(2, '0');
+                        const minutes = String(aujourdHui.getMinutes()).padStart(2, '0');
+                        inputHeure.value = `${heures}:${minutes}`;
                     }
                 });
             </script>

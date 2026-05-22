@@ -105,6 +105,9 @@
                     $commandes = array_values($commandes);
                 }
                 file_put_contents($fichier, json_encode($commandes, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+                if($nouveauPrix <= 0){
+                    exit("supprime");
+                }
                 exit("ok");
             }
         }
