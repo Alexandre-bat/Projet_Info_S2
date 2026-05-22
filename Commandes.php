@@ -171,6 +171,26 @@
                                 Attribuer aux livreurs
                             </button>`
                         );
+                        if (commandeAbandonnee.length > 0) {
+                            for (let i = commandeAbandonnee.length - 1; i >= 0; i--) {
+                                if (commandeAbandonnee[i].idLivreur != "") {
+                                    commandeAbandonnee[i].Statut = "En livraison";
+                                    commandeLivraison.push(commandeAbandonnee[i]);
+                                    commandeAbandonnee.splice(i, 1);
+                                }
+                            }
+                            // Envoyer les nouvelles données au PHP
+                            fetch("Fonctions/sauvegarderCommandes.php", {
+                                method: "POST",
+                                headers: {
+                                    "Content-Type": "application/json"
+                                },
+                                body: JSON.stringify({
+                                    commandeLivraison,
+                                    commandeAbandonnee
+                                })
+                            });
+                        }
                         afficherListe("liste-livraison", commandeLivraison, c =>
                             genererSelectLivreur(livreurs, c)
                         );
