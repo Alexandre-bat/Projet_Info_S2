@@ -9,7 +9,7 @@
 
     $idCible = $_POST['idUtilisateur'];
 
-    $fichier = __DIR__ . "/../.json/id.json";
+    $fichier = __DIR__ . "/../json/id.json";
     $json    = file_get_contents($fichier);
     $users   = json_decode($json, true);
 

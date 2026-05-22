@@ -9,7 +9,7 @@
         exit();
     }
 
-    $fichierUsers = __DIR__ . "/../.json/id.json";
+    $fichierUsers = __DIR__ . "/../json/id.json";
 
     if (!file_exists($fichierUsers)) {
         http_response_code(500);

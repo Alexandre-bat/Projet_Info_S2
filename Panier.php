@@ -1,7 +1,7 @@
 <?php include("Utilitaire/start.php");
-    $json = file_get_contents(".json/carte.json");
+    $json = file_get_contents("json/carte.json");
     $produits = json_decode($json, true);
-    $contenu = file_get_contents(".json/id.json");
+    $contenu = file_get_contents("json/id.json");
     $data = json_decode($contenu, true);
     if(!is_array($data)){
         header("Location: Connexion.php?error=1");

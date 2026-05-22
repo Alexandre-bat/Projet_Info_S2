@@ -1,6 +1,6 @@
 <?php
     //afficheProduits selon carte.json sous forme de box
-    $json = file_get_contents("../.json/carte.json");
+    $json = file_get_contents("../json/carte.json");
     $produits = json_decode($json, true);
     if(isset($_GET["filtre"])){
         $filtre = $_GET["filtre"];

@@ -1,5 +1,5 @@
 <?php include("Utilitaire/start.php");
-    $contenu = file_get_contents(".json/id.json");
+    $contenu = file_get_contents("json/id.json");
     $data = json_decode($contenu, true);
     if(!is_array($data)){
         header("Location: Connexion.php?error=1");
@@ -36,7 +36,7 @@
                 </div>
                 <div class="adminGestion">
                     <?php
-                        $fichier = ".json/id.json";
+                        $fichier = "json/id.json";
                         if(!file_exists($fichier)){
                             header("Location: ../Connexion.php?error=1");
                             exit();

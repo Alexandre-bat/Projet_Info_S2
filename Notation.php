@@ -66,7 +66,7 @@
             <div class="fauxAvis">
                 <h2>Avis de nos clients</h2>
                 <?php
-                    $fichier = __DIR__ . "/.json/notations.json";
+                    $fichier = __DIR__ . "/json/notations.json";
 
                     if(!file_exists($fichier)){
                         echo "<p>Impossible de charger les avis.</p>";
@@ -252,7 +252,7 @@
             <div class="fauxAvis">
                 <h2>Avis de nos clients</h2>
                 <?php
-                $fichier = __DIR__ . "/.json/notations.json";
+                $fichier = __DIR__ . "/json/notations.json";
                     if(!file_exists($fichier)){
                         header("Location: ../Connexion.php?error=1");
                         exit();

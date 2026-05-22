@@ -2,7 +2,7 @@
     include(__DIR__ ."/../Utilitaire/start.php");
     include(__DIR__ ."/../Fonctions/getapikey.php");
 
-    $json     = file_get_contents(__DIR__ . "/../.json/carte.json");
+    $json     = file_get_contents(__DIR__ . "/../json/carte.json");
     $produits = json_decode($json, true);
 
     $moment = "";
@@ -49,7 +49,7 @@
         if(!isset($_SESSION["produits_modifies"]) || !isset($_SESSION["nouveau_prix_commande"])){
             exit("Aucune modification trouvée.");
         }
-        $jsonCommandes = file_get_contents(__DIR__ . "/../.json/commandes.json");
+        $jsonCommandes = file_get_contents(__DIR__ . "/../json/commandes.json");
         $commandes = json_decode($jsonCommandes, true);
         foreach($commandes as &$commande){
             if($commande["idUtilisateur"] == $_SESSION["id"] && $commande["Statut"] == "Attente"){
@@ -60,7 +60,7 @@
             }
         }
 
-        file_put_contents(__DIR__ . "/../.json/commandes.json", json_encode($commandes, JSON_PRETTY_PRINT));
+        file_put_contents(__DIR__ . "/../json/commandes.json", json_encode($commandes, JSON_PRETTY_PRINT));
         unset($_SESSION["modif_commande"]);
         unset($_SESSION["produits_modifies"]);
         unset($_SESSION["nouveau_prix_commande"]);
@@ -136,5 +136,5 @@
         exit();
     }
 
-    mettre_fichier(__DIR__ ."/../.json/commandes.json", $_SESSION["panier"], $produits, $transaction, $montant, $vendeur, $statutCommande, $moment, $date, $heure);
+    mettre_fichier(__DIR__ ."/../json/commandes.json", $_SESSION["panier"], $produits, $transaction, $montant, $vendeur, $statutCommande, $moment, $date, $heure);
 ?>

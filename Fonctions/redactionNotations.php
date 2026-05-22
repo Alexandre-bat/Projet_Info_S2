@@ -12,7 +12,7 @@
     // Récupérer les données JSON envoyées
     $data = json_decode(file_get_contents("php://input"), true);
 
-    $fichier = __DIR__ . "/../.json/notations.json";
+    $fichier = __DIR__ . "/../json/notations.json";
 
     // Vérifie si le fichier existe
     if(file_exists($fichier)){

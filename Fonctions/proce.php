@@ -55,5 +55,5 @@
         exit();
     }
 
-    traiter_fichier(__DIR__ . "/../.json/id.json");
+    traiter_fichier(__DIR__ . "/../json/id.json");
 ?>

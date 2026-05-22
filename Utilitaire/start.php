@@ -11,7 +11,7 @@
     //deconnexion 
 
     $role = null;
-    $fichier_id = __DIR__ . "/../.json/id.json";
+    $fichier_id = __DIR__ . "/../json/id.json";
 
     if(isset($_SESSION['nom']) && isset($_SESSION['prenom'])) {
         $json = file_get_contents("$fichier_id");
@@ -49,7 +49,7 @@
     }
 
     function recupCommandeActive($idUtilisateur){
-        $json = file_get_contents(__DIR__ . "/../.json/commandes.json");
+        $json = file_get_contents(__DIR__ . "/../json/commandes.json");
         $commandes = json_decode($json, true);
         if(!is_array($commandes)){
             return null;
@@ -66,7 +66,7 @@
     if(isset($_POST["action"]) && $_POST["action"] == "reduction"){
         $id = $_POST["id"];
         $reduction = $_POST["reduction"];
-        $fichier = __DIR__ . "/../.json/id.json";
+        $fichier = __DIR__ . "/../json/id.json";
         if($id == null || $reduction == null || !file_exists($fichier)){
             exit("erreur");
         }
@@ -88,7 +88,7 @@
 
     if(isset($_POST["action"]) && $_POST["action"] == "majPrix"){
         $nouveauPrix = floatval($_POST["nouveauPrix"]);
-        $fichier = __DIR__ . "/../.json/commandes.json";
+        $fichier = __DIR__ . "/../json/commandes.json";
         if(!file_exists($fichier)){
             exit("erreur");
         }

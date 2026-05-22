@@ -7,7 +7,7 @@
         echo json_encode(["success" => false, "message" => "Non connecté"]);
         exit();
     }
-    $fichier = __DIR__ . "/../.json/id.json";
+    $fichier = __DIR__ . "/../json/id.json";
     if (!file_exists($fichier)) {
         http_response_code(500);
         echo json_encode(["success" => false, "message" => "Fichier introuvable"]);

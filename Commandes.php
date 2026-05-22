@@ -1,9 +1,29 @@
 <?php 
-    include("Utilitaire/start.php");     // Modif Status des commandes quand un livreur est séléctionné par le restorateur
+    include("Utilitaire/start.php");
+    $contenu = file_get_contents("json/id.json");
+    $data = json_decode($contenu, true);
+    if(!is_array($data)){
+        header("Location: Connexion.php?error=1");
+        exit();
+    }
+    if (!isset($_SESSION["id"])) {
+        header("Location: Connexion.php");
+        exit();
+    }
+    foreach($data as $user){
+        if($_SESSION["id"] == $user["id"]){
+            if ($user["role"]!="restaurateur" && $user["role"]!="admin"){
+                header("Location: Accueil.php");
+                exit();
+            }
+        }
+    }   
+    
+    // Modif Status des commandes quand un livreur est séléctionné par le restorateur
     if(isset($_POST['livreur']) && isset($_POST['idCommande'])){
         $idLivreur = $_POST['livreur'];
         $idCommande = $_POST['idCommande'];
-        $contenu = file_get_contents('.json/commandes.json');
+        $contenu = file_get_contents('json/commandes.json');
         $data = json_decode($contenu, true);
         foreach($data as &$commande){
             if($commande["idCommande"] == $idCommande){
@@ -12,12 +32,12 @@
                 break;
             }
         }
-        file_put_contents('.json/commandes.json', json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+        file_put_contents('json/commandes.json', json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
         header("Location: Commandes.php");
         exit();
     }
     // Fichier JSON
-    $contenu = file_get_contents(".json/commandes.json");
+    $contenu = file_get_contents("json/commandes.json");
     $data = json_decode($contenu, true);
     if (!is_array($data)) { $data = []; }
     // Fonction qui permet d'afficher/séléctionner les livreurs

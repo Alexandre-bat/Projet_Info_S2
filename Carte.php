@@ -1,5 +1,5 @@
 <?php include("Utilitaire/start.php"); 
-    $json = file_get_contents(".json/carte.json");
+    $json = file_get_contents("json/carte.json");
     $produits = json_decode($json, true);
 ?>
 <!-- Récupère le fichier et remet les filtres à null -->

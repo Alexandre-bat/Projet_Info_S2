@@ -4,9 +4,9 @@
         header("Location: Connexion.php");
         exit();
     }
-    $jsonProduits = file_get_contents(".json/carte.json");
+    $jsonProduits = file_get_contents("json/carte.json");
     $produits = json_decode($jsonProduits, true);
-    $jsonCommandes = file_get_contents(".json/commandes.json");
+    $jsonCommandes = file_get_contents("json/commandes.json");
     $commandes = json_decode($jsonCommandes, true);
     $commande = null;
     // initialisation et récupération des json

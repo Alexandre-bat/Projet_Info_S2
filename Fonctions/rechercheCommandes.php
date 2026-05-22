@@ -2,7 +2,7 @@
 include("../Utilitaire/start.php");
 header('Content-Type: application/json');
 
-$contenu = file_get_contents("../.json/commandes.json");
+$contenu = file_get_contents("../json/commandes.json");
 $data = json_decode($contenu, true);
 if (!is_array($data)) $data = [];
 

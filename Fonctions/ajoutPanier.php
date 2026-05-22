@@ -10,9 +10,9 @@
     $idProduit = $_POST['produit'];
     $commande = recupCommandeActive($_SESSION['id']);
     if($commande){
-        $jsonProduits = file_get_contents("../.json/carte.json");
+        $jsonProduits = file_get_contents("../json/carte.json");
         $produits = json_decode($jsonProduits, true);
-        $jsonCommandes = file_get_contents("../.json/commandes.json");
+        $jsonCommandes = file_get_contents("../json/commandes.json");
         $commandes = json_decode($jsonCommandes, true);
         foreach($commandes as &$c){
             if($c["idUtilisateur"] == $_SESSION['id'] && $c["Statut"] == "Attente"){
@@ -38,7 +38,7 @@
             }
         }
         // ajoute produit dans le panier
-        file_put_contents("../.json/commandes.json", json_encode($commandes, JSON_PRETTY_PRINT));
+        file_put_contents("../json/commandes.json", json_encode($commandes, JSON_PRETTY_PRINT));
         echo "commande_active";
         exit();
     }

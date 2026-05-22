@@ -36,7 +36,7 @@
 
                 $commandeAttente = false;
 
-                $jsonCommandes = file_get_contents(".json/commandes.json");
+                $jsonCommandes = file_get_contents("json/commandes.json");
                 $commandes = json_decode($jsonCommandes, true);
 
                 foreach($commandes as $commande){

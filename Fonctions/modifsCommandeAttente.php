@@ -4,9 +4,9 @@
         exit();
     }
     $data = json_decode(file_get_contents("php://input"), true);
-    $jsonProduits = file_get_contents("../.json/carte.json");
+    $jsonProduits = file_get_contents("../json/carte.json");
     $produits = json_decode($jsonProduits, true);
-    $jsonCommandes = file_get_contents("../.json/commandes.json");
+    $jsonCommandes = file_get_contents("../json/commandes.json");
     $commandes = json_decode($jsonCommandes, true);
     // recuperation des jsons
     foreach($commandes as &$commande){
@@ -66,6 +66,6 @@
             //recuperation des prix et choix pour MaCommande.php
         }
     }
-    file_put_contents("../.json/commandes.json", json_encode($commandes, JSON_PRETTY_PRINT));
+    file_put_contents("../json/commandes.json", json_encode($commandes, JSON_PRETTY_PRINT));
     echo "ok";
 ?>

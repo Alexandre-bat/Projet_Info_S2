@@ -13,7 +13,7 @@
         ]);
         exit();
     }
-    $fichier = "../.json/commandes.json";
+    $fichier = "../json/commandes.json";
     if(!file_exists($fichier)){
         echo json_encode([
             "success" => false,
