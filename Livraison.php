@@ -55,7 +55,7 @@
         <head>
             <meta charset="UTF-8">
             <title>SIUUSHI - Livraison</title>
-            <link rel="stylesheet" type="text/css" href="Style.css">
+            <link rel="stylesheet" type="text/css" href="Dark_Style.css">
             <link rel="icon" href="Img/logo.png" type="image/png">
         </head>
         <body id="liv_body">
@@ -97,11 +97,11 @@
                                 <p><?php echo $produit["nom"]; ?> x<?php echo $produit["quantite"]; ?></p>
                             <?php } ?>
                             <div class="adresse">
-                                <a href="https://www.google.com/maps?q=49.034695, 2.070082" target="_blank">
-                                    <img src="Img\map.jpg" alt="Ouvrir dans Google Maps">
+                                <a href="https://www.google.com/maps?q=<?= urlencode($client['adresse']) ?>" target="_blank">
+                                    <img src="Img/map.jpg" alt="Ouvrir dans Google Maps">
                                 </a>
-                                <a href="https://waze.com/ul?q=49.034695, 2.070082" target="_blank">
-                                    <img src="Img\waze.png" alt="Ouvrir dans Waze">
+                                <a href="https://waze.com/ul?q=<?= urlencode($client['adresse']) ?>" target="_blank">
+                                    <img src="Img/waze.png" alt="Ouvrir dans Waze">
                                 </a>
                             </div>
                         </div>
