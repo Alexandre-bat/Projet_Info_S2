@@ -177,14 +177,12 @@ function validerChamp(input,regles) {
     function setErreurProfil(id, msg) {
       const input = document.getElementById(id);
       if (!input) return;
-
       let span = input.parentElement.querySelector(".erreur-champ");
       if (!span) {
         span = document.createElement("span");
         span.className = "erreur-champ";
         input.insertAdjacentElement("afterend", span);
       }
-
       if (msg) {
         span.textContent = msg;
         span.style.display = "block";
@@ -197,30 +195,22 @@ function validerChamp(input,regles) {
         input.classList.add("input-valide");
       }
     }
-
-    /**
-     * Valide tous les champs du formulaire de profil.
-     * @returns {boolean}
-     */
+    //Valide tous les champs du formulaire de profil.
     function validerProfil() {
       let estValide = true;
-
       Object.entries(REGLES_PROFIL).forEach(([id, regle]) => {
         const input = document.getElementById(id);
         if (!input) return;
         const valeur = input.value.trim();
-
-        // adresse est facultative — on ne valide que si elle est remplie
+        // L'adresse est facultative — on ne valide que si elle est remplie
         if (id === "intput_adresse" && valeur === "") {
           setErreurProfil(id, null);
           return;
         }
-
         if (id === "intput_mdp" && valeur === "") {
             setErreurProfil(id, null);
             return;
         }
-
         if (valeur === "") {
           setErreurProfil(id, "Ce champ est obligatoire.");
           estValide = false;
@@ -231,10 +221,8 @@ function validerChamp(input,regles) {
           setErreurProfil(id, null);
         }
       });
-
       return estValide;
     }
-
     // Validation en temps réel sur chaque champ du profil
     Object.keys(REGLES_PROFIL).forEach((id) => {
       const input = document.getElementById(id);
@@ -242,11 +230,11 @@ function validerChamp(input,regles) {
       input.addEventListener("blur",  () => validerProfil());
       input.addEventListener("input", () => setErreurProfil(id, null));
     });
-
     // Surcharge de sauvegarder() pour y injecter la validation
     const sauvegarder_original = window.sauvegarder;
     window.sauvegarder = async function () {
-      if (!validerProfil()) return; // Bloque si invalide
+      // Bloque si invalide
+      if (!validerProfil()) return;
       await sauvegarder_original();
     };
   })();
