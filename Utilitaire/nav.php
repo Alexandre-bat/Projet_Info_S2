@@ -1,5 +1,4 @@
-<link id="theme-style" rel="stylesheet" href="Light-Style.css">
-
+<link id="theme-style" rel="stylesheet" href="Dark_Style.css">
 
 <div class="navbar">
     <div class="nav1">
@@ -40,38 +39,43 @@
                 $commandes = json_decode($jsonCommandes, true);
 
                 foreach($commandes as $commande){
-                    if($commande["idUtilisateur"] == $_SESSION["id"]&& $commande["Statut"] == "Attente"){
+                    if($commande["idUtilisateur"] == $_SESSION["id"] && $commande["Statut"] == "Attente"){
                         $commandeAttente = true;
                         break;
                     }
                 }
 
                 if($commandeAttente){
-                    ?>
-                        <a href="MaCommande.php" id="lienCommande">
-                            Ma Commande
-                        </a>
-                    <?php
+                ?>
+                    <a href="MaCommande.php" id="lienCommande">
+                        Ma Commande
+                    </a>
+                <?php
                 }
                 //si commande en attente affichage MaCommande
                 else{
                     $nbrsession = 0;
+
                     if(isset($_SESSION['panier'])){
                         $nbrsession = count($_SESSION['panier']);
                     }
                 ?>
 
-                <a href="Panier.php" id="lienPanier"
-                    style="<?php if($nbrsession == 0){ echo 'display:none;'; } ?>">
-                    <img src="Img/panier.png" alt="Panier" id="logoPanier">
-                    <span id="compteurPanier">
-                        <?php echo $nbrsession; ?>
-                    </span>
-                </a>
-                <!-- affichage panier si connecté et si pas de commande en cours -->
+                    <!-- affichage panier si connecté et si pas de commande en cours -->
+                    <a href="Panier.php" id="lienPanier"
+                        style="<?php if($nbrsession == 0){ echo 'display:none;'; } ?>">
+                        
+                        <img src="Img/panier.png" alt="Panier" id="logoPanier">
+
+                        <span id="compteurPanier">
+                            <?php echo $nbrsession; ?>
+                        </span>
+                    </a>
+
                 <?php 
                     } 
                 ?>
+
                 <?php
                     } 
                     else {
@@ -79,10 +83,11 @@
                         echo '<a href="Inscription.php">Inscription</a>';
                     }
                 ?>
+
             <button id="theme-btn" class="theme"></button>
+
     </div>
 </div>
-
 
 <video autoplay muted loop class="video-bg">
     <source src="Img/fond.mp4" type="video/mp4">
@@ -90,30 +95,55 @@
 </video>
 
 <script>
+
+// création du cookie
+function setCookie(name, value, days) {
+    const date = new Date();
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+    const expires = "expires=" + date.toUTCString();
+    document.cookie = name + "=" + value + ";" + expires + ";path=/";
+}
+
+// récupération du cookie
+function getCookie(name) {
+    const cookieName = name + "=";
+    const cookies = document.cookie.split(";");
+    for(let i = 0; i < cookies.length; i++) {
+        let cookie = cookies[i].trim();
+        if(cookie.indexOf(cookieName) === 0) {
+
+            return cookie.substring(cookieName.length);
+        }
+    }
+    return null;
+}
+
+// changement du thème
 function setTheme(theme) {
     document.getElementById("theme-style").href = theme;
-    localStorage.setItem("theme", theme);
+    setCookie("theme", theme, 30);
     updateThemeBtn(theme);
 }
 
+// changement du bouton
 function updateThemeBtn(theme) {
     const btn = document.getElementById("theme-btn");
-
-    if (theme === "Dark_Style.css") {
+    if(theme === "Dark_Style.css") {
         btn.innerHTML = "Light";
         btn.onclick = () => setTheme("Light_Style.css");
-    } else {
+
+    } 
+    else {
         btn.innerHTML = "Dark";
         btn.onclick = () => setTheme("Dark_Style.css");
+
     }
 }
 
+// chargement du thème au lancement de la page
 window.onload = function () {
-
-    const savedTheme = localStorage.getItem("theme") || "Dark_Style.css";
-
+    const savedTheme = getCookie("theme") || "Dark_Style.css";
     document.getElementById("theme-style").href = savedTheme;
-
     updateThemeBtn(savedTheme);
 }
 </script>
