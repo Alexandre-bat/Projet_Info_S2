@@ -1,1 +1,13 @@
-
+[
+    {
+        "nom": "Bernard",
+        "prenom": "Alexandre",
+        "date": "22\/05\/2026 21:58:32",
+        "notes": {
+            "plat": "3",
+            "livraison": "2",
+            "accessibilite": "5"
+        },
+        "avis": ""
+    }
+]

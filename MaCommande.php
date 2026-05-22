@@ -147,7 +147,7 @@
                     <form id="formpaiement" action="https://www.plateforme-smc.fr/cybank/index.php" method="POST">
 
                         <input type="hidden" name="transaction" value="<?php echo $transaction; ?>">
-                        <input type="hidden" id="montantpaiement" name="montant" value="<?php echo $montant; ?>">
+                        <input type="hidden" id="montantPaiement" name="montant" value="<?php echo $montant; ?>">
                         <input type="hidden" name="vendeur" value="<?php echo $vendeur; ?>">
                         <input type="hidden" name="retour" value="<?php echo $retour; ?>">
                         <input type="hidden" name="control" value="<?php echo $control; ?>">
@@ -159,15 +159,10 @@
                     <?php 
                         if($difference < 0){ 
                     ?>
-                    <form action="Fonctions/modifsCommandeAttente.php" method="POST">
-                        <input type="hidden" name="ticket" value="<?php echo abs($difference); ?>">
-                        <button class="bouttonclassique" name="choix" value="ticket">
-                            Recevoir un ticket
-                        </button>
-                        <button class="bouttonclassique" name="choix" value="rien">
-                            Ne rien recevoir
-                        </button>
-                    </form>
+                    <div>
+                        <button class="bouttonclassique recevoirTicket" data-ticket="<?php echo abs($difference); ?>"> Recevoir un ticket </button>
+                        <button class="bouttonclassique rienRecevoir"> Ne rien recevoir </button>
+                    </div>
                     <?php 
                         } 
                     ?>
@@ -259,6 +254,48 @@
                     }
                 });
                 // gère validation de suppression
+                document.querySelector(".recevoirTicket")?.addEventListener("click", async function(){
+                    let ticket = this.dataset.ticket;
+                    let id = "<?php echo $_SESSION["id"]; ?>";
+                    await fetch("Utilitaire/start.php", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/x-www-form-urlencoded"
+                        },
+                        body: "action=reduction&id=" + id + "&reduction=" + ticket
+                    });
+                    let response = await fetch("Utilitaire/start.php", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/x-www-form-urlencoded"
+                        },
+                        body: "action=majPrix&nouveauPrix=" + nouveauPrix
+                    });
+                    let data = await response.text();
+                    if(data == "supprime"){
+                        window.location.href = "Accueil.php";
+                    }
+                    else{
+                        location.reload();
+                    }
+                });
+                document.querySelector(".rienRecevoir")?.addEventListener("click", async function(){
+                    let response = await fetch("Utilitaire/start.php", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/x-www-form-urlencoded"
+                        },
+                        body: "action=majPrix&nouveauPrix=" + nouveauPrix
+                    });
+                    let data = await response.text();
+                    if(data == "supprime"){
+                        window.location.href = "Accueil.php";
+                    }
+                    else{
+                        location.reload();
+                    }
+                });
+                // boutons lorsque nouveau prix < ancien prix
             </script>
         </body>
     </html>

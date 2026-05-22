@@ -79,7 +79,8 @@
             if($user["id"] == $id){
                 $user["reduction"] += (int)$reduction;
                 file_put_contents($fichier, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
-                exit("ok");
+                echo "ok";
+                return;
             }   
         }
         exit("erreur");
@@ -113,5 +114,5 @@
         }
         exit("erreur");
     }
-    //mettre à jour les prix dans les fichiers
+    //mettre à jour les prix dans les fichiers et suppr commande si prix nul (ou moins)
 ?>
