@@ -1,1 +1,27 @@
-[]
+[
+    {
+        "idCommande": "6a12ab685bf3e",
+        "idUtilisateur": "user_69d173ecb0c612.01232958",
+        "idLivreur": "",
+        "Date": "2026-05-24 09:40",
+        "Produits": [
+            {
+                "nom": "Menu Duo Ronaldo",
+                "quantite": 2,
+                "prix": 60
+            },
+            {
+                "nom": "Rona-roll-do",
+                "quantite": 1,
+                "prix": 10
+            }
+        ],
+        "Prix": "70",
+        "Vendeur": "MI-3_A",
+        "Paiement": "Payee",
+        "Date prevue": "2026-05-24",
+        "Heure prevue": "09:40",
+        "Moment": "immediate",
+        "Statut": "En preparation"
+    }
+]

@@ -1,4 +1,5 @@
 <?php
+    //Permet de changer le stade de préparation d'une commande
     header("Content-Type: application/json");
 
     $data = json_decode(file_get_contents("php://input"), true);

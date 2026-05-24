@@ -63,13 +63,10 @@ localhost:8080/Accueil.php
 
 ⚠️ ATTENTION !
 
-Certaines fonctionnalités ne sont pas encore disponible et le serons qu'à la phase 3 !
+Certaines fonctionnalités ne sont pas encore disponible et le serons qu'à la phase 4 !
 
-• Les allergènes sur la "Carte" ne le sont pas encore.
-• Lors de la commande sur le panier à partir de la phase 3 lorsque vous cliquerez sur
-"Immédiat" le choix de la date disparaitra, pour l'instant ce n'est pas encore possible.
-• Les remises ne seront égalements disponibles qu'à la phase 3.
-• La modification des informations du "Profil" sera effective en phase 3 aussi.
+• Les différents profils bien répartis
+• Des options de retour a la page precedente (quand on regarde le détail d'une commande)
 
 💡 Comment marche la gestion des commandes
 

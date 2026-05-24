@@ -104,6 +104,7 @@
                                 </div>
                             </div>
                             <script>
+                                //fonctionnalitées pour modifier le profil
                                 function togglePassword() {
                                     var mdp = document.getElementById("intput_mdp");
                                     if (mdp.type === "password") {

@@ -1,4 +1,5 @@
 <?php
+//recherche si un livreur existe
 include("../Utilitaire/start.php");
 header('Content-Type: application/json');
 
