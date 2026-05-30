@@ -55,6 +55,9 @@ Tout d’abord, assurez-vous d’avoir un navigateur web installé sur votre mac
 Téléchargez les fichiers depuis le github
 N'oubliez pas le localhost8080! (Très important que ce soit 8080!)
 
+Hébergez le serveur sur votre pc avec :
+php -S localhost:8080 routeur.php (Important de rajouter "routeur.php")
+
 Ensuite, ouvrez le fichier principal du site avec :
 localhost:8080/Accueil.php
 
