@@ -47,6 +47,8 @@ Dossier "Img" contenant les images nécessaires
 Dossier "Utilitaire" contenant les fonctions utilisées par toutes les pages
 Dossier "Fonctions" contenant les fonctions utilisées par qu'une ou deux pages
 Dossier "Rapports" contenant les rapports de projet
+Dossier "json" contenant toutes les informations utiles stockées
+Dossier "JS" contenant les fonctions java script or fichier php
 
 🛠️ Lancement du site
 
@@ -63,20 +65,17 @@ localhost:8080/Accueil.php
 
 📱 Il ne vous reste plus qu’à naviguer sur le site et découvrir ses fonctionnalités !
 
-
-⚠️ ATTENTION !
-
-Certaines fonctionnalités ne sont pas encore disponible et le serons qu'à la phase 4 !
-
-• Les différents profils bien répartis
-• Des options de retour a la page precedente (quand on regarde le détail d'une commande)
-
 💡 Comment marche la gestion des commandes
 
 Lorsqu'un utilisateur commande la commande à le statut "En preparation" si elle à été commandé comme "Immediate"
 Sinon elle à le statut "Attente".
 
+Si l'utilisateur à une commande "Attente" alors il ne pourra pas commander depuis la carte mais pourra depuis celle-ci rajouter des produits à sa commande.
+Il pourra également en enlever depuis la page "MaCommande", si c'est le cas il pourra choisir entre recevoir un bon de reduction et ne rien recevoir.
+
 Le restaurateur peut choisir de changer le statut des commandes de "Attente" à "En preparation" puis "En livraison"
 si elle doit être livrée.
 
-Enfin le livreur la prends en charge et peux choisir de l'abandonner ou de l'avoir livrée.
+Le livreur quant à lui la prends en charge et peux choisir de l'abandonner ou de l'avoir livrée.
+
+Enfin l'admin à le droit d'accés à toutes les pages et peux choisir de bloquer ou changer le rôle des utilisateurs.
