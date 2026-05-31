@@ -46,7 +46,6 @@
         <head>
             <meta charset="UTF-8">
            <title>SIUUSHI - Profil</title>
-            <link rel="stylesheet" type="text/css" href="Style.css">
             <link rel="icon" href="Img/logo.png" type="image/png">
         </head>
         <body>
