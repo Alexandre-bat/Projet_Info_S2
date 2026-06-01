@@ -12,47 +12,51 @@
         "reduction": 0
     },
     {
-        "id": "user_6a1c6dac58ca16.44095187",
-        "prenom": "Hornet",
-        "nom": "Shaw",
-        "tel": "0600000000",
-        "adresse": "3 Rue Lebon",
-        "mdp": "Hornet0Shaw",
+        "id": "user_69d17428532496.50817671",
+        "prenom": "Anne",
+        "nom": "S1",
+        "tel": "0685858585",
+        "adresse": "tqt",
+        "mdp": "tqt",
         "role": "Livreur",
-        "inscription": "2026-05-31 17:19:40",
-        "bloquer": 0
+        "inscription": "2026-04-04 20:27:20",
+        "bloquer": 0,
+        "reduction": 0
     },
     {
-        "id": "user_6a1c6f8e28f075.90856276",
-        "prenom": "Feldspath",
-        "nom": "Outer",
-        "tel": "0611111111",
-        "adresse": "3 Rue Lebon",
-        "mdp": "Feldspath1Outer",
-        "role": "Livreur",
-        "inscription": "2026-05-31 17:27:42",
-        "bloquer": 0
+        "id": "user_69d17428532496.50817672",
+        "prenom": "Anne",
+        "nom": "S2",
+        "tel": "0685858585",
+        "adresse": "tqt",
+        "mdp": "tqt",
+        "role": ".this.value.",
+        "inscription": "2026-04-04 20:27:20",
+        "bloquer": 0,
+        "reduction": 0
     },
     {
-        "id": "user_6a1c72c72cb268.07507312",
-        "prenom": "Bruce",
-        "nom": "Wayne",
-        "tel": "0622222222",
-        "adresse": "3 Rue Lebon",
-        "mdp": "Bruce2Wayne",
-        "role": "client",
-        "inscription": "2026-05-31 17:41:27",
-        "bloquer": 0
-    },
-    {
-        "id": "user_6a1c731a566676.84532187",
-        "prenom": "Subaru",
-        "nom": "Natsuki",
-        "tel": "0633333333",
-        "adresse": "3 Rue Lebon",
-        "mdp": "Subaru3Natsuki",
+        "id": "user_69d24e278629a0.63055392",
+        "prenom": "restau",
+        "nom": "rateur",
+        "tel": "0909090909",
+        "adresse": "Cergy",
+        "mdp": "tkt",
         "role": "restaurateur",
-        "inscription": "2026-05-31 17:42:50",
-        "bloquer": 0
+        "inscription": "2026-04-05 11:57:27",
+        "bloquer": 0,
+        "reduction": 0
+    },
+    {
+        "id": "user_69d24f0fbb5af8.46773098",
+        "prenom": "client1",
+        "nom": "test",
+        "tel": "0123456789",
+        "adresse": "Cergy",
+        "mdp": "client1",
+        "role": "Client",
+        "inscription": "2026-04-05 12:01:19",
+        "bloquer": 0,
+        "reduction": 0
     }
 ]
